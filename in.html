@@ -12,7 +12,7 @@
 				let reader = new FileReader();
 				$(document).ready(function(){
 						let sth = $.ajax({url: "data.txt",aysnc: false});
-						console.log(sth.responseText);
+						console.log(sth);
 				});
 
 				reader.readAsText(blob, "GBK");
