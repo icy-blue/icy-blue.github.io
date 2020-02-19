@@ -11,7 +11,7 @@
 				let blob = new Blob(["data.txt"], {type : "text/plain"});
 				let reader = new FileReader();
 				$(document).ready(function(){
-						let sth = $.ajax({url: "data.txt",aysnc: false});
+						let sth = $.ajax({url: "data.txt",async: false});
 						console.log(sth);
 						console.log(sth.responseText);
 				});
