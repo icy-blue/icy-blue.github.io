@@ -7,11 +7,11 @@
         
         
         
-        <link rel="shortcut icon" href="/img/favicon.ico">
-        <title>icy's home</title>
-        <link href="/css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>20200218 - icy's home</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="/js/jquery-1.10.2.min.js" defer></script>
-        <script src="/js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/.">icy's home</a>
+                    <a class="navbar-brand" href="../..">icy's home</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,18 +47,18 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="/.">Welcome to icy's home</a>
+                                <a href="../..">Welcome to icy's home</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Daily update <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li >
-    <a href="/daily-update/20200218/">20200218</a>
+<li class="active">
+    <a href="./">20200218</a>
 </li>
                                     
 <li >
-    <a href="/daily-update/20200219/">20200219</a>
+    <a href="../20200219/">20200219</a>
 </li>
                                 </ul>
                             </li>
@@ -70,21 +70,48 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li >
+                                <a rel="next" href="../..">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../20200219/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#html">html初学</a></li>
+        <li class="main "><a href="#latex-markdown">LaTeX &amp; Markdown</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
-    </div>
-
-
+<h2 id="html">html初学</h2>
+<ul>
+<li>head body标签的使用与作用</li>
+<li>h的级别显示 p类标签 按钮使用</li>
+<li>链接与图像的展示</li>
+<li>各种段落</li>
+</ul>
+<h2 id="latex-markdown">LaTeX &amp; Markdown</h2>
+<ul>
+<li>基础的markdown操作</li>
+<li>基础数学类的表示
+$$ e = mc^2 $$</li>
+</ul>
+<p>$$ \pi = \frac{c}{d} $$</p>
+<p>$$ \frac{d}{dx} e^x = x^x $$</p>
+<p>$$ \frac{d}{dx} \int_0^\infty f(s)ds = f(x) $$</p>
+<p>$$ f(x) = \sum{i}0^\infty\frac{f^{(i)}(0)}{i!}x^i $$</p>
+<p>$$ x = \sqrt{\frac{x_i}{z}y} $$s</p></div>
         </div>
 
         <footer class="col-md-12">
@@ -92,11 +119,11 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "/",
+            var base_url = "../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js" defer></script>
-        <script src="/search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
