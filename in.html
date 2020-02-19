@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>直方图</title>
+	</head>
+	<body>
+		<script>
+				let data = "data.txt", message, w;
+				let blob = new Blob(["data.txt"], {type : "text/plain"});
+				let reader = new FileReader();
+				$(document).ready(function(){
+						let sth = $.ajax({url: "data.txt",aysnc: false});
+						console.log(sth);
+				});
+
+				reader.readAsText(blob, "GBK");
+				reader.onLoad = function(e) {
+					message = e.target.result;
+					w = this.result;
+				}
+				console.log(message);
+				console.log(w);
+			</script>
+	</body>
+</html>
