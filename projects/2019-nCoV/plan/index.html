@@ -7,11 +7,11 @@
         
         
         
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>20200219 - icy's home</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Plan - icy's home</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -19,8 +19,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../..">icy's home</a>
+                    <a class="navbar-brand" href="../../..">icy's home</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -47,22 +47,22 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="../..">Welcome to icy's home</a>
+                                <a href="../../..">Welcome to icy's home</a>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Daily update <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../20200218/">20200218</a>
+    <a href="../../../daily-update/20200218/">20200218</a>
 </li>
                                     
-<li class="active">
-    <a href="./">20200219</a>
+<li >
+    <a href="../../../daily-update/20200219/">20200219</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -70,8 +70,8 @@
     <a href="#">2019 nCoV</a>
     <ul class="dropdown-menu">
             
-<li >
-    <a href="../../projects/2019-nCoV/plan/">Plan</a>
+<li class="active">
+    <a href="./">Plan</a>
 </li>
     </ul>
   </li>
@@ -81,7 +81,7 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="../../projects/myOSS/plan/">Plan</a>
+    <a href="../../myOSS/plan/">Plan</a>
 </li>
     </ul>
   </li>
@@ -96,12 +96,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../20200218/">
+                                <a rel="next" href="../../../daily-update/20200219/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../../projects/2019-nCoV/plan/">
+                                <a rel="prev" href="../../myOSS/plan/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -113,38 +113,19 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#process">今日进展process</a></li>
-        <li class="main "><a href="#share">今日分享share</a></li>
+        <li class="main active"><a href="#some-plan-for-projects">some plan for projects</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="process">今日进展process</h2>
+<h2 id="some-plan-for-projects">some plan for projects</h2>
 <ul>
-<li>atom的基本使用（atom的markdown真香）</li>
-<li>学习并配置了mkdocs的静态站</li>
-<li>部署静态站于 https://i.icys.top/ 欢迎交换友链</li>
-<li>修复了<a href="../20200218/">昨日网页</a>的LaTeX渲染失败的问题</li>
-</ul>
-<h2 id="share">今日分享share</h2>
-<p>对于js如何读取本地文本的问题，我的解决方案：ajax</p>
-<pre><code class="javascript">&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    $(document).ready(function(){
-        let sth = $.ajax({url: &quot;data.txt&quot;,aysnc: false});
-        console.log(sth.responseText);
-    });
-
-  &lt;/script&gt;
-</code></pre>
-
-<ul>
-<li>url为文件的相对地址</li>
-<li><strong>请注意：部分浏览器不支持本地ajax，只支持http/ftp之类，可以扔到github pages进行尝试</strong></li>
-</ul>
-<p>附：jquery.min.js的下载（没弹出下载的请右键另存为）</p>
-<p><a href="http://code.jquery.com/jquery-1.10.1.min.js">download</a></p>
-<p>icy 21:13</p></div>
+<li>[x] get all the data</li>
+<li>[ ] update the data</li>
+<li>[ ] use d3.js</li>
+<li>[ ] use flv.js</li>
+<li>[ ] analyse the data</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
@@ -152,12 +133,12 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "../..",
+            var base_url = "../../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="../../js/base.js" defer></script>
+        <script src="../../../js/base.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-        <script src="../../search/main.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
