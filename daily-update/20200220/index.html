@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>20200218 - icy's home</title>
+        <title>20200220 - icy's home</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -53,16 +53,16 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Daily update <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li class="active">
-    <a href="./">20200218</a>
+<li >
+    <a href="../20200218/">20200218</a>
 </li>
                                     
 <li >
     <a href="../20200219/">20200219</a>
 </li>
                                     
-<li >
-    <a href="../20200220/">20200220</a>
+<li class="active">
+    <a href="./">20200220</a>
 </li>
                                 </ul>
                             </li>
@@ -100,12 +100,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../..">
+                                <a rel="next" href="../20200219/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../20200219/">
+                                <a rel="prev" href="../../projects/2019-nCoV/plan/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -117,42 +117,139 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#html">html初学</a></li>
-        <li class="main "><a href="#latex-markdown">LaTeX &amp; Markdown</a></li>
+        <li class="main active"><a href="#process">今日进展process</a></li>
+        <li class="main "><a href="#share">今日分享share</a></li>
+            <li><a href="#d3">关于d3</a></li>
+            <li><a href="#_1">关于直方图的博客推荐</a></li>
+            <li><a href="#_2">关于折线图的博客推荐</a></li>
+        <li class="main "><a href="#_3">对于币圈发币的看法</a></li>
+            <li><a href="#_4">需要的资格</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="html">html初学</h2>
+<h2 id="process">今日进展process</h2>
 <ul>
-<li>head body标签的使用与作用</li>
-<li>h的级别显示 p类标签 按钮使用</li>
-<li>链接与图像的展示</li>
-<li>各种段落</li>
+<li>主要研究d3.js对图形的生成（尤其是对柱形图/折线图的生成）</li>
+<li>了解了html中<code>head</code>标签，以及其内部中<code>&lt;title&gt; &lt;fresh&gt; &lt;base&gt; &lt;meta&gt;</code>这些标签的简单用法</li>
 </ul>
-<h2 id="latex-markdown">LaTeX &amp; Markdown</h2>
+<h2 id="share">今日分享share</h2>
+<h3 id="d3">关于d3</h3>
+<p>d3的确给了很多的常用函数做了包装，不光是绘图，那些array的操作，select避免了<code>getElementByID</code>甚至还可以<code>select all</code>，真的是很方便啊。</p>
+<p>d3制作出的图真的好漂亮啊 我以为只能做出这个样子的</p>
+<p><img alt="" src="../../resource/images/20200220-1.png" />
+<img alt="" src="../../resource/images/20200220-2.png" /></p>
+<p>真没想到还能做出这样的</p>
+<p><img alt="" src="../../resource/images/20200220-3.png" />
+<img alt="" src="../../resource/images/20200220-4.png" />
+<img alt="" src="../../resource/images/20200220-5.png" /></p>
+<p>这个工具爱了爱了，希望能早日把它掌握。</p>
+<h3 id="_1">关于直方图的博客推荐</h3>
+<p>下面是<a href="https://blog.csdn.net/yangnianbing110/article/details/45293763">来源于CSDN</a>的一段关于直方图生成的js代码</p>
+<pre><code class="javascript">    var height = 600;
+    var width = 600;
+    var dataset= [30,20,45,12,21,28,46,64,73,78,54];
+    var num = 15;
+
+    for(var i = 0; i &lt; 4; i++){
+        var tempnum = Math.floor(Math.random() * 50);
+        dataset.push(tempnum);
+    }
+
+    console.log(dataset);
+
+    var svg = d3.select(&quot;body&quot;).append(&quot;svg&quot;)
+            .attr(&quot;width&quot;, width)
+            .attr(&quot;height&quot;, height);
+
+    var xAxisScale = d3.scale.ordinal()
+            .domain(d3.range(dataset.length))
+            .rangeRoundBands([0, 500]);
+
+    var yAxisScale = d3.scale.linear()
+            .domain([0, d3.max(dataset)])
+            .range([500, 0]);
+
+    var xAxis = d3.svg.axis().scale(xAxisScale).orient(&quot;bottom&quot;);
+    var yAxis = d3.svg.axis().scale(yAxisScale).orient(&quot;left&quot;);
+
+    var xScale = d3.scale.ordinal()
+            .domain(d3.range(dataset.length))
+            .rangeRoundBands([0,500],0.05);
+
+    var yScale = d3.scale.linear()
+            .domain([0,d3.max(dataset)])
+            .range([0,500]);
+
+    svg.selectAll(&quot;rect&quot;)
+            .data(dataset)
+            .enter()
+            .append(&quot;rect&quot;)
+            .on(&quot;click&quot;,  function(){
+                d3.select(this).attr(&quot;fill&quot;,&quot;black&quot;);
+            })
+            .attr(&quot;x&quot;, function(d,i){
+                return 100 + xScale(i);
+            } )
+            .attr(&quot;y&quot;,function(d,i){
+                return 50 + 500 - yScale(d) ;
+            })
+            .attr(&quot;width&quot;, function(d,i){
+                return xScale.rangeBand();
+            })
+            .attr(&quot;height&quot;,yScale)
+            .attr(&quot;fill&quot;, &quot;steelblue&quot;)
+            .transition()
+            .duration(2000)
+            .ease(&quot;bounce&quot;)
+            .delay(1000)
+            .attr(&quot;fill&quot;,&quot;red&quot;);
+
+    svg.selectAll(&quot;text&quot;)
+            .data(dataset)
+            .enter().append(&quot;text&quot;)
+            .attr(&quot;x&quot;, function(d,i){
+                return 100 + xScale(i);
+            } )
+            .attr(&quot;y&quot;,function(d,i){
+                return 50 + 500 - yScale(d) ;
+            })
+            .attr(&quot;dx&quot;, function(d,i){
+                return xScale.rangeBand()/3;
+            })
+            .attr(&quot;dy&quot;, 15)
+            .attr(&quot;text-anchor&quot;, &quot;begin&quot;)
+            .attr(&quot;font-size&quot;, 14)
+            .attr(&quot;fill&quot;,&quot;white&quot;)
+            .text(function(d,i){
+                return d;
+            });
+
+    svg.append(&quot;g&quot;)
+            .attr(&quot;class&quot;,&quot;axis&quot;)
+            .attr(&quot;transform&quot;,&quot;translate(100,550)&quot;)
+            .call(xAxis);
+
+    svg.append(&quot;g&quot;)
+            .attr(&quot;class&quot;,&quot;axis&quot;)
+            .attr(&quot;transform&quot;,&quot;translate(100,50)&quot;)
+            .call(yAxis);
+</code></pre>
+
+<p>对于一些方法的解释 原博客已经写得很明白了 建议看原文</p>
+<h3 id="_2">关于折线图的博客推荐</h3>
+<p>对于坐标轴其实是等同于上面的柱状图的，唯一的差别就是<code>&lt;rect&gt;</code>变成了一些直线了，关于数据绑定什么的改变不大。
+博客推荐: <a href="http://udn.yyuap.com/forum.php?mod=viewthread&amp;tid=130873">基于D3.js的折线图的实现</a></p>
+<h2 id="_3">对于币圈发币的看法</h2>
+<p>的确很诱人啊，看着很多人白嫖5000块钱，看了看资格自己符合，不过还是算了，毕竟感觉不劳而获带来的钱总感觉用起来不踏实，还有可能是黑钱的hhh</p>
+<p>对于有想法的人一个链接<a href="https://shidenggui.com/articles/namebase-airdrop">link</a></p>
+<h3 id="_4">需要的资格</h3>
 <ul>
-<li>基础的markdown操作</li>
-<li>基础数学类的表示</li>
-</ul>
-<p>
-<script type="math/tex; mode=display"> e = mc^2 </script>
-</p>
-<p>
-<script type="math/tex; mode=display"> \pi = \frac{c}{d} </script>
-</p>
-<p>
-<script type="math/tex; mode=display"> \frac{d}{dx} e^x = e^x </script>
-</p>
-<p>
-<script type="math/tex; mode=display"> \frac{d}{dx} \int_0^\infty f(s)ds = f(x) </script>
-</p>
-<p>
-<script type="math/tex; mode=display"> f(x) = \sum{i}0^\infty\frac{f^{(i)}(0)}{i!}x^i </script>
-</p>
-<p>
-<script type="math/tex; mode=display"> x = \sqrt{\frac{x_i}{z}y} </script>
-</p></div>
+<li>拥有 github 账号</li>
+<li>在 2019 年 2 月份的时候拥有至少 16 个 followers</li>
+<li>当时的私钥还保存着</li>
+<li>领币需要验证身份证，风险自己评估</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
