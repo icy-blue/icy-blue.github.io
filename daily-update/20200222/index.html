@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
+        <link rel="canonical" href="http://icys.club/daily-update/20200222/">
+        <link rel="shortcut icon" href="../../site.ico">
         
-        <link rel="shortcut icon" href="/site.ico">
-        
-        <title>icy's home</title>
-        <link href="/css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/base.css" rel="stylesheet">
+        <title>20200222 - icy's home</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -20,8 +20,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <script src="/js/jquery-1.10.2.min.js" defer></script>
-        <script src="/js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/.">icy's home</a>
+                    <a class="navbar-brand" href="../..">icy's home</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -48,30 +48,30 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li >
-                                <a href="/.">Welcome to icy's home</a>
+                                <a href="../..">Welcome to icy's home</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Daily update <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="/daily-update/20200218/">20200218</a>
+    <a href="../20200218/">20200218</a>
 </li>
                                     
 <li >
-    <a href="/daily-update/20200219/">20200219</a>
+    <a href="../20200219/">20200219</a>
 </li>
                                     
 <li >
-    <a href="/daily-update/20200220/">20200220</a>
+    <a href="../20200220/">20200220</a>
 </li>
                                     
 <li >
-    <a href="/daily-update/20200221/">20200221</a>
+    <a href="../20200221/">20200221</a>
 </li>
                                     
-<li >
-    <a href="/daily-update/20200222/">20200222</a>
+<li class="active">
+    <a href="./">20200222</a>
 </li>
                                 </ul>
                             </li>
@@ -84,7 +84,7 @@
     <ul class="dropdown-menu">
             
 <li >
-    <a href="/projects/2019-nCoV/plan/">Plan</a>
+    <a href="../../projects/2019-nCoV/plan/">Plan</a>
 </li>
     </ul>
   </li>
@@ -98,8 +98,18 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li >
+                                <a rel="next" href="../20200221/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../../projects/2019-nCoV/plan/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                             <li>
-                                <a href="https://github.com/icy-blue/icy-blue.github.io/"><i class="fa fa-github"></i> GitHub</a>
+                                <a href="https://github.com/icy-blue/icy-blue.github.io/edit/master/docs/daily-update/20200222.md"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -107,15 +117,50 @@
         </div>
 
         <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#flag">目标制定flag</a></li>
+            <li><a href="#_1">网页设置目标</a></li>
+        <li class="main "><a href="#share">今日分享share</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
 
-    <div class="row-fluid">
-      <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-      </div>
-    </div>
-
-
+<h2 id="flag">目标制定flag</h2>
+<p>前几天由于看了看oss的api，发现被同学们落在了后面，这几天要奋起直追啦。</p>
+<h3 id="_1">网页设置目标</h3>
+<p>立上flag，虽然之后铁定咕咕咕，但是说不定就实现了呢？（滑稽）</p>
+<h4 id="_2">基础部分</h4>
+<ul>
+<li>顶部导航栏（实现方式：html + css）</li>
+<li>导航栏固定和多端适配(实现方式：html + css)</li>
+<li>对github数据包的自动解析与部署（实现方式：py/c++）</li>
+<li>图标展示（实现方式：echart.js + map-viz）</li>
+<li>按省份的区域图像展示渲染（实现方式：html-svg + js）</li>
+</ul>
+<h4 id="_3">提升部分</h4>
+<ul>
+<li>特色地域人口流动（实现方式：百度地图api + html-svg）</li>
+<li>用户评论模块（弹幕型）（实现方式：目前的想法是ajax + php + mysql）</li>
+<li>导航栏对于浏览窗口大小的自适应（实现方式：html + css）</li>
+<li>图标大小对于浏览窗口大小的自适应（实现方式：JavaScript + css）</li>
+<li>支持对地级市的搜索和结果筛选显示（实现方式：mysql + echart）</li>
+<li>搜索地级市功能（没想好，ajax + mysql或者JavaScript）</li>
+</ul>
+<h4 id="_4">老师要求的提升部分（好难啊，看情况吧）</h4>
+<ul>
+<li>数据云存储（要求实现方式：node.js）</li>
+<li>爬虫（要求实现方式：jsDOM）</li>
+</ul>
+<h2 id="share">今日分享share</h2>
+<ul>
+<li><a href="https://blog.csdn.net/qq_42376054/article/details/98987435">如何将导航栏固定在网页的顶部</a></li>
+<li><a href="https://blog.csdn.net/jarisMA/article/details/103633540">解决inline-block中间缝隙</a></li>
+<li><a href="https://jmsbang.com/article/180.html">CSS3 Transform 转换</a></li>
+<li><code>--width: -webkit-calc(100% - 90px)</code>支持百分比和像素之间的运算，但如果**中间的符号两边没有空格，会报<code>Invalid property value</code>错误。</li>
+<li>上条参见<a href="https://blog.csdn.net/qq_33777040/article/details/82625582">CSS3的clac函数无效，警告提示“invalid property value”</a></li>
+<li><a href="https://www.jb51.net/css/140705.html">让两个Div并排显示的多种方法</a></li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
@@ -124,12 +169,12 @@
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "/",
+            var base_url = "../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="/js/base.js" defer></script>
+        <script src="../../js/base.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-        <script src="/search/main.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
