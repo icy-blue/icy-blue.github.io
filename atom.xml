@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>icy的家</title>
+  
+  <subtitle>一只咕咕了许久的小屋</subtitle>
+  <link href="https://icys.club/atom.xml" rel="self"/>
+  
+  <link href="https://icys.club/"/>
+  <updated>2020-09-30T12:54:03.543Z</updated>
+  <id>https://icys.club/</id>
+  
+  <author>
+    <name>icy</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://icys.club/2020/09/30/hello-world/"/>
+    <id>https://icys.club/2020/09/30/hello-world/</id>
+    <published>2020-09-30T12:54:03.543Z</published>
+    <updated>2020-09-30T12:54:03.543Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
