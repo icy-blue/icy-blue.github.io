@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head>
+<head><link rel=manifest href=/manifest.json>
     <meta charset="utf-8">
     <meta name="keywords" content="友链, 博客 icy 主页">
     <meta name="description" content="友链 | 一只咕咕了许久的小屋">
@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="white"/>
     <title>友链 | 一只咕咕了许久的小屋</title>
-    <link rel="apple-touch-icon" href="/">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -34,7 +34,8 @@
         
     </style>
     <script src="/libs/jquery/jquery.min.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="一只咕咕了许久的小屋" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -692,13 +693,20 @@
                 <h3 id="感谢在建站中给我提供帮助的各位大大！"><a href="#感谢在建站中给我提供帮助的各位大大！" class="headerlink" title="感谢在建站中给我提供帮助的各位大大！"></a>感谢在建站中给我提供帮助的各位大大！</h3><h3 id="也欢迎各位大神交换友链！"><a href="#也欢迎各位大神交换友链！" class="headerlink" title="也欢迎各位大神交换友链！"></a>也欢迎各位大神交换友链！</h3><br>
 
 <p><strong>友链格式①：</strong></p>
-<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Sitoi"</span>,</span><br><span class="line">    <span class="attr">"avatar"</span>: <span class="string">"https://github.com/Sitoi.png"</span>,</span><br><span class="line">    <span class="attr">"url"</span>: <span class="string">"https://sitoi.cn/"</span>,</span><br><span class="line">    <span class="attr">"introduction"</span>: <span class="string">"爬虫工程师的进阶之旅"</span>,</span><br><span class="line">    <span class="attr">"title"</span>: <span class="string">"访问主页"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
+<pre class="line-numbers language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Sitoi"</span><span class="token punctuation">,</span>
+    <span class="token property">"avatar"</span><span class="token operator">:</span> <span class="token string">"https://github.com/Sitoi.png"</span><span class="token punctuation">,</span>
+    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://sitoi.cn/"</span><span class="token punctuation">,</span>
+    <span class="token property">"introduction"</span><span class="token operator">:</span> <span class="token string">"爬虫工程师的进阶之旅"</span><span class="token punctuation">,</span>
+    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"访问主页"</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <br>
 
 <p><strong>友链格式②：</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">博客名字： Sitoi</span><br><span class="line">博客地址： https://sitoi.cn/</span><br><span class="line">博客头像： https://github.com/Sitoi.png</span><br><span class="line">博客简介： 爬虫工程师的进阶之旅</span><br></pre></td></tr></tbody></table></figure>
-
+<pre class="line-numbers language-text"><code class="language-text">博客名字： Sitoi
+博客地址： https://sitoi.cn/
+博客头像： https://github.com/Sitoi.png
+博客简介： 爬虫工程师的进阶之旅<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>注：如果需要交换友链，请在下面留言</p>
 </blockquote>
@@ -859,7 +867,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">0</span>&nbsp;字
+                            class="white-color">1.1k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -1059,7 +1067,12 @@
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
 
 
-
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1611761302749')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script>
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>
         const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);

@@ -4,8 +4,8 @@
 
 <head><link rel=manifest href=/manifest.json>
     <meta charset="utf-8">
-    <meta name="keywords" content="404, 博客 icy 主页">
-    <meta name="description" content="404 | 一只咕咕了许久的小屋">
+    <meta name="keywords" content="标签: 瀑布流, 博客 icy 主页">
+    <meta name="description" content="标签: 瀑布流 | 一只咕咕了许久的小屋">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="white"/>
-    <title>404 | 一只咕咕了许久的小屋</title>
+    <title>标签: 瀑布流 | 一只咕咕了许久的小屋</title>
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -402,25 +402,32 @@
     </nav>
 
 </header>
-<style type="text/css">
-    /* don't remove. */
-    .about-cover {
-        height: 100vh;
-    }
-</style>
-
 <div class="bg-cover pd-header about-cover">
     <div class="container">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                        404
-                    </div>
-                    <div class="description center-align">
-                        你来到了没有知识的荒原 :(
-                    </div>
-                </div>
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    一只咕咕了许久的小屋
+                
+            </div>
+
+            <div class="description center-align">
+                
+                    <span id="subtitle"></span>
+                    <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+                    <script>
+                        var typed = new Typed("#subtitle", {
+                            strings: ['gugugu since 2020.01','理路上事,毋惮其难而稍为退步,一退步便远隔千山。'],
+                            startDelay: 300,
+                            typeSpeed: 100,
+                            loop: true,
+                            backSpeed: 50,
+                            showCursor: true
+                        });
+                    </script>
+                
             </div>
         </div>
     </div>
@@ -430,6 +437,113 @@
     <script>
         $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
     </script>
+
+    </div>
+</div>
+
+<main class="content">
+
+    
+
+<div id="tags" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
+            </div>
+            <div class="tag-chips">
+                
+                    
+                    <a href="/tags/Masonry/" title="Masonry: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                          data-tagname="Masonry" style="background-color: #F9EBEA;">Masonry
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+                
+                    
+                    <a href="/tags/jQuery/" title="jQuery: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                          data-tagname="jQuery" style="background-color: #F5EEF8;">jQuery
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+                
+                    
+                    <a href="/tags/Packery/" title="Packery: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                          data-tagname="Packery" style="background-color: #D5F5E3;">Packery
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+                
+                    
+                    <a href="/tags/%E7%80%91%E5%B8%83%E6%B5%81/" title="瀑布流: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                          data-tagname="瀑布流" style="background-color: #E8F8F5;">瀑布流
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+                
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/" title="前端: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                          data-tagname="前端" style="background-color: #FEF9E7;">前端
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+                
+                <div class="article tag-post col s12 m6 l4" data-tags="Masonry, jQuery, Packery, 瀑布流, 前端" data-aos="fade-up">
+                    <div class="card">
+                        <a href="/posts/6.html">
+                            <div class="card-image tag-image">
+                                
+                                    
+                                    <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="好看的瀑布信息流">
+                                
+                                <span class="card-title">好看的瀑布信息流</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-27
+                            </span>
+                                <span class="publish-author">
+                                    
+                                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                        
+                                            <a href="/categories/Hexo/" class="post-category">
+                                Hexo
+                                </a>
+                                        
+                                    
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </article>
+</main>
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">

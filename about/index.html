@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head>
+<head><link rel=manifest href=/manifest.json>
     <meta charset="utf-8">
     <meta name="keywords" content="关于, 博客 icy 主页">
     <meta name="description" content="关于 | 一只咕咕了许久的小屋">
@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="white"/>
     <title>关于 | 一只咕咕了许久的小屋</title>
-    <link rel="apple-touch-icon" href="/">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -34,7 +34,8 @@
         
     </style>
     <script src="/libs/jquery/jquery.min.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="一只咕咕了许久的小屋" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -455,9 +456,24 @@
                 <div class="row">
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
+    <div class="statis">
+        <span class="count"><a href="/">1</a></span>
+        <span class="name">文章</span>
+    </div>
 
 
 
+    <div class="statis">
+        <span class="count"><a href="/categories">1</a></span>
+        <span class="name">分类</span>
+    </div>
+
+
+
+    <div class="statis">
+        <span class="count"><a href="/tags">5</a></span>
+        <span class="name">标签</span>
+    </div>
 
 
                     </div>
@@ -470,9 +486,24 @@
                             <div class="author">
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
+    <div class="statis">
+        <span class="count"><a href="/">1</a></span>
+        <span class="name">文章</span>
+    </div>
 
 
 
+    <div class="statis">
+        <span class="count"><a href="/categories">1</a></span>
+        <span class="name">分类</span>
+    </div>
+
+
+
+    <div class="statis">
+        <span class="count"><a href="/tags">5</a></span>
+        <span class="name">标签</span>
+    </div>
 
 
                                 </div>
@@ -654,7 +685,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,0],
+                data: [1,0,0,0,0,0,0,0,0,0,0,0,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a', '#3ecf8e', '#82d3f4'],
@@ -696,7 +727,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [],
+                data: [{"name":"Hexo","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -720,7 +751,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: []
+                data: ["Masonry","jQuery","Packery","瀑布流","前端"]
             }
         ],
         yAxis: [
@@ -733,7 +764,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth: 18,
-                data: [],
+                data: [1,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -800,7 +831,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">0</span>&nbsp;字
+                            class="white-color">1.1k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -1000,7 +1031,12 @@
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
 
 
-
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1611761302749')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script>
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>
         const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
