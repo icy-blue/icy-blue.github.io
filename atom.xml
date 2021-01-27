@@ -5,9 +5,9 @@
   <subtitle>[object Object]</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://icy-blue.github.io/"/>
+  <link href="https://icys.top/"/>
   <updated>2021-01-27T15:26:52.287Z</updated>
-  <id>https://icy-blue.github.io/</id>
+  <id>https://icys.top/</id>
   
   <author>
     <name>icy</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>好看的瀑布信息流</title>
-    <link href="https://icy-blue.github.io/posts/6.html"/>
-    <id>https://icy-blue.github.io/posts/6.html</id>
+    <link href="https://icys.top/posts/6.html"/>
+    <id>https://icys.top/posts/6.html</id>
     <published>2020-01-27T09:32:34.000Z</published>
     <updated>2021-01-27T15:26:52.287Z</updated>
     
@@ -36,18 +36,18 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://icy-blue.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="https://icys.top/categories/Hexo/"/>
     
     
-      <category term="Masonry" scheme="https://icy-blue.github.io/tags/Masonry/"/>
+      <category term="Masonry" scheme="https://icys.top/tags/Masonry/"/>
     
-      <category term="jQuery" scheme="https://icy-blue.github.io/tags/jQuery/"/>
+      <category term="jQuery" scheme="https://icys.top/tags/jQuery/"/>
     
-      <category term="Packery" scheme="https://icy-blue.github.io/tags/Packery/"/>
+      <category term="Packery" scheme="https://icys.top/tags/Packery/"/>
     
-      <category term="瀑布流" scheme="https://icy-blue.github.io/tags/%E7%80%91%E5%B8%83%E6%B5%81/"/>
+      <category term="瀑布流" scheme="https://icys.top/tags/%E7%80%91%E5%B8%83%E6%B5%81/"/>
     
-      <category term="前端" scheme="https://icy-blue.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://icys.top/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
