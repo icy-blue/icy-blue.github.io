@@ -1,0 +1,716 @@
+# ------------------------- 博客基本信息 -------------------------
+# 网站标题
+title: Sitoi
+# 打字效果副标题. 如果有符号 ‘ ，请在 ’ 前面加上 \
+subtitle:
+  enable: true
+  loop: true # 是否循环
+  showCursor: true # 是否显示光标
+  startDelay: 300 # 开始延迟
+  typeSpeed: 100 # 打字速度
+  backSpeed: 50 # 删除速度
+  sub1: 博客模版项目
+  sub2: 博客模版项目
+# 网站简介
+description: 博客模版项目
+# 网站关键词，便于 SEO 搜索
+keywords: 博客 模版
+# 网站作者
+author: Sitoi
+# 网站语言
+language: zh-CN
+# 网站时区
+timezone: Asia/Shanghai
+
+# 博客 URL 配置，网站地址设置 对应 CNAME 文件
+url: https://crawlmkt.github.io
+# 网站的根目录
+root: /
+
+# 配置网站 favicon 和网站 LOGO
+favicon: /favicon.ico
+# 网站的 logo 图片
+logo: /apple-touch-icon.png
+
+# URL 链接配置
+permalink: posts/:abbrlink.html  # 此处可以自己设置，也可以直接使用 :abbrlink.html
+abbrlink:
+  alg: crc16               #算法： crc16(default) and crc32
+  rep: dec                 #进制： dec(default) and hex
+permalink_defaults:
+
+# ------------------------- 博客菜单配置 -------------------------
+# 配置菜单导航的名称、路径和图标 icon.
+menu:
+  Index:
+    url: /
+    icon: fa-home
+  Tags:
+    url: /tags
+    icon: fa-tags
+  Categories:
+    url: /categories
+    icon: fa-bookmark
+  Archives:
+    url: /archives
+    icon: fa-archive
+  #  Media:
+  #    #    url: /
+  #    icon: fa-list
+  #    children:
+  #      - name: 影单
+  #        url: /movies
+  #        icon: fa-film
+  #      - name: 书单
+  #        url: /books
+  #        icon: fa-book
+  About:
+    url: /about
+    icon: fa-user-circle-o
+  Contact:
+    url: /contact
+    icon: fa-envelope
+  Friends:
+    url: /friends
+    icon: fa-address-book
+
+# 手机二级菜单
+navMenu:
+  mleft: true # 二级侧栏子菜单是否对齐左边
+  bgColor: " " # 二级侧栏子菜单背景颜色,留空即为全局背景色
+
+
+# ------------------------- 博客首页配置 -------------------------
+# 配置是否在菜单栏中显示 fork me on github 的图标，默认为 true，你可以修改为你的仓库地址.
+githubLink:
+  enable: true                                   # 是否开启
+  url: https://github.com/sitoi/sitoi.github.io  # GitHub 仓库地址
+  title: Fork Me                                 # 显示文字
+
+# 首页封面轮播图的相关配置.
+cover:
+  showPrevNext: true      # 是否显示左右切换按钮
+  showIndicators: true    # 是否显示指示器
+  autoLoop: true          # 是否自动轮播
+  duration: 120           # 切换延迟时间
+  intervalTime: 5000      # 自动切换下一张的间隔时间
+
+# 首页 banner 中的第二个按钮的配置，包括按钮的显示名称、font awesome图标和按钮的超链接.
+indexbtn:
+  enable: true                     # 是否启动第二个按钮
+  name: Github                     # 按钮名称
+  icon: fa-github-alt              # 按钮图标
+  url: https://github.com/Sitoi/   # 按钮超链接
+
+# 首页 banner 中的第二行个人信息配置，留空即不启用
+socialLink:
+  qq: 1333397418               # QQ
+  github: Sitoi                # GitHub
+  facebook:                    # Facebook
+  twitter:                     # Twitter
+  weibo:                       # Weibo
+  email: 133397418@qq.com      # 邮箱
+  zhihu:                       # 知乎
+  jianshu: 0289c6c3a717        # 简书
+  rss: true                    # RSS 订阅 True 启动
+  wechat:
+    enable: true # 微信   True 启动
+    img: /wechat.jpg
+
+# 配置首页显示"梦想"的语句.
+dream:
+  enable: true                                 # 是否开启
+  showTitle: true                              # 是否显示标题
+  title: 我的梦想                               # 标题内容
+  text: 放弃不难，但坚持一定很酷。——《解忧杂货铺》 # 梦想语句
+
+# 是否在首页显示音乐.
+music:
+  enable: true                  # 是否开启
+  showTitle: true               # 是否显示标题
+  title: 听听音乐                # 标题内容
+  fixed: false                  # 开启吸底模式
+  autoplay: true                # 是否自动播放
+  theme: '#542674'              # 颜色
+  loop: 'all'                   # 音频循环播放, 可选值: 'all', 'one', 'none'
+  order: 'list'                 # 音频循环顺序, 可选值: 'list', 'random'
+  preload: 'auto'               # 预加载，可选值: 'none', 'metadata', 'auto'
+  volume: 0.7                   # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+  listFolded: false             # 列表默认折叠
+  listMaxHeight: "197px"        # 列表最大高度
+
+# 是否在首页显示视频.
+video:
+  enable: true                                            # 是否开启视频
+  showTitle: true                                         # 是否显示标题
+  title: 治愈视频                                          # 标题内容
+  url: http://f.video.weibocdn.com/R0DXuJeDlx07CNl37Ji0010412005qGN0E010.mp4?label=mp4_ld&template=640x360.25.0&trans_finger=40a32e8439c5409a63ccf853562a60ef&Expires=1592135123&ssig=EFntofbqiQ&KID=unistore,video # 视频超链接
+  pic:                                                    # 图片超链接
+  thumbnails:
+  height:                                                 # 高度
+  autoplay: false                                         # 是否自动播放
+  theme: '#42b983'                                        # 颜色
+  loop: true                                              # 是否循环播放
+  preload: 'auto'                                         # 预加载，可选值: 'none', 'metadata', 'auto'
+  volume: 0.7                                             # 音量大小
+
+# 是否显示推荐文章的标题
+recommend:
+  showTitle: true
+
+index_generator:
+  order_by: -date       # 排序设置 （默认按日期降序排列）
+per_page: 12           # 分页，每页文章数目
+pagination_dir: page   # 分页目录
+
+# 类别和标签
+default_category: uncategorized   # 默认分类
+category_map:                     # 分类别名
+tag_map:                          # 标签别名
+
+# 日期/时间格式
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# 总字数统计，激活前请确认你已经安装了 hexo-wordcount 插件，安装命令: `npm i --save hexo-wordcount`
+totalCount:
+  enable: true
+
+# 站点运行开始时间
+time:
+  enable: true  # 是否启动
+  year: 2018    # 年份
+  month: 09     # 月份
+  date: 24      # 日期
+  hour: 00      # 小时
+  minute: 00    # 分钟
+  second: 00    # 秒
+
+#ICP 备案信息尾部显示
+icp:
+  enable: true
+  url: http://beian.miit.gov.cn/ # 备案链接
+  text: 沪ICP备xxxxxxxxx号 # 备案信息
+  icon: /medias/icp.png  # 图标
+
+# ------------------------- 博客文章配置 -------------------------
+# 文章信息配置
+new_post_name: :title.md   # 新文章的文件名称
+default_layout: post       # 预设布局
+auto_spacing: false        # 在中文和英文之间加入空格
+titlecase: false           # 把标题转换为 title case
+external_link:             # 在新标签中打开链接
+  enable: true             # 在新标签中打开链接
+  field:                   # 对整个网站（site）生效或仅对文章（post）生效
+  exclude:                 # 需要排除的域名。主域名和子域名如 www 需分别配置	[]
+filename_case: 0           # 把文件名称转换为 (1) 小写或 (2) 大写
+render_drafts: false       # 显示草稿，默认为：false
+post_asset_folder: true    # 启动 Asset 文件夹
+relative_link: false       # 把链接改为与根目录的相对位址
+future: true               # 显示未来的文章
+highlight:                 # 代码块的设置
+  enable: false            # 开启代码块高亮
+  line_number: false       # 显示行数
+  auto_detect: false       # 如果未指定语言，则启用自动检测
+  tab_replace:             # 用 n 个空格替换 tabs；如果值为空，则不会替换 tabs
+
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: true     # 显示代码行号
+  custom_css:
+
+# 代码是否换行
+code:
+  lang: true     # 代码块是否显示名称
+  copy: true     # 代码块是否可复制
+  shrink: false  # 代码块是否可以收缩
+  break: false   # 代码是否折行
+
+postInfo:
+  date: true        # 发布日期
+  update: true      # 更新日期
+  wordCount: true   # 文章字数统计
+  min2read: true    # 文章阅读时长
+  readCount: true  # 文章阅读次数
+
+# 是否激活文章 TOC 功能，并配置 TOC 支持选中哪些标题类型，这是全局配置。
+# 可以在某篇文章的 Front-matter 中再加上 `toc: false`，使该篇文章关闭 TOC 目录功能
+toc:
+  enable: true
+  heading: h2, h3, h4, h5
+  showToggleBtn: true      # 是否显示切换TOC目录展开收缩的按钮
+
+# 是否激活文章末尾的打赏功能，默认激活（你替换为的你自己的微信、支付宝二维码图片、或者使用网络图片也可以）.
+reward:
+  enable: true
+  title: 你的赏识是我前进的动力!
+  wechat: /medias/reward/wechat.jpg
+  alipay: /medias/reward/alipay.jpg
+
+# 是否激活复制文章时追加博客和作者的版权信息.
+copyright:
+  enable: false
+  minCharNumber: 120 # 至少复制多少个字符就追加版权信息.
+  description: 本文章著作权归作者所有，任何形式的转载都请注明出处。
+
+# 是否激活 mathjax 数学公式，这是全局配置，但文章仍然不会都开启 mathjax 渲染，
+# 考虑到 mathjax 加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
+mathjax:
+  enable: true
+  cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+# 添加 emoji 表情支持
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:
+
+reprint:
+  enable: false #是否启用“转载规则限定模块”
+  default: cc_by
+
+# 阅读文章的密码验证功能，如要使用此功能请激活该配置项，并在对应文章的 Front-matter 中写上'password'的键和加密后的密文即可.
+# 请注意：为了保证密码原文不会被泄露到网页中，文章的密码必须是通过'SHA256'加密的，这样就不会被破解.
+verifyPassword:
+  enable: true
+  promptMessage: 请输入访问本文章的密码
+  errorMessage: 密码错误，将返回主页！
+
+# sharejs 文章分享模块.
+# 支持顺序，可选项目为 twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
+sharejs:
+  enable: true
+  sites: wechat,qq,weibo,twitter,facebook,linkedin
+
+# addthis 文章分享模块.
+addthis:
+  enable: false
+  pubid:          #前往https://www.addthis.com/获取
+
+# ------------------------- 博客关于页面配置 -------------------------
+# 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
+profile:
+  avatar: /medias/avatars/avatar.jpg
+  career: 公司信息 | 职位信息
+  introduction: 自我介绍
+
+# 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+myProjects:
+  enable: true
+  data:
+    private-network-ipfs:
+      icon: fa-cubes
+      iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
+      url: https://github.com/Sitoi/private-network-ipfs
+      desc: 利用 Docker 搭建 IPFS 私有网络
+    scrapy-redis-sentinel:
+      icon: fa-github
+      iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
+      url: https://github.com/Sitoi/scrapy-redis-sentinel
+      desc: scrapy-redis-sentinel 基于 scrapy-redis 的基础上 新增 哨兵（sentinel）连接模式 以及 集群（cluster）连接模式。
+    SystemdClash:
+      icon: fa-plane
+      iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
+      url: https://github.com/Sitoi/SystemdClash
+      desc: Clash 以 systemd 服务的方式开机自启
+
+# 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+mySkills:
+  enable: true
+  data:
+    Python:
+      background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
+      percent: 80%
+    Docker:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 80%
+    OpneShift:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 70%
+    Ambari:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 60%
+    HDFS:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 65%
+    Spark:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 60%
+    Flask:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 80%
+    MongoDB:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 70%
+    MySQL:
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
+      percent: 65%
+    Vue:
+      background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
+      percent: 35%
+
+# 设置在归档页面中是否显示'文章日历'控件
+postCalendar: true
+
+# ------------------------- 博客搜索订阅配置 -------------------------
+# 博客搜索配置
+search:
+  path: search.xml
+  field: post
+
+# 站点地图配置
+Plugins:
+  - hexo-generator-baidu-sitemap
+  - hexo-generator-sitemap
+baidusitemap:
+  path: baidusitemap.xml
+sitemap:
+  path: sitemap.xml
+
+# 百度搜索资源平台提交链接
+baiduPush: true
+
+# 自动部署配置
+deploy:
+  - type: git
+    repo:
+      github: https://github.com/crawlmkt/crawlmkt.github.io.git
+    branch: master
+
+# ------------------------- 博客评论模块配置 -------------------------
+# Gitalk 评论模块的配置，默认为不激活
+gitalk:
+  enable: false
+  owner:
+  repo:
+  oauth:
+    clientId:
+    clientSecret:
+  admin:
+    - sitoi
+
+# Gitment 评论模块的配置，默认为不激活
+gitment:
+  enable: false
+  owner:
+  repo:
+  oauth:
+    clientId:
+    clientSecret:
+
+# Disqus 评论模块的配置，默认为不激活
+disqus:
+  enable: false
+  shortname:
+
+# Livere 来必力评论模块的配置，默认为不激活
+livere:
+  enable: false
+  uid:
+
+# Valine 评论模块的配置，默认为不激活，如要使用，就请激活该配置项，并设置 appId 和 appKey.
+valine:
+  enable: false
+  appId: eh326AJawFEs3Fc1FTOsGlkd-gzGzoHsz
+  appKey: jtyBUtWbHPtk95RMbKLGn9eN
+  notify: true
+  verify: true
+  visitor: true
+  avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  pageSize: 10
+  placeholder: 'just go go' # Comment Box placeholder
+  background: /medias/comment_bg.png
+
+minivaline:
+  enable: true
+  appId:  eh326AJawFEs3Fc1FTOsGlkd-gzGzoHsz
+  appKey:  jtyBUtWbHPtk95RMbKLGn9eN
+  placeholder: 'just go go' # Comment box placeholder
+  adminEmailMd5: # The MD5 of Admin Email to show Admin Flag.
+  math: true # Support MathJax.
+  md: true # Support Markdown.
+  # MiniValine's display language depends on user's browser or system environment
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value
+  # Available values: en  | zh-CN | (and many more)
+  # More i18n info: https://github.com/MiniValine/minivaline-i18n
+  lang: en
+
+# ------------------------- 博客统计分析配置 -------------------------
+# 不蒜子 统计配置
+busuanziStatistics:
+  enable: true
+  totalTraffic: true # 总访问量
+  totalNumberOfvisitors: true # 总人次
+
+# 添加 Google Analytics 配置
+googleAnalytics:
+  enable: false
+  id: GOOGLE_ID
+
+# 添加 Baidu Analytics 配置
+baiduAnalytics:
+  enable: false
+  id: BAIDU_ID
+
+# 站长之家 统计
+cnzz: false
+
+# ------------------------- 博客在线聊天配置 -------------------------
+# DaoVoice online contact
+daovoice:
+  enable: false
+  app_id:
+
+# Tidio online contact
+tidio:
+  enable: false
+  public_key:
+
+# ------------------------- 博客功能配置 -------------------------
+
+# CDN 加速，URL 连接请参考 https://sitoi.cn/posts/39161.html
+jsDelivr:
+  #  url: https://cdn.jsdelivr.net/gh/crawlmkt/crawlmkt.github.io
+  url:
+
+# 是否激活单击页面的 “爱心” 效果。
+clicklove:
+  enable: true
+
+#背景 canvas-nest
+canvas_nest:
+  enable: false
+  color: 0,0,255       #线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
+  pointColor: 0,0,255  #交点颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
+  opacity: 0.8         # 线条透明度（0~1）, 默认: 0.5
+  zIndex: -1           # 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1
+  count: 150           # 线条的总数量, 默认: 99
+
+# 图片懒加载配置
+lazyload:
+  enable: false
+  onlypost: true
+  loadingImg: /medias/loading/orange.square-circle-preloader.svg    # eg ./images/loading.gif
+
+# 网页预加载
+instantpage:
+  enable: true
+
+# banner 是否每日切换。若为 false, 则 banner 默认为 /medias/banner/0.jpg
+banner:
+  enable: false
+
+# PWA 配置
+pwa:
+  manifest:
+    path: /manifest.json
+    body:
+      name: Sitoi
+      short_name: Sitoi
+      theme_color: white
+      background_color: white
+      display: standalone
+      orientation: portrait
+      scope: /
+      start_url: /
+      icons:
+        - src: /medias/logo_48.png
+          type: image/png
+          sizes: 48x48
+        - src: /medias/logo_96.png
+          type: image/png
+          sizes: 96x96
+        - src: /medias/logo_128.png
+          type: image/png
+          sizes: 128x128
+        - src: /medias/logo_144.png
+          type: image/png
+          sizes: 144x144
+        - src: /medias/logo_180.png
+          type: image/png
+          sizes: 180x180
+        - src: /medias/logo_192.png
+          type: image/png
+          sizes: 192x192
+        - src: /medias/logo_512.png
+          type: image/png
+          sizes: 512x512
+        - src: /apple-touch-icon.png
+          type: image/png
+          sizes: 180x180
+  serviceWorker:
+    path: /sw.js
+    preload:
+      urls:
+        - /
+      posts: 12
+    opts:
+      networkTimeoutSeconds: 30
+    routes:
+      - pattern: !!js/regexp /hm.baidu.com/
+        strategy: networkOnly
+      - pattern: !!js/regexp /www.google-analytics.com/
+        strategy: networkOnly
+      - pattern: !!js/regexp /.*\.(js|css|jpg|jpeg|png|gif)$/
+        strategy: cacheFirst
+      - pattern: !!js/regexp /\//
+        strategy: networkFirst
+  priority: 5
+
+# PWA 适配苹果图标
+appletouchicon: /apple-touch-icon.png
+
+# 是否开启绚丽彩虹播放器
+badApplePlayer:
+  enable: false   # 是否启动
+  XlchKey: Sitoi  # 播放器 Key
+
+#hexo-neat 优化提速插件（去掉 HTML、css、js 的 blank 字符）
+neat_enable: false
+neat_html:
+  enable: true
+  exclude:
+    - '**/*.md'
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/**/instantpage.js'
+    - '**/matery.js'
+
+# 外链跳转插件
+hexo_external_link:
+  enable: true
+  enable_base64_encode: true
+  url_param_name: 'u'
+  html_file_name: 'go.html'
+  target_blank: true
+  link_rel: 'external nofollow noopener noreferrer'
+#  domain:
+#  safety_chain: false
+
+# 看板娘配置
+live2d:
+  enable: false
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: false
+  model:
+    use: live2d-widget-model-shizuku
+  display:
+    position: left
+    width: 150
+    height: 200
+  mobile:
+    show: false
+  react:
+    opacity: 0.7
+
+# ------------------------- 博客资源配置 -------------------------
+# 网站资源目录配置
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# 主题
+theme: matery
+
+# 使用到的前端库，可按需替换成对应的 CDN 地址，如果下面未指定具体的版本号，使用最新的版本即可.
+libs:
+  css:
+    fontAwesome: /libs/awesome/css/font-awesome.min.css # V4.7.0
+    materialize: /libs/materialize/materialize.min.css # 1.0.0
+    aos: /libs/aos/aos.css
+    animate: /libs/animate/animate.min.css # V3.5.1
+    lightgallery: /libs/lightGallery/css/lightgallery.min.css # V1.6.11
+    aplayer: /libs/aplayer/APlayer.min.css
+    dplayer: /libs/dplayer/DPlayer.min.css
+    gitalk: /libs/gitalk/gitalk.css
+    mygitalk: /css/my-gitalk.css
+    jqcloud: /libs/jqcloud/jqcloud.css
+    tocbot: /libs/tocbot/tocbot.css
+    fancybox: https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css
+    justifiedGallery: https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css
+    share: /libs/share/css/share.min.css
+    my: /css/my.css
+    matery: /css/matery.css
+  js:
+    typed: https://cdn.jsdelivr.net/npm/typed.js
+    codeBlockFuction: /libs/codeBlock/codeBlockFuction.js
+    codeCopy: /libs/codeBlock/codeCopy.js
+    codeLang: /libs/codeBlock/codeLang.js
+    codeShrink: /libs/codeBlock/codeShrink.js
+    jquery: /libs/jquery/jquery.min.js
+    materialize: /libs/materialize/materialize.min.js # 1.0.0
+    masonry: /libs/masonry/masonry.pkgd.min.js # v4.0.0
+    aos: /libs/aos/aos.js
+    scrollProgress: /libs/scrollprogress/scrollProgress.min.js
+    lightgallery: /libs/lightGallery/js/lightgallery-all.min.js # V1.6.11
+    clicklove: /libs/others/clicklove.js
+    busuanzi: /libs/others/busuanzi.pure.mini.js
+    aplayer: /libs/aplayer/APlayer.min.js
+    dplayer: /libs/dplayer/DPlayer.min.js
+    crypto: /libs/cryptojs/crypto-js.min.js
+    echarts: /libs/echarts/echarts.min.js
+    gitment: /libs/gitment/gitment.js
+    gitalk: /libs/gitalk/gitalk.min.js
+    valine: /libs/valine/Valine.min.js
+    minivaline: https://unpkg.com/minivaline/dist/MiniValine.min.js
+    avmin: /libs/valine/av-min.js
+    jqcloud: /libs/jqcloud/jqcloud-1.0.4.min.js
+    tocbot: /libs/tocbot/tocbot.min.js
+    fancybox: https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js
+    justifiedGallery: https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js
+    lazyload: /libs/lazyload/jquery.lazyload.js
+    share: /libs/share/js/social-share.min.js
+    matery: /js/matery.js
+    search: /js/search.js
+    instant.page: /js/instant.page.js
+    canvas_nest: /libs/background/canvas-nest.js
+    instantpage: /libs/instantpage/instantpage.js
+
+# 无文章特色图片时需要显示的文章特色图片.
+featureImages:
+  - /medias/featureimages/0.jpg
+  - /medias/featureimages/1.jpg
+  - /medias/featureimages/2.jpg
+  - /medias/featureimages/3.jpg
+  - /medias/featureimages/4.jpg
+  - /medias/featureimages/5.jpg
+  - /medias/featureimages/6.jpg
+  - /medias/featureimages/7.jpg
+  - /medias/featureimages/8.jpg
+  - /medias/featureimages/9.jpg
+  - /medias/featureimages/10.jpg
+  - /medias/featureimages/11.jpg
+  - /medias/featureimages/12.jpg
+  - /medias/featureimages/13.jpg
+  - /medias/featureimages/14.jpg
+  - /medias/featureimages/15.jpg
+  - /medias/featureimages/16.jpg
+  - /medias/featureimages/17.jpg
+  - /medias/featureimages/18.jpg
+  - /medias/featureimages/19.jpg
+  - /medias/featureimages/20.jpg
+  - /medias/featureimages/21.jpg
+  - /medias/featureimages/22.jpg
+  - /medias/featureimages/23.jpg
+  - /medias/featureimages/24.jpg

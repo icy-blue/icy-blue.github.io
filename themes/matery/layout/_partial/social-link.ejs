@@ -1,0 +1,73 @@
+<% if (theme.socialLink.github) { %>
+    <a href="https://github.com/<%= theme.socialLink.github %>" class="tooltipped" target="_blank"
+       data-tooltip="访问我的GitHub"
+       data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+<% } %>
+<% if (theme.socialLink.wechat.enable) { %>
+    <a href="<%= theme.socialLink.wechat.img %>"
+       target="_blank" data-tooltip="添加我的微信: <%= theme.socialLink.wechat %>" data-position="top"
+       data-delay="50">
+        <i class="fa fa-weixin"></i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.qq) { %>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=<%= theme.socialLink.qq %>&site=qq&menu=yes" class="tooltipped"
+       target="_blank" data-tooltip="添加我的 QQ" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.email) { %>
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<%= theme.socialLink.email %>" class="tooltipped"
+       target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.facebook) { %>
+    <a href="<%= theme.socialLink.facebook %>" data-tooltip="关注我的 Facebook: <%= theme.socialLink.facebook %>"
+       target="_blank" data-position="top" data-delay="50">
+        <i class="fa fa-facebook"></i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.twitter) { %>
+    <a href="<%= theme.socialLink.twitter %>" class="tooltipped"
+       target="_blank" data-tooltip="关注我的 Twitter: <%= theme.socialLink.twitter %>" data-position="top" data-delay="50">
+        <i class="fa fa-twitter"></i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.weibo) { %>
+    <a href="https://weibo.com/<%= theme.socialLink.weibo %>" data-tooltip="关注我的微博: <%= theme.socialLink.weibo %>"
+       target="_blank" data-position="top"
+       data-delay="50">
+        <i class="fa fa-weibo"></i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.zhihu) { %>
+    <a href="https://zhihu.com/people/<%= theme.socialLink.zhihu %>"
+       target="_blank" data-tooltip="关注我的知乎: <%= theme.socialLink.zhihu %>" data-position="top"
+       data-delay="50">
+        <i class="fa fa-inverse">知</i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.jianshu) { %>
+    <a href="https://www.jianshu.com/u/<%= theme.socialLink.jianshu %>"
+       target="_blank" data-tooltip="关注我的简书: <%= theme.socialLink.jianshu %>" data-position="top"
+       data-delay="50">
+        <i class="fa fa-inverse">简</i>
+    </a>
+<% } %>
+
+<% if (theme.socialLink.rss) { %>
+    <a href="<%- url_for('/atom.xml') %>" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top"
+       data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+<% } %>

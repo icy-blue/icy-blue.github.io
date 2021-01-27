@@ -1,0 +1,41 @@
+{
+  "name": "sitoi-blog",
+  "version": "1.0.0",
+  "private": true,
+  "hexo": {
+    "version": "4.1.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.7.7",
+    "emoji": "^0.3.2",
+    "eslint": "^6.8.0",
+    "hexo": "^4.1.1",
+    "hexo-abbrlink": "^2.0.5",
+    "hexo-deployer-git": "^2.1.0",
+    "hexo-external-link": "^1.0.7",
+    "hexo-filter-github-emojis": "^2.1.0",
+    "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-baidu-sitemap": "^0.1.6",
+    "hexo-generator-category": "^1.0.0",
+    "hexo-generator-feed": "^2.2.0",
+    "hexo-generator-index": "^1.0.0",
+    "hexo-generator-search": "^2.4.0",
+    "hexo-generator-sitemap": "^2.0.0",
+    "hexo-generator-tag": "^1.0.0",
+    "hexo-helper-live2d": "^3.1.1",
+    "hexo-lazyload-image": "^1.0.5",
+    "hexo-neat": "^1.0.4",
+    "hexo-prism-plugin": "^2.3.0",
+    "hexo-pwa": "^0.1.3",
+    "hexo-renderer-ejs": "^1.0.0",
+    "hexo-renderer-marked": "^2.0.0",
+    "hexo-renderer-stylus": "^1.1.0",
+    "hexo-server": "^1.0.0",
+    "hexo-tag-emojis-byhj": "^1.0.0",
+    "hexo-wordcount": "^6.0.1",
+    "highlight": "^0.2.4",
+    "live2d-widget-model-shizuku": "^1.0.5",
+    "markdown-it-emoji": "^1.4.0",
+    "twemoji": "^12.1.4"
+  }
+}
