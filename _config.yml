@@ -1,6 +1,6 @@
 # ------------------------- 博客基本信息 -------------------------
 # 网站标题
-title: Sitoi
+title: 一只咕咕了许久的小屋
 # 打字效果副标题. 如果有符号 ‘ ，请在 ’ 前面加上 \
 subtitle:
   enable: true
@@ -9,21 +9,21 @@ subtitle:
   startDelay: 300 # 开始延迟
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
-  sub1: 博客模版项目
-  sub2: 博客模版项目
+  sub1: gugugu since 2020.01
+  sub2: 理路上事,毋惮其难而稍为退步,一退步便远隔千山。
 # 网站简介
-description: 博客模版项目
+description: icy的个人主页
 # 网站关键词，便于 SEO 搜索
-keywords: 博客 模版
+keywords: 博客 icy 主页
 # 网站作者
-author: Sitoi
+author: icy
 # 网站语言
 language: zh-CN
 # 网站时区
 timezone: Asia/Shanghai
 
 # 博客 URL 配置，网站地址设置 对应 CNAME 文件
-url: https://crawlmkt.github.io
+url: https://icy-blue.github.io
 # 网站的根目录
 root: /
 
@@ -84,8 +84,8 @@ navMenu:
 # 配置是否在菜单栏中显示 fork me on github 的图标，默认为 true，你可以修改为你的仓库地址.
 githubLink:
   enable: true                                   # 是否开启
-  url: https://github.com/sitoi/sitoi.github.io  # GitHub 仓库地址
-  title: Fork Me                                 # 显示文字
+  url: https://github.com/icy-blue/icy-blue.github.io  # GitHub 仓库地址
+  title: Fork                                 # 显示文字
 
 # 首页封面轮播图的相关配置.
 cover:
@@ -100,18 +100,18 @@ indexbtn:
   enable: true                     # 是否启动第二个按钮
   name: Github                     # 按钮名称
   icon: fa-github-alt              # 按钮图标
-  url: https://github.com/Sitoi/   # 按钮超链接
+  url: https://github.com/icy-blue/   # 按钮超链接
 
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  qq: 1333397418               # QQ
-  github: Sitoi                # GitHub
+  qq: 820030440               # QQ
+  github: icy-blue                # GitHub
   facebook:                    # Facebook
   twitter:                     # Twitter
   weibo:                       # Weibo
-  email: 133397418@qq.com      # 邮箱
-  zhihu:                       # 知乎
-  jianshu: 0289c6c3a717        # 简书
+  email: i@icys.top      # 邮箱
+  zhihu: icys-cn                      # 知乎
+  jianshu:         # 简书
   rss: true                    # RSS 订阅 True 启动
   wechat:
     enable: true # 微信   True 启动
@@ -119,14 +119,14 @@ socialLink:
 
 # 配置首页显示"梦想"的语句.
 dream:
-  enable: true                                 # 是否开启
+  enable: false                                 # 是否开启
   showTitle: true                              # 是否显示标题
   title: 我的梦想                               # 标题内容
   text: 放弃不难，但坚持一定很酷。——《解忧杂货铺》 # 梦想语句
 
 # 是否在首页显示音乐.
 music:
-  enable: true                  # 是否开启
+  enable: false                  # 是否开启
   showTitle: true               # 是否显示标题
   title: 听听音乐                # 标题内容
   fixed: false                  # 开启吸底模式
@@ -141,7 +141,7 @@ music:
 
 # 是否在首页显示视频.
 video:
-  enable: true                                            # 是否开启视频
+  enable: false                                            # 是否开启视频
   showTitle: true                                         # 是否显示标题
   title: 治愈视频                                          # 标题内容
   url: http://f.video.weibocdn.com/R0DXuJeDlx07CNl37Ji0010412005qGN0E010.mp4?label=mp4_ld&template=640x360.25.0&trans_finger=40a32e8439c5409a63ccf853562a60ef&Expires=1592135123&ssig=EFntofbqiQ&KID=unistore,video # 视频超链接
@@ -179,8 +179,8 @@ totalCount:
 # 站点运行开始时间
 time:
   enable: true  # 是否启动
-  year: 2018    # 年份
-  month: 09     # 月份
+  year: 2020    # 年份
+  month: 01     # 月份
   date: 24      # 日期
   hour: 00      # 小时
   minute: 00    # 分钟
@@ -189,15 +189,15 @@ time:
 #ICP 备案信息尾部显示
 icp:
   enable: true
-  url: http://beian.miit.gov.cn/ # 备案链接
-  text: 沪ICP备xxxxxxxxx号 # 备案信息
+  url: https://beian.miit.gov.cn/ # 备案链接
+  text: 鲁ICP备19043095号-1/2 # 备案信息
   icon: /medias/icp.png  # 图标
 
 # ------------------------- 博客文章配置 -------------------------
 # 文章信息配置
 new_post_name: :title.md   # 新文章的文件名称
 default_layout: post       # 预设布局
-auto_spacing: false        # 在中文和英文之间加入空格
+auto_spacing: true         # 在中文和英文之间加入空格
 titlecase: false           # 把标题转换为 title case
 external_link:             # 在新标签中打开链接
   enable: true             # 在新标签中打开链接
@@ -207,11 +207,11 @@ filename_case: 0           # 把文件名称转换为 (1) 小写或 (2) 大写
 render_drafts: false       # 显示草稿，默认为：false
 post_asset_folder: true    # 启动 Asset 文件夹
 relative_link: false       # 把链接改为与根目录的相对位址
-future: true               # 显示未来的文章
+future: false              # 显示未来的文章
 highlight:                 # 代码块的设置
-  enable: false            # 开启代码块高亮
-  line_number: false       # 显示行数
-  auto_detect: false       # 如果未指定语言，则启用自动检测
+  enable: true             # 开启代码块高亮
+  line_number: true        # 显示行数
+  auto_detect: true        # 如果未指定语言，则启用自动检测
   tab_replace:             # 用 n 个空格替换 tabs；如果值为空，则不会替换 tabs
 
 prism_plugin:
@@ -243,16 +243,16 @@ toc:
 
 # 是否激活文章末尾的打赏功能，默认激活（你替换为的你自己的微信、支付宝二维码图片、或者使用网络图片也可以）.
 reward:
-  enable: true
+  enable: false
   title: 你的赏识是我前进的动力!
   wechat: /medias/reward/wechat.jpg
   alipay: /medias/reward/alipay.jpg
 
 # 是否激活复制文章时追加博客和作者的版权信息.
 copyright:
-  enable: false
-  minCharNumber: 120 # 至少复制多少个字符就追加版权信息.
-  description: 本文章著作权归作者所有，任何形式的转载都请注明出处。
+  enable: true
+  minCharNumber: 20 # 至少复制多少个字符就追加版权信息.
+  description: 本文章著作权归作者icy所有，任何形式的转载都请注明出处。
 
 # 是否激活 mathjax 数学公式，这是全局配置，但文章仍然不会都开启 mathjax 渲染，
 # 考虑到 mathjax 加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
@@ -282,7 +282,7 @@ verifyPassword:
 # sharejs 文章分享模块.
 # 支持顺序，可选项目为 twitter, facebook, google, qq, qzone, wechat, weibo, douban, linkedin.
 sharejs:
-  enable: true
+  enable: false
   sites: wechat,qq,weibo,twitter,facebook,linkedin
 
 # addthis 文章分享模块.
@@ -294,12 +294,12 @@ addthis:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatars/avatar.jpg
-  career: 公司信息 | 职位信息
+  career: 学生
   introduction: 自我介绍
 
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
-  enable: true
+  enable: false
   data:
     private-network-ipfs:
       icon: fa-cubes
@@ -319,7 +319,7 @@ myProjects:
 
 # 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 mySkills:
-  enable: true
+  enable: false
   data:
     Python:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
@@ -377,20 +377,20 @@ baiduPush: true
 deploy:
   - type: git
     repo:
-      github: https://github.com/crawlmkt/crawlmkt.github.io.git
-    branch: master
+      github: https://github.com/icy-blue/icy-blue.github.io.git
+    branch: hexo
 
 # ------------------------- 博客评论模块配置 -------------------------
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: false
-  owner:
-  repo:
+  enable: true
+  owner: icy-blue
+  repo: gitalk
   oauth:
-    clientId:
-    clientSecret:
+    clientId: c1042e2423e3015058a2
+    clientSecret: f5ffe9127961bed8b02f52ad7122a39648e6a9bf
   admin:
-    - sitoi
+    - icy-blue
 
 # Gitment 评论模块的配置，默认为不激活
 gitment:
@@ -460,7 +460,7 @@ cnzz: false
 
 # ------------------------- 博客在线聊天配置 -------------------------
 # DaoVoice online contact
-daovoice:
+daovoice: 
   enable: false
   app_id:
 
@@ -478,11 +478,11 @@ jsDelivr:
 
 # 是否激活单击页面的 “爱心” 效果。
 clicklove:
-  enable: true
+  enable: false
 
 #背景 canvas-nest
 canvas_nest:
-  enable: false
+  enable: true
   color: 0,0,255       #线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
   pointColor: 0,0,255  #交点颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割
   opacity: 0.8         # 线条透明度（0~1）, 默认: 0.5
