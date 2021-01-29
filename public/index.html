@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head>
+<head><link rel=manifest href=/manifest.json>
     <meta charset="utf-8">
     <meta name="keywords" content="博客 icy 主页">
     <meta name="description" content="一只咕咕了许久的小屋">
@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="white"/>
     <title>一只咕咕了许久的小屋</title>
-    <link rel="apple-touch-icon" href="/">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -34,7 +34,7 @@
         
     </style>
     <script src="/libs/jquery/jquery.min.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="一只咕咕了许久的小屋" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="一只咕咕了许久的小屋" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -654,21 +654,21 @@
                             <div class="card-image">
                                 
                                     
-                                    <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="本博客搭建详细教程">
+                                    <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="好看的瀑布信息流">
                                 
-                                <span class="card-title">本博客搭建详细教程</span>
+                                <span class="card-title">好看的瀑布信息流</span>
                             </div>
                         </a>
 
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    本博客搭建详细教程
+                                    好看的瀑布信息流
                                 
                             </div>
                             <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-01-27
                             </span>
                                 <span class="publish-author">
                                     
@@ -686,16 +686,24 @@
                         
                             <div class="card-action article-tags">
                                 
-                                    <a href="/tags/%E6%95%99%E7%A8%8B/">
-                                        <span class="chip bg-color">教程</span>
+                                    <a href="/tags/Masonry/">
+                                        <span class="chip bg-color">Masonry</span>
                                     </a>
                                 
-                                    <a href="/tags/Hexo/">
-                                        <span class="chip bg-color">Hexo</span>
+                                    <a href="/tags/jQuery/">
+                                        <span class="chip bg-color">jQuery</span>
                                     </a>
                                 
-                                    <a href="/tags/GitHub/">
-                                        <span class="chip bg-color">GitHub</span>
+                                    <a href="/tags/Packery/">
+                                        <span class="chip bg-color">Packery</span>
+                                    </a>
+                                
+                                    <a href="/tags/%E7%80%91%E5%B8%83%E6%B5%81/">
+                                        <span class="chip bg-color">瀑布流</span>
+                                    </a>
+                                
+                                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                        <span class="chip bg-color">前端</span>
                                     </a>
                                 
                             </div>
@@ -741,7 +749,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">136</span>&nbsp;字
+                            class="white-color">1.1k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -941,7 +949,12 @@
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
 
 
-
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1611850543294')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script>
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>
         const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);

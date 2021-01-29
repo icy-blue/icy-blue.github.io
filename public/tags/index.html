@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 
 
-<head>
+<head><link rel=manifest href=/manifest.json>
     <meta charset="utf-8">
     <meta name="keywords" content="标签, 博客 icy 主页">
     <meta name="description" content="标签 | 一只咕咕了许久的小屋">
@@ -15,7 +15,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="white"/>
     <title>标签 | 一只咕咕了许久的小屋</title>
-    <link rel="apple-touch-icon" href="/">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
@@ -34,7 +34,7 @@
         
     </style>
     <script src="/libs/jquery/jquery.min.js"></script>
-<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="一只咕咕了许久的小屋" type="application/atom+xml">
+<meta name="generator" content="Hexo 4.1.1"><link rel="alternate" href="/atom.xml" title="一只咕咕了许久的小屋" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -454,28 +454,46 @@
             <div class="tag-chips">
                 
                     
-                    <a href="/tags/%E6%95%99%E7%A8%8B/" title="教程: 1">
+                    <a href="/tags/Masonry/" title="Masonry: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                          data-tagname="教程" style="background-color: #F9EBEA;">教程
+                          data-tagname="Masonry" style="background-color: #F9EBEA;">Masonry
                         <span class="tag-length">1</span>
                     </span>
                     </a>
                 
                     
-                    <a href="/tags/Hexo/" title="Hexo: 1">
+                    <a href="/tags/jQuery/" title="jQuery: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                          data-tagname="Hexo" style="background-color: #F5EEF8;">Hexo
+                          data-tagname="jQuery" style="background-color: #F5EEF8;">jQuery
                         <span class="tag-length">1</span>
                     </span>
                     </a>
                 
                     
-                    <a href="/tags/GitHub/" title="GitHub: 1">
+                    <a href="/tags/Packery/" title="Packery: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                          data-tagname="GitHub" style="background-color: #D5F5E3;">GitHub
+                          data-tagname="Packery" style="background-color: #D5F5E3;">Packery
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+                
+                    
+                    <a href="/tags/%E7%80%91%E5%B8%83%E6%B5%81/" title="瀑布流: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                          data-tagname="瀑布流" style="background-color: #E8F8F5;">瀑布流
+                        <span class="tag-length">1</span>
+                    </span>
+                    </a>
+                
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/" title="前端: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                          data-tagname="前端" style="background-color: #FEF9E7;">前端
                         <span class="tag-length">1</span>
                     </span>
                     </a>
@@ -504,7 +522,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"教程","weight":1,"link":"/tags/%E6%95%99%E7%A8%8B/"},{"text":"Hexo","weight":1,"link":"/tags/Hexo/"},{"text":"GitHub","weight":1,"link":"/tags/GitHub/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"Masonry","weight":1,"link":"/tags/Masonry/"},{"text":"jQuery","weight":1,"link":"/tags/jQuery/"},{"text":"Packery","weight":1,"link":"/tags/Packery/"},{"text":"瀑布流","weight":1,"link":"/tags/%E7%80%91%E5%B8%83%E6%B5%81/"},{"text":"前端","weight":1,"link":"/tags/%E5%89%8D%E7%AB%AF/"}], {
         autoResize: true
     });
 </script>
@@ -543,7 +561,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">136</span>&nbsp;字
+                            class="white-color">1.1k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -743,7 +761,12 @@
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
 
 
-
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1611850543294')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script>
         <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
         <script>
         const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);

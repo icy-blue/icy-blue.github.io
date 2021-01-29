@@ -23,7 +23,7 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # 博客 URL 配置，网站地址设置 对应 CNAME 文件
-url: https://icy-blue.github.io
+url: https://icys.top/
 # 网站的根目录
 root: /
 
@@ -209,7 +209,7 @@ post_asset_folder: true    # 启动 Asset 文件夹
 relative_link: false       # 把链接改为与根目录的相对位址
 future: false              # 显示未来的文章
 highlight:                 # 代码块的设置
-  enable: true             # 开启代码块高亮
+  enable: false             # 开启代码块高亮
   line_number: true        # 显示行数
   auto_detect: true        # 如果未指定语言，则启用自动检测
   tab_replace:             # 用 n 个空格替换 tabs；如果值为空，则不会替换 tabs
@@ -375,10 +375,9 @@ baiduPush: true
 
 # 自动部署配置
 deploy:
-  - type: git
-    repo:
-      github: git@github.com:icy-blue/icy-blue.github.io.git
-    branch: hexo
+  type: git
+  repo: git@github.com:icy-blue/icy-blue.github.io.git
+  branch: hexo
 
 # ------------------------- 博客评论模块配置 -------------------------
 # Gitalk 评论模块的配置，默认为不激活
@@ -389,8 +388,7 @@ gitalk:
   oauth:
     clientId: c1042e2423e3015058a2
     clientSecret: f5ffe9127961bed8b02f52ad7122a39648e6a9bf
-  admin:
-    - icy-blue
+  admin: icy-blue
 
 # Gitment 评论模块的配置，默认为不激活
 gitment:
@@ -425,7 +423,7 @@ valine:
   background: /medias/comment_bg.png
 
 minivaline:
-  enable: true
+  enable: false
   appId:  eh326AJawFEs3Fc1FTOsGlkd-gzGzoHsz
   appKey:  jtyBUtWbHPtk95RMbKLGn9eN
   placeholder: 'just go go' # Comment box placeholder
@@ -654,3 +652,60 @@ featureImages:
   - /medias/featureimages/22.jpg
   - /medias/featureimages/23.jpg
   - /medias/featureimages/24.jpg
+
+  # PWA 配置
+pwa:
+  manifest:
+    path: /manifest.json
+    body:
+      name: icy
+      short_name: icy
+      theme_color: white
+      background_color: white
+      display: standalone
+      orientation: portrait
+      scope: /
+      start_url: /
+      icons:
+        - src: /medias/logo48.png
+          type: image/png
+          sizes: 48x48
+        - src: /medias/logo96.png
+          type: image/png
+          sizes: 96x96
+        - src: /medias/logo128.png
+          type: image/png
+          sizes: 128x128
+        - src: /medias/logo144.png
+          type: image/png
+          sizes: 144x144
+        - src: /medias/logo180.png
+          type: image/png
+          sizes: 180x180
+        - src: /medias/logo192.png
+          type: image/png
+          sizes: 192x192
+        - src: /medias/logo512.png
+          type: image/png
+          sizes: 512x512
+  serviceWorker:
+    path: /sw.js
+    preload:
+      urls:
+        - /
+      posts: 12
+    opts:
+      networkTimeoutSeconds: 30
+    routes:
+      - pattern: !!js/regexp /hm.baidu.com/
+        strategy: networkOnly
+      - pattern: !!js/regexp /www.google-analytics.com/
+        strategy: networkOnly
+      - pattern: !!js/regexp /.*\.(js|css|jpg|jpeg|png|gif)$/
+        strategy: cacheFirst
+      - pattern: !!js/regexp /\//
+        strategy: networkFirst
+  priority: 5
+
+# PWA 适配苹果图标
+appletouchicon: /apple-touch-icon.png
