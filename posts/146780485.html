@@ -623,10 +623,10 @@
 <p>我们在购买资源包的时候，发现还有其他几种资源包，比如静态HTTPS请求数和动态请求数资源包。</p>
 <p>HTTPS请求数是云服务中比较恶心的东西（我感觉在请求过程中，对比不开HTTPS，就多了证书验证的部分啊，为啥还需要额外收费）。如果我们cdn不使用HTTPS的话，我们加载出来的网页就会告诉我们部分不安全（部分浏览器会有个黄色的锁），而网页所有资源全都是HTTPS协议请求的话，一般是绿色的锁。动态请求常见于链接里那些带着问号，后面跟着参数的URL，这个在DCDN里如果不设置忽略的话，这个就需要CDN去访问源网站求请求相关资源，消耗动态请求数。</p>
 <p>不过好消息是，由于阿里的按量计费是每个小时进行结算的，他们规定“计费明细存在多小数位；汇总进位为2位小数时，产生的3位及以上小数的金额抹除”，这样其实就告诉我们，只要每个小时自己的消耗不超过1分钱，这个小时的请求费用就是免费的。本文编辑时（2021年2月16日），静态HTTPS请求数的按量计费是0.05元/10000次，也就是说只要每小时HTTPS使用不超过2000次就是免费的；动态请求数的按量计费是0.15元/10000次，也就是大约每小时666次以内是免费的。</p>
-<p><img src="../images/2021021601.png" alt="2021021601"></p>
+<p><img src="../images/2021021601.png" alt="阿里云的CDN资源包"></p>
 <p><strong>值得注意的是，云服务商的CDN通常会要求在国内加速的域名要进行ICP备案。</strong></p>
 <h2 id="配置一个全站加速"><a href="#配置一个全站加速" class="headerlink" title="配置一个全站加速"></a>配置一个全站加速</h2><p>配置全站加速DCDN第一步，确保自己的加速域名已经通过了ICP备案，否则申请加速是通过不了的。</p>
-<h3 id="添加域名"><a href="#添加域名" class="headerlink" title="添加域名"></a>添加域名</h3><p><img src="../images/2021021602.png" alt="2021021602"></p>
+<h3 id="添加域名"><a href="#添加域名" class="headerlink" title="添加域名"></a>添加域名</h3><p><img src="../images/2021021602.png" alt="阿里云全站加速添加域名"></p>
 <p>我们在阿里云控制台的全站加速模块中，添加域名，我们需要配置源站的相关信息，源站就是cdn没有命中回源（即去哪里找）的网站，<strong>不应与加速域名相同（如果源站域名与加速域名相同，则cdn在找不到内容后会请求自己资源，而显然cdn自己没有这个资源，就会继续请求自己……这样cdn一直找不到源资源文件）</strong>。</p>
 <p>假设我们的加速域名为<code>example.com</code>，想加速<code>example.github.io</code>的GitHub Pages，而且想即便访问<code>example.github.io</code>也可以重定向到<code>example.com</code>，我们应在GitHub Pages中配置CNAME为<code>example.com</code>，然后源站类型选择源站域名，填写<code>example.github.io</code>，端口443（HTTPS）。</p>
 <p>在提交之后，我们需要设置回源HOST、静态文件（目录）、HTTPS等。</p>
@@ -1289,7 +1289,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1613485495001')
+  navigator.serviceWorker.register('/sw.js?t=1613485636201')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
