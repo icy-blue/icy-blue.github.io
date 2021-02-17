@@ -588,7 +588,7 @@
                 
                     <div class="post-date info-break-policy">
                         <i class="fa fa-calendar-check-o fa-fw"></i>更新日期:&nbsp;&nbsp;
-                        2021-02-16
+                        2021-02-17
                     </div>
                 
 
@@ -641,7 +641,7 @@
 <h3 id="设置HTTPS"><a href="#设置HTTPS" class="headerlink" title="设置HTTPS"></a>设置HTTPS</h3><p>HTTPS如果开启必然会造成一笔不小的HTTPS请求资源消耗费用，这部分费用甚至会比流量费还要贵一些，但是开启后会比较安全，建议购买资源包后开启。</p>
 <h4 id="获取SSL证书"><a href="#获取SSL证书" class="headerlink" title="获取SSL证书"></a>获取SSL证书</h4><p>对于HTTPS，我们首先需要有一个加速域名的SSL证书。证书获取方式可以通过云服务商（推荐域名管理商或者CDN提供商，可以方便添加TXT解析或者方便证书的部署）获得的证书（通常为一年），或者Let’s encrypt的三个月证书。</p>
 <p>可能有人问，为什么Let’s encrypt给的证书只有三个月有效期，根据<a href="HTTPS://letsencrypt.org/2015/11/09/why-90-days.html">官方</a>的解释，90天可以减少证书错误分发及密钥泄漏导致的损失，也可以鼓励大家进行自动部署。</p>
-<p>获取证书的步骤我应该还会再写一篇博客的吧（咕咕咕）。</p>
+<p>获取证书的步骤<del>我应该还会再写一篇博客的吧</del>见<a href="./3116496963.html">“聊聊证书”</a>。</p>
 <h4 id="HTTP2、TLS、强制跳转与HSTS"><a href="#HTTP2、TLS、强制跳转与HSTS" class="headerlink" title="HTTP2、TLS、强制跳转与HSTS"></a>HTTP2、TLS、强制跳转与HSTS</h4><p>HTTP2和新的TLS握手协议可以使得用户访问网站更加安全，比较建议打开。</p>
 <p>强制跳转可以让以http协议访问的用户被自动跳转到HTTPS协议上，以防被中间人攻击。</p>
 <p>而HSTS是告诉用户，未来x天内我这个域名只支持HTTPS协议。浏览器得知后，再以后的访问中无需跳转，浏览器会自动修改协议为HTTPS协议，减少被中间人攻击的可能。此外开启HSTS后，浏览器则不允许忽略证书错误，如果证书过期或者被攻击后，用户无法选择“忽略安全问题（不推荐）”来跳过这个错误，以免造成不必要的风险。</p>
@@ -759,30 +759,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-            <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article col s12 m6" data-aos="fade-up">
                 <div class="article-badge left-badge text-color">
-                    <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-                </div>
+                    <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
                 <div class="card">
-                    <a href="/posts/146781432.html">
+                    <a href="/posts/3116496963.html">
                         <div class="card-image">
                             
                                 
-                                <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="CDN是什么可以吃吗">
+                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="聊聊证书">
                             
-                            <span class="card-title">CDN是什么可以吃吗</span>
+                            <span class="card-title">聊聊证书</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                CDN是什么可以吃吗
+                                聊聊证书
                             
                         </div>
                         <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-17
+                        </span>
                             <span class="publish-author">
                                 
                                     <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -795,13 +794,8 @@
                             </span>
                         </div>
                     </div>
-
                     
                         <div class="card-action article-tags">
-                            
-                                <a href="/tags/CDN/">
-                                    <span class="chip bg-color">CDN</span>
-                                </a>
                             
                                 <a href="/tags/SSL/">
                                     <span class="chip bg-color">SSL</span>
@@ -817,6 +811,10 @@
                             
                                 <a href="/tags/%E7%BD%91%E7%AB%99/">
                                     <span class="chip bg-color">网站</span>
+                                </a>
+                            
+                                <a href="/tags/CA/">
+                                    <span class="chip bg-color">CA</span>
                                 </a>
                             
                         </div>
@@ -1088,7 +1086,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">3.3k</span>&nbsp;字
+                            class="white-color">3.7k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -1289,7 +1287,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1613486684339')
+  navigator.serviceWorker.register('/sw.js?t=1613562667791')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
