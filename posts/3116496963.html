@@ -595,14 +595,14 @@
                 
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        392
+                        2.8k
                     </div>
                 
 
                 
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        9 分
                     </div>
                 
 
@@ -618,10 +618,63 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="聊聊证书"><a href="#聊聊证书" class="headerlink" title="聊聊证书"></a>聊聊证书</h1><p>证书好像在网络中使用的越来越多了，我们用的绝大多数网站应该都已经上HTTPS协议了，这些协议需要服务器提供证书来证明他们的身份。我们通常的证明方式有两种，一个是分布式的，就类似于区块链，另一个就是证书这种层级式信任的了。</p>
+<h2 id="SSL的连接方式"><a href="#SSL的连接方式" class="headerlink" title="SSL的连接方式"></a>SSL的连接方式</h2><p>我们的SSL连接方式，使得客户端浏览器与服务器之间的连接进行了双向加密，保障了浏览的安全。下面的是SSL连接的简要步骤，具体可以参考</p>
+<blockquote>
+<ol>
+<li>客户端的浏览器向服务器传送客户端 SSL 协议的版本号，加密算法的种类，产生的随机数，以及其他服务器和客户端之间通讯所需要的各种信息。</li>
+<li>服务器向客户端传送 SSL 协议的版本号，加密算法的种类，随机数以及其他相关信息，同时服务器还将向客户端传送自己的证书。</li>
+<li>客户利用服务器传过来的信息验证服务器的合法性，服务器的合法性包括：证书是否过期，发行服务器证书的 CA 是否可靠，发行者证书的公钥能否正确解开服务器证书的“发行者的数字签名”，服务器证书上的域名是否和服务器的实际域名相匹配。如果合法性验证没有通过， 通讯将断开；如果合法性验证通过，将继续进行第四步。</li>
+<li>用户端随机产生一个用于后面通讯的“对称密码”，然后用服务器的公钥（服务器的公钥从步骤②中的服务器的证书中获得）对其加密，然后将加密后的“预主密码”传给服务器。</li>
+<li>如果服务器要求客户的身份认证（在握手过程中为可选），用户可以建立一个随机数然后对其进行数据签名，将这个含有签名的随机数和客户自己的证书以及加密过的“预主密码”一起传给服务器。</li>
+<li>如果服务器要求客户的身份认证，服务器必须检验客户证书和签名随机数的合法性，具体的合法性验证过程包括：客户的证书使用日期是否有效，为客户提供证书的 CA 是否可靠，发行 CA 的公钥能否正确解开客户证书的发行 CA 的数字签名，检查客户的证书是否在证书废止列表（CRL）中。检验如果没有通过，通讯立刻中断；如果验证通过，服务器将用自己的私钥解开加密的“预主密 码”，然后执行一系列步骤来产生主通讯密码（客户端也将通过同样的方法产生相同的主通讯密码）。</li>
+<li>服务器和客户端用相同的主密码即“通话密码”，一个对称密钥用于 SSL 协议的安全数据通讯的加解密通讯。同时在 SSL 通讯过程中还要完成数据通讯的完整性，防止数据通讯中的任何变化。</li>
+<li>客户端向服务器端发出信息，指明后面的数据通讯将使用的步骤⑦中的主密码为对称密钥，同时通知服务器客户端的握手过程结束。</li>
+<li>服务器向客户端发出信息，指明后面的数据通讯将使用的步骤⑦中的主密码为对称密钥，同时通知客户端服务器端的握手过程结束。</li>
+<li>SSL 的握手部分结束，SSL 安全通道的数据通讯开始，客户和服务器开始使用相同的对称密钥进行数据通讯，同时进行通讯完整性的检验。</li>
+</ol>
+</blockquote>
+<h2 id="证书的结构"><a href="#证书的结构" class="headerlink" title="证书的结构"></a>证书的结构</h2><p>每个证书均有公钥和私钥，其中私钥自己保存，公钥会放在证书内。除了私钥公钥外，证书还会包括证书内容信息$F$，加密算法$A$（通常是SHA和RSA加密），F被两次加密后得到的密文$F’$。</p>
 <h2 id="ROOT-CA"><a href="#ROOT-CA" class="headerlink" title="ROOT CA"></a>ROOT CA</h2><p>既然是层级式的，上层信任下层，那上层为什么可信呢，就类似于数学的公理，我们在信任链中就有了根证书，表示我们完全相信这个证书，只要是它相信的我们就都相信。</p>
 <p>ROOT CA，如我们所见，有着特别大的权力，所以拥有这么大权力的证书的机构也为数不多，这些证书的公钥被放到了Windows、Chrome等的可信任列表里，作为我们信任的基础。那ROOT CA恶意捣乱的话，因为它没有上一层来管辖它（吊销证书），这样的危害力是蛮大的，只能每个把其放到信任列表的软件和系统，通过手动打补丁的方式来取消其信任（见<a href="https://arstechnica.com/information-technology/2015/04/google-chrome-will-banish-chinese-certificate-authority-for-breach-of-trust/">CNNIC CA事件</a>），如果没及时打补丁，这个事件当时许多人只能<a href="https://www.v2ex.com/t/165836">手动拉黑该CA</a>。</p>
-<hr>
-<p>咕了</p>
+<h2 id="层级式信任"><a href="#层级式信任" class="headerlink" title="层级式信任"></a>层级式信任</h2><p>ROOT CA数量那么少，如果光让他们颁发证书，他们工作量便特别巨大。于是他们会去找一些他们信任的分支机构，让他们颁发证书。而二级CA也是不是太多，于是他们找了三级CA进行代理。我们一般的SSL证书（其实证书不光是SSL证书，还有的是为了给文件/程序添加数字签名的证书）大多都是由三级CA颁发的。</p>
+<p>那二三级CA如果捣乱，给不该发证书的人（非域名所有者等）颁发了证书，或者二三级CA由于意外泄漏了私钥，一样会导致混乱啊。对于这种情况，上级CA便可以吊销下级CA（或者用户）的证书。上级CA把这个证书放在吊销名单（CRL）中后，用户如果在浏览过程中，服务器返回这个证书，浏览器在请求CRL后发现在名单上，便会终止访问，提示浏览不安全。由于下一级CA出现问题，可以由上一级CA进行吊销，由此看来，根证书无人可以吊销，故上文所述根证书危害力较大。</p>
+<p>那如何授权下级CA（CA颁发证书）呢？如果证书A目前已经被信任，而且具有颁发策略时，那这个证书所有者可以用私钥去加密想生成的下一级证书的内容部分$F$的SHA摘要，并把加密的信息$F’$也放在证书里，这样等浏览器去验证的时候，它可以用父证书的公钥去解密$F’$，与自行求出的$F$的SHA摘要进行比对，比对正确则可以确定该证书确实由其父级证书颁发而来，从而杜绝了父级证书作假的情况。</p>
+<h2 id="申请证书"><a href="#申请证书" class="headerlink" title="申请证书"></a>申请证书</h2><p>对于单域名（没有通配符星号，如<code>www.icys.top</code>或者<code>icys.top</code>），可以直接去云服务厂商处申请一年的DV免费证书，但是如果想要含有通配符星号的证书，或者一个证书同时可以证明多个域名（使用者可选名称）的话，我们往往会选择使用Let’s Encrypt的三个月免费证书。</p>
+<h3 id="域名验证方式"><a href="#域名验证方式" class="headerlink" title="域名验证方式"></a>域名验证方式</h3><p>常见的域名验证方式有两种，一个是DNS验证，另一个是文件验证方式。</p>
+<h4 id="DNS验证"><a href="#DNS验证" class="headerlink" title="DNS验证"></a>DNS验证</h4><p>DNS验证一般用于有DNS解析管理权限的用户，以及需要申请多域名证书的用户。</p>
+<p>DNS验证的方式是通过设置TXT解析，把CA要求的域名解析到对应的文本，一般一个域名仅验证一个文本。</p>
+<p>其中TXT解析中，一个域名可以对应多段文本，大家在同时申请<code>*.example.com</code>和<code>example.com</code>的证书的时候，可能会提示你对同一个domain设定两段文本，大家一定注意不要覆盖掉了，否则会提示验证失败。</p>
+<p>在设置好TXT解析的内容后，大家可以用命令行自行尝试一下解析是否正确</p>
+<pre class="line-numbers language-shell"><code class="language-shell">nslookup
+set type=txt
+acme_challenge.example.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<img src="..\images\2021021804.png" alt="TXT解析自测" style="zoom:100%;">
+
+<p>设置好就可以提交给证书服务商进行检查和证书颁发了。</p>
+<h4 id="文件验证"><a href="#文件验证" class="headerlink" title="文件验证"></a>文件验证</h4><p>文件验证比较适合于，可以管理网站主页内容的用户，以及使用<a href="https://bt.cn/">宝塔</a>之类运维的用户。</p>
+<p><strong>注意，Let’s Encrypt泛域名验证不能使用文件验证的方式。</strong></p>
+<p>证书服务商为了确定你的身份，会让你在网站根目录<code>wwwroot</code>设立一个txt文件，要求在外网可以访问到这个txt文件。当你设置好后，自我检测在<code>www.example.com/xxxx.txt</code>可以请求到相应的文本，检测所有权便成功。</p>
+<h3 id="云服务商DV证书申请"><a href="#云服务商DV证书申请" class="headerlink" title="云服务商DV证书申请"></a>云服务商DV证书申请</h3><p>在阿里云-控制台-找到<code>SSL证书（应用安全）</code>，选择左边的<code>证书资源包</code>，购买免费的证书资源包（<code>免费证书扩容包</code>）20个。</p>
+<img src="..\images\2021021801.png" alt="免费证书扩容包申请" style="zoom:55%;">
+
+<p>购买完毕后，证书资源包处会显示当前证书总数20，我们开始右侧的证书申请：</p>
+<img src="..\images\2021021802.png" style="zoom:50%;">
+
+<p>并选择消耗一次：</p>
+<img src="..\images\2021021803.png" alt="消耗一次证书申请" style="zoom:55%;">
+
+<p>提交后，我们便发现控制台有一个未完成的证书申请请求，我们点击“证书申请”，会看到以下界面：</p>
+<img src="..\images\2021021805.png" alt="免费证书扩容包申请" style="zoom:50%;">
+
+<p>其中CSR可以填写可以不填写，若填写可以参考<a href="https://help.aliyun.com/knowledge_detail/42218.html">阿里云的相关文档</a>。</p>
+<p>按照要求完成验证后，证书提供商会在几分钟到几天内准备好证书，其中有Apache、nginx等不同环境所需的证书，按照要求部署即可。另外，如果使用阿里云的高防DDOS、全站加速HTTPS等服务时，可以一键部署，减少麻烦。</p>
+<h3 id="宝塔的Let’s-Encrypt证书申请"><a href="#宝塔的Let’s-Encrypt证书申请" class="headerlink" title="宝塔的Let’s Encrypt证书申请"></a>宝塔的Let’s Encrypt证书申请</h3><p>我们安装好宝塔面板，登录后，点击网站，点击自己要申请证书的网站（记得提前DNS解析到对应服务器，如果还没在宝塔建立网站，可以先建立再点击）</p>
+<img src="..\images\2021021806.png" alt="宝塔面板网站主页" style="zoom:40%;">
+
+<p>我们选择SSL-<code>Let’s Encrypt</code>，按照对应验证方式选择，文件验证可以直接由宝塔完成，而DNS验证需要使用域名提供商的DNS管理接口（不过好处是支持通配符）。证书申请完成后证书会在有效期还剩一个月的时候由宝塔面板自动续期。</p>
+<img src="..\images\2021021808.png" alt="宝塔面板网站主页" style="zoom:50%;">
+
+<h3 id="CertBot的Let’s-Encrypt证书申请"><a href="#CertBot的Let’s-Encrypt证书申请" class="headerlink" title="CertBot的Let’s Encrypt证书申请"></a>CertBot的Let’s Encrypt证书申请</h3><p>CertBot的安装可以参考<a href="https://certbot.eff.org/">官网</a>的说明，不过值得一提的是，国内安装snap出了名的慢，而且snap国内没有镜像站，只能通过代理+ProxyChains的方式进行加速，推荐知乎<a href="https://www.zhihu.com/people/dldg-55">抵拢倒拐</a>的文章<a href="https://zhuanlan.zhihu.com/p/154377608">CentOS7使用Certbot申请Wildcard证书</a>。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1029,6 +1082,13 @@
 </main>
 
 
+    <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        });
+    </script>
+
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
@@ -1060,7 +1120,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">13.4k</span>&nbsp;字
+                            class="white-color">15.8k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -1261,7 +1321,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1613586750945')
+  navigator.serviceWorker.register('/sw.js?t=1613632712115')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

@@ -636,8 +636,7 @@
 <blockquote>
 <p>回源HOST指全站加速节点在回源过程中，在源站访问的站点域名。</p>
 </blockquote>
-<p>还是上面GitHub Pages的例子，我们需要设置HOST为加速域名，<strong>而不是<code>example.github.io</code></strong></p>
-<p>。如果选择<code>example.github.io</code>，GitHub会由于我们配置了CNAME，不给予资源文件，而是让cdn跳转到加速域名，导致无限循环。（参考<a href="HTTPS://blog.csdn.net/jcq521045349/article/details/103736623">blog</a>）</p>
+<p>还是上面GitHub Pages的例子，我们需要设置HOST为加速域名，<strong>而不是<code>example.github.io</code></strong>。如果选择<code>example.github.io</code>，GitHub会由于我们配置了CNAME，不给予资源文件，而是让cdn跳转到加速域名，导致无限循环。（参考<a href="HTTPS://blog.csdn.net/jcq521045349/article/details/103736623">blog</a>）</p>
 <h3 id="配置静态文件类型-文件路径"><a href="#配置静态文件类型-文件路径" class="headerlink" title="配置静态文件类型/文件路径"></a>配置静态文件类型/文件路径</h3><p>这一步决定哪些文件会让cdn进行缓存（没缓存的会回源嘛）。一般我们会配置常见资源类型为图片文档等，我们也可以设置html,css等文件的缓存，而文件路径如果为<code>/</code>则表示网站的全部资源文件均需要进行缓存。</p>
 <p>文件过期时间有几个默认的时间，我们可以按照自己实际情况酌情修改缓存时长。为了避免反复刷新缓存，变化可能比较快的资源建议缓存时长不要太大。</p>
 <h3 id="设置HTTPS"><a href="#设置HTTPS" class="headerlink" title="设置HTTPS"></a>设置HTTPS</h3><p>HTTPS如果开启必然会造成一笔不小的HTTPS请求资源消耗费用，这部分费用甚至会比流量费还要贵一些，但是开启后会比较安全，建议购买资源包后开启。</p>
@@ -1088,7 +1087,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">13.4k</span>&nbsp;字
+                            class="white-color">15.8k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -1289,7 +1288,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1613586750945')
+  navigator.serviceWorker.register('/sw.js?t=1613632712115')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
