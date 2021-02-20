@@ -587,14 +587,14 @@
                 
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4.4k
+                        4.9k
                     </div>
                 
 
                 
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        19 分
+                        22 分
                     </div>
                 
 
@@ -702,7 +702,26 @@
 <li>位移边界$S_u$：$u_i = \overline{u}_i \quad on\ S_u$（$\overline{u}_i$表示给定的位移约束）</li>
 <li>力边界$S_p$：$\sigma_{ij}n_{j}=\overline{p}_i \quad on\ S_p$（$n_j$表示边界一点上外发现的方向余弦，$\overline{p}_i$表示给定的分布力）</li>
 <li>刚度方程：$K^eq^e=F^e$</li>
-<li>分布力的处理</li>
+<li>分布力的处理：<ul>
+<li>长度$L$梁单元<ul>
+<li>中点受到力$P$：$R_A=R_B=-\frac{P}{2}$，$M_A=-\frac{PL}{8}$；</li>
+<li>在距左长度$a$处（距右长度$b=L-a$处）受到力$P$：$R_A=-\frac{Pb^2}{L}\cdot (3a+b)$，$R_B=-\frac{Pa^2}{L}\cdot (a+3b)$，$M_A=-\frac{Pab^2}{L^2}$，$M_B=-\frac{Pa^2b}{L^2}$；</li>
+<li>均布载荷$P_0$：$R_A=R_B=-\frac{p_0L}{2}$，$M_A=-\frac{p_0L^2}{12}$，$M_B=\frac{p_0L^2}{12}$；</li>
+<li>受到直角三角形（$P_A$最小，$P_B$最大）载荷$P_0$：$R_A=-\frac{3p_0L}{20}$，$R_B=-\frac{7p_0L}{20}$，$M_A=-\frac{p_0L^2}{30}$，$M_B=\frac{p_0L^2}{20}$；</li>
+<li>在距左长度为a的部分受到均布载荷$P_0$：$R_A=-\frac{p_0a}{2L^3}\cdot(a^3-2a^2L+2L^3)$，$R_B=-\frac{p_0a^3}{2L^3}\cdot (2L-a)$，$M_A=-\frac{p_0a^2}{12L^2}\cdot (3a^2-8aL+6L^2)$，$M_B=\frac{p_0a^3}{12L^2}\cdot (4L-3a)$；</li>
+<li>受到等腰三角形均布载荷$P_0$：$R_A=R_B=-\frac{p_0L}{4}$，$M_A=-\frac{5p_0L^2}{96}$，$M_B=\frac{5p_0L^2}{96}$；</li>
+<li>在距左长度$a$处（距右长度$b=L-a$处）受到弯矩$M_0$：$R_A=-\frac{6M_0ab}{L^3}$，$R_B=\frac{6M_0ab}{L^3}$，$M_A=-\frac{M_0b}{L^2}(3a-L)$，$M_B=-\frac{M_0a}{L^2}(3b-L)$。</li>
+</ul>
+</li>
+<li>平面3节点三角形单元<ul>
+<li>单元自重：三个节点竖直方向平摊，水平方向无荷载；</li>
+<li>三角形一条边均布侧压（垂直于边）：在12节点垂直收到均布载荷$p_0$，1、2号节点受水平方向载荷$\frac{1}{2}p_0t(y_1-y_2)$，竖直方向载荷$\frac{1}{2}p_0t(x_2-x_1)$；</li>
+<li>三角形一条边x方向均布侧压：边的两端点x方向均摊；</li>
+<li>三角形一条边x方向三角形侧压：受力大的那边占$\frac{2}{3}$，受力小的那边$\frac{1}{4}$。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h2 id="一些经常讨论的情况"><a href="#一些经常讨论的情况" class="headerlink" title="一些经常讨论的情况"></a>一些经常讨论的情况</h2><h3 id="平面应力问题"><a href="#平面应力问题" class="headerlink" title="平面应力问题"></a>平面应力问题</h3><h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4><p>一块很薄的等厚度板（厚度为z轴方向）</p>
 <h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><ul>
@@ -823,7 +842,19 @@
 <li>平面纯弯梁：$v_1,\theta_1,v_2,\theta_2$四个</li>
 <li>一般平面梁（杆+平面纯弯梁）：$u_1,v_1,\theta_1,u_2,v_2,\theta_2$六个</li>
 <li>空间梁单元（三个方向弯曲）：梁的扭转$\theta_{x1},\theta_{x2}$，沿轴向拉伸$u_1,u_2$，xOy平面弯曲$v_1,\theta_{z1},v_2,\theta_{z2}$，xOz平面弯曲$w_1,\theta_{y1},w_2,\theta_{y2}$共12个</li>
-<li></li>
+<li>平面3节点三角形：三个节点每个方向分别的位移$u_1,v_1,u_2,v_2,u_3,v_3$6个</li>
+<li>平面4节点矩形单元：三个节点每个方向分别的位移$u_1,v_1,u_2,v_2,u_3,v_3,u_4,v_4$8个</li>
+<li>轴对称体元：$u_r,w$两个</li>
+<li>3节点三角形环形单元：$u_{r1},w_1,u_{r2},w_2,u_{r3},w_3$6个</li>
+<li>4节点矩形环形单元：$u_{r1},w_1,u_{r2},w_2,u_{r3},w_3,u_{r4},w_4$8个</li>
+</ul>
+<h2 id="放在最后"><a href="#放在最后" class="headerlink" title="放在最后"></a>放在最后</h2><p>感谢彭昊学长对本人学习有限元分析的指导与帮助，希望大家也可以更高效的学会有限元分析。</p>
+<p>另推荐大家看几篇总结：</p>
+<ul>
+<li><p><a href="https://blog.csdn.net/qq_38517015/article/details/104301021">https://blog.csdn.net/qq_38517015/article/details/104301021</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/138457171">https://zhuanlan.zhihu.com/p/138457171</a></p>
+</li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1260,7 +1291,7 @@
             
                 
                     &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;<span
-                            class="white-color">20.1k</span>&nbsp;字
+                            class="white-color">20.7k</span>&nbsp;字
                 
                 
                     <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" alt="icp"/>
@@ -1461,7 +1492,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1613752381107')
+  navigator.serviceWorker.register('/sw.js?t=1613825917482')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
