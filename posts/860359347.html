@@ -4,8 +4,8 @@
 
 <head><link rel=manifest href=/manifest.json>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类: 前后端, 博客 icy 主页">
-    <meta name="description" content="分类: 前后端 | icy的博客">
+    <meta name="keywords" content="GAMES101学习笔记, 博客 icy 主页">
+    <meta name="description" content="图形学yyds">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="white"/>
-    <title>分类: 前后端 | icy的博客</title>
+    <title>GAMES101学习笔记 | icy的博客</title>
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -402,296 +402,636 @@
     </nav>
 
 </header>
-<div class="bg-cover pd-header about-cover">
-    <div class="container">
-        <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    icy的博客
-                
-            </div>
 
-            <div class="description center-align">
-                
-                    <span id="subtitle"></span>
-                    <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
-                    <script>
-                        var typed = new Typed("#subtitle", {
-                            strings: ['gugugu since 2020.01','理路上事,毋惮其难而稍为退步,一退步便远隔千山。'],
-                            startDelay: 300,
-                            typeSpeed: 100,
-                            loop: true,
-                            backSpeed: 50,
-                            showCursor: true
-                        });
-                    </script>
-                
+    <script src="/libs/cryptojs/crypto-js.min.js"></script>
+    <script>
+        (function () {
+            let pwd = '';
+            if (pwd && pwd.length > 0) {
+                if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                    alert('密码错误，将返回主页！');
+                    location.href = '/';
+                }
+            }
+        })();
+    </script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">GAMES101学习笔记</h1>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+        <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                    <span class="chip bg-color">图形学</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                                    <span class="chip bg-color">线性代数</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                        <div class="post-cate">
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                                <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    图形学
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                    <div class="post-date info-break-policy">
+                        <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                        2021-03-18
+                    </div>
+                
+
+                
+                    <div class="post-date info-break-policy">
+                        <i class="fa fa-calendar-check-o fa-fw"></i>更新日期:&nbsp;&nbsp;
+                        2021-03-28
+                    </div>
+                
+
+                
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        535
+                    </div>
+                
+
+                
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        2 分
+                    </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="GAMES101学习笔记"><a href="#GAMES101学习笔记" class="headerlink" title="GAMES101学习笔记"></a>GAMES101学习笔记</h1><h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2><ul>
+<li>scale变换：以坐标原点缩放，即乘对角阵$\begin{bmatrix}x’\\y’\end{bmatrix}=\begin{bmatrix}a&amp;0\\0&amp;b\end{bmatrix}\cdot\begin{bmatrix}x\\y\end{bmatrix}$</li>
+<li>mirror镜像：还是对角阵，只是$a,b$可以为负</li>
+<li>shear切变：将正方形变成平行四边形，若沿着x方向切变，y不变，x的变化量是y的函数<ul>
+<li>$\begin{bmatrix}x’\\y’\end{bmatrix}=\begin{bmatrix}1&amp;a\\0&amp;1\end{bmatrix}\cdot\begin{bmatrix}x\\y\end{bmatrix}$，设偏转角为$\theta$，则$a=\cot(\theta)$。</li>
+</ul>
+</li>
+</ul>
+<img src="C:\Users\i\Documents\GitHub\icy-blue.github.io\source\images\2021031801.png" alt="切变" style="zoom:50%;">
+
+<ul>
+<li>rotate旋转：绕着原点旋转，默认逆时针旋转$\theta$度。<ul>
+<li>$\begin{bmatrix}x’\\y’\end{bmatrix}=\begin{bmatrix}\cos(\theta)&amp;-\sin(\theta)\\\sin(\theta)&amp;\cos(\theta)\end{bmatrix}\cdot\begin{bmatrix}x\\y\end{bmatrix}$</li>
+</ul>
+</li>
+</ul>
+<p>以上的变换，均是可以表示为$\begin{bmatrix}x’\y’\end{bmatrix}=M\cdot\begin{bmatrix}x\y\end{bmatrix}$，即$x’=ax+by,y’=cx+dy$，没有另外加一个常数。</p>
+<hr>
+<p>下面的变换无法用$\begin{bmatrix}x’\y’\end{bmatrix}=M\cdot\begin{bmatrix}x\y\end{bmatrix}$即$x’=ax+by,y’=cx+dy$表示，需要使用一个 3个元素的矩阵表示一个点$P=\begin{bmatrix}x&amp;y&amp;1\end{bmatrix}^T$，向量$v=\begin{bmatrix}x&amp;y&amp;0\end{bmatrix}^T$。</p>
+<ul>
+<li>向量与点的运算规则：<ul>
+<li>向量之间运算——结果仍为向量</li>
+<li>点与向量运算——结果仍为点</li>
+<li>点与点相加——结果要通过除以$w$，使得$w=1$，求得的是两个点的中点</li>
+</ul>
+</li>
+<li>transition平移：$\begin{bmatrix}x’\y’\w’\end{bmatrix}=\begin{bmatrix}1&amp;0&amp;t_x\0&amp;1&amp;t_y\0&amp;0&amp;1\end{bmatrix}\cdot\begin{bmatrix}x\y\1\end{bmatrix}$</li>
+</ul>
+<hr>
+<ul>
+<li><p>绕着指定点进行旋转：先通过平移，将问题规约成按照原点旋转，转完之后再移动回去</p>
+</li>
+<li><p>结合线性变换与平移$\begin{bmatrix}x’\y’\w’\end{bmatrix}=\begin{bmatrix}a&amp;b&amp;t_x\c&amp;d&amp;t_y\0&amp;0&amp;1\end{bmatrix}\cdot\begin{bmatrix}x\y\1\end{bmatrix}$，顺序是先进行线性变换（仿射变换）再进行平移</p>
+</li>
+<li></li>
+</ul>
+<hr>
+<p>咕了</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                    <span class="chip bg-color">图形学</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                                    <span class="chip bg-color">线性代数</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share"
+                     style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'c1042e2423e3015058a2',
+        clientSecret: 'f5ffe9127961bed8b02f52ad7122a39648e6a9bf',
+        repo: 'icy-blue.github.io',
+        owner: 'icy-blue',
+        admin: '["icy-blue"]',
+        id: 'posts/860359347.html',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+            <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+                <div class="article-badge left-badge text-color">
+                    <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+                </div>
+                <div class="card">
+                    <a href="/posts/860359347.html">
+                        <div class="card-image">
+                            
+                                
+                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="GAMES101学习笔记">
+                            
+                            <span class="card-title">GAMES101学习笔记</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                图形学yyds
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                        <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    图形学
+                                </a>
+                                    
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                        <div class="card-action article-tags">
+                            
+                                <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                    <span class="chip bg-color">图形学</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                                    <span class="chip bg-color">线性代数</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        
+        
+            <div class="article col s12 m6" data-aos="fade-up">
+                <div class="article-badge right-badge text-color">
+                    下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                </div>
+                <div class="card">
+                    <a href="/posts/3116496963.html">
+                        <div class="card-image">
+                            
+                                
+                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="聊聊证书">
+                            
+                            <span class="card-title">聊聊证书</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                聊聊证书
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                    
+                                        <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    前后端
+                                </a>
+                                    
+                                
+                            </span>
+                        </div>
+                    </div>
+                    
+                        <div class="card-action article-tags">
+                            
+                                <a href="/tags/SSL/">
+                                    <span class="chip bg-color">SSL</span>
+                                </a>
+                            
+                                <a href="/tags/HTTPS/">
+                                    <span class="chip bg-color">HTTPS</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%81%E4%B9%A6/">
+                                    <span class="chip bg-color">证书</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BD%91%E7%AB%99/">
+                                    <span class="chip bg-color">网站</span>
+                                </a>
+                            
+                                <a href="/tags/CA/">
+                                    <span class="chip bg-color">CA</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        
+    </div>
+</article>
 </div>
 
 
     <script>
-        // 每天切换 banner 图.  Switch banner image every day.
-        $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
+        $('#articleContent').on('copy', function (e) {
+            // IE8 or earlier browser is 'undefined'
+            if (typeof window.getSelection === 'undefined') return;
+
+            var selection = window.getSelection();
+            // if the selection is short let's not annoy our users.
+            if (('' + selection).length < Number.parseInt('20')) {
+                return;
+            }
+
+            // create a div outside of the visible area and fill it with the selected text.
+            var bodyElement = document.getElementsByTagName('body')[0];
+            var newdiv = document.createElement('div');
+            newdiv.style.position = 'absolute';
+            newdiv.style.left = '-99999px';
+            bodyElement.appendChild(newdiv);
+            newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+            // we need a <pre> tag workaround.
+            // otherwise the text inside "pre" loses all the line breaks!
+            if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+                newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+            }
+
+            var url = document.location.href;
+            newdiv.innerHTML += '<br />'
+                + '来源: icy的博客<br />'
+                + '文章作者: icy<br />'
+                + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+                + '本文章著作权归作者icy所有，任何形式的转载都请注明出处。';
+
+            selection.selectAllChildren(newdiv);
+            window.setTimeout(function () {
+                bodyElement.removeChild(newdiv);
+            }, 200);
+        });
     </script>
 
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+    <script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+    <script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+<!-- 代码块折行 -->
+
+    <style type="text/css">
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+    </style>
+
     </div>
-</div>
-
-<main class="content">
-
-    
-
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
-            </div>
-            <div class="tag-chips">
-                
-                    
-                        
-                        <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" title="前后端: 3">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                          style="background-color: #F9EBEA;">前后端
-                        <span class="tag-length">3</span>
-                    </span>
-                        </a>
-                    
-                        
-                        <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" title="图形学: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                          style="background-color: #F5EEF8;">图形学
-                        <span class="tag-length">1</span>
-                    </span>
-                        </a>
-                    
-                        
-                        <a href="/categories/%E6%9C%89%E9%99%90%E5%85%83%E5%88%86%E6%9E%90/" title="有限元分析: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                          style="background-color: #D5F5E3;">有限元分析
-                        <span class="tag-length">1</span>
-                    </span>
-                        </a>
-                    
-                        
-                        <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" title="云计算: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                          style="background-color: #E8F8F5;">云计算
-                        <span class="tag-length">1</span>
-                    </span>
-                        </a>
-                    
-                
-            </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
+<!-- TOC 悬浮按钮. -->
+
+    <div id="floating-toc-btn" class="hide-on-med-and-down">
+        <a class="btn-floating btn-large bg-color">
+            <i class="fa fa-list"></i>
+        </a>
+    </div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换 TOC 目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-                <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                    <div class="card">
-                        <a href="/posts/3116496963.html">
-                            <div class="card-image tag-image">
-                                
-                                    
-                                    <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="聊聊证书">
-                                
-                                <span class="card-title">聊聊证书</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    聊聊证书
-                                
-                            </div>
-                            <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-17
-                            </span>
-                                <span class="publish-author">
-                                    
-                                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                        
-                                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    前后端
-                                </a>
-                                        
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/SSL/">
-                                        <span class="chip bg-color">SSL</span>
-                                    </a>
-                                
-                                    <a href="/tags/HTTPS/">
-                                        <span class="chip bg-color">HTTPS</span>
-                                    </a>
-                                
-                                    <a href="/tags/%E8%AF%81%E4%B9%A6/">
-                                        <span class="chip bg-color">证书</span>
-                                    </a>
-                                
-                                    <a href="/tags/%E7%BD%91%E7%AB%99/">
-                                        <span class="chip bg-color">网站</span>
-                                    </a>
-                                
-                                    <a href="/tags/CA/">
-                                        <span class="chip bg-color">CA</span>
-                                    </a>
-                                
-                            </div>
-                        
-                    </div>
-                </div>
-            
-                <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                    <div class="card">
-                        <a href="/posts/146781432.html">
-                            <div class="card-image tag-image">
-                                
-                                    
-                                    <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="CDN是什么可以吃吗">
-                                
-                                <span class="card-title">CDN是什么可以吃吗</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    CDN是什么可以吃吗
-                                
-                            </div>
-                            <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-16
-                            </span>
-                                <span class="publish-author">
-                                    
-                                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                        
-                                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    前后端
-                                </a>
-                                        
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/CDN/">
-                                        <span class="chip bg-color">CDN</span>
-                                    </a>
-                                
-                                    <a href="/tags/SSL/">
-                                        <span class="chip bg-color">SSL</span>
-                                    </a>
-                                
-                                    <a href="/tags/HTTPS/">
-                                        <span class="chip bg-color">HTTPS</span>
-                                    </a>
-                                
-                                    <a href="/tags/%E8%AF%81%E4%B9%A6/">
-                                        <span class="chip bg-color">证书</span>
-                                    </a>
-                                
-                                    <a href="/tags/%E7%BD%91%E7%AB%99/">
-                                        <span class="chip bg-color">网站</span>
-                                    </a>
-                                
-                            </div>
-                        
-                    </div>
-                </div>
-            
-                <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                    <div class="card">
-                        <a href="/posts/2754913500.html">
-                            <div class="card-image tag-image">
-                                
-                                    
-                                    <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="好看的瀑布信息流">
-                                
-                                <span class="card-title">好看的瀑布信息流</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    好看的瀑布信息流
-                                
-                            </div>
-                            <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-01-27
-                            </span>
-                                <span class="publish-author">
-                                    
-                                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                        
-                                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    前后端
-                                </a>
-                                        
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                            <div class="card-action article-tags">
-                                
-                                    <a href="/tags/Masonry/">
-                                        <span class="chip bg-color">Masonry</span>
-                                    </a>
-                                
-                                    <a href="/tags/jQuery/">
-                                        <span class="chip bg-color">jQuery</span>
-                                    </a>
-                                
-                                    <a href="/tags/Packery/">
-                                        <span class="chip bg-color">Packery</span>
-                                    </a>
-                                
-                                    <a href="/tags/%E7%80%91%E5%B8%83%E6%B5%81/">
-                                        <span class="chip bg-color">瀑布流</span>
-                                    </a>
-                                
-                                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
-                                        <span class="chip bg-color">前端</span>
-                                    </a>
-                                
-                            </div>
-                        
-                    </div>
-                </div>
-            
-        </div>
-    </article>
 </main>
 
+
+    <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+        });
+    </script>
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
