@@ -613,7 +613,7 @@
 </ul>
 </li>
 </ul>
-<img src="C:\Users\i\Documents\GitHub\icy-blue.github.io\source\images\2021031801.png" alt="切变" style="zoom:50%;">
+<img src="..\images\2021031801.png" alt="切变" style="zoom:50%;">
 
 <ul>
 <li>rotate旋转：绕着原点旋转，默认逆时针旋转$\theta$度。<ul>
@@ -621,9 +621,9 @@
 </ul>
 </li>
 </ul>
-<p>以上的变换，均是可以表示为$\begin{bmatrix}x’\y’\end{bmatrix}=M\cdot\begin{bmatrix}x\y\end{bmatrix}$，即$x’=ax+by,y’=cx+dy$，没有另外加一个常数。</p>
+<p>以上的变换，均是可以表示为$\begin{bmatrix}x’\\y’\end{bmatrix}=M\cdot\begin{bmatrix}x\\y\end{bmatrix}$，即$x’=ax+by,y’=cx+dy$，没有另外加一个常数。</p>
 <hr>
-<p>下面的变换无法用$\begin{bmatrix}x’\y’\end{bmatrix}=M\cdot\begin{bmatrix}x\y\end{bmatrix}$即$x’=ax+by,y’=cx+dy$表示，需要使用一个 3个元素的矩阵表示一个点$P=\begin{bmatrix}x&amp;y&amp;1\end{bmatrix}^T$，向量$v=\begin{bmatrix}x&amp;y&amp;0\end{bmatrix}^T$。</p>
+<p>下面的变换无法用$\begin{bmatrix}x’\\y’\end{bmatrix}=M\cdot\begin{bmatrix}x\\y\end{bmatrix}$即$x’=ax+by,y’=cx+dy$表示，需要使用一个 3个元素的矩阵表示一个点$P=\begin{bmatrix}x&amp;y&amp;1\end{bmatrix}^T$，向量$v=\begin{bmatrix}x&amp;y&amp;0\end{bmatrix}^T$。</p>
 <ul>
 <li>向量与点的运算规则：<ul>
 <li>向量之间运算——结果仍为向量</li>
@@ -631,13 +631,13 @@
 <li>点与点相加——结果要通过除以$w$，使得$w=1$，求得的是两个点的中点</li>
 </ul>
 </li>
-<li>transition平移：$\begin{bmatrix}x’\y’\w’\end{bmatrix}=\begin{bmatrix}1&amp;0&amp;t_x\0&amp;1&amp;t_y\0&amp;0&amp;1\end{bmatrix}\cdot\begin{bmatrix}x\y\1\end{bmatrix}$</li>
+<li>transition平移：$\begin{bmatrix}x’\\y’\\w’\end{bmatrix}=\begin{bmatrix}1&amp;0&amp;t_x\\0&amp;1&amp;t_y\\0&amp;0&amp;1\end{bmatrix}\cdot\begin{bmatrix}x\\y\\1\end{bmatrix}$</li>
 </ul>
 <hr>
 <ul>
 <li><p>绕着指定点进行旋转：先通过平移，将问题规约成按照原点旋转，转完之后再移动回去</p>
 </li>
-<li><p>结合线性变换与平移$\begin{bmatrix}x’\y’\w’\end{bmatrix}=\begin{bmatrix}a&amp;b&amp;t_x\c&amp;d&amp;t_y\0&amp;0&amp;1\end{bmatrix}\cdot\begin{bmatrix}x\y\1\end{bmatrix}$，顺序是先进行线性变换（仿射变换）再进行平移</p>
+<li><p>结合线性变换与平移$\begin{bmatrix}x’\\y’\\w’\end{bmatrix}=\begin{bmatrix}a&amp;b&amp;t_x\\c&amp;d&amp;t_y\\0&amp;0&amp;1\end{bmatrix}\cdot\begin{bmatrix}x\\y\\1\end{bmatrix}$，顺序是先进行线性变换（仿射变换）再进行平移</p>
 </li>
 <li></li>
 </ul>
@@ -1265,7 +1265,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1616863546377')
+  navigator.serviceWorker.register('/sw.js?t=1618048731229')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
