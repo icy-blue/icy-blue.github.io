@@ -639,95 +639,6 @@
                 </div>
                 <article id="friends-link">
                     
-                        
-                        <div class="row tags-posts friend-all">
-                            
-                                
-                                <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                                    <div class="card frind-card1">
-                                        <div class="frind-ship">
-                                            <div class="title">
-                                                <img src="/images/avatar/teafrogsf.jpg" alt="img">
-                                                <div>
-                                                    <h1 class="friend-name">teafrogsf</h1>
-                                                    <p style="position: relative;top: -35px;">茶蛙！</p>
-                                                </div>
-                                            </div>
-                                            <div class="friend-button">
-                                                <a href="https://cnblogs.com/teafrogsf" target="_blank"
-                                                   class="button button-glow button-rounded button-caution">
-                                                    博客
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                
-                                <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                                    <div class="card frind-card2">
-                                        <div class="frind-ship">
-                                            <div class="title">
-                                                <img src="/images/avatar/ceba.jpg" alt="img">
-                                                <div>
-                                                    <h1 class="friend-name">Ceba</h1>
-                                                    <p style="position: relative;top: -35px;">在这广阔的天空里，追寻梦想吧</p>
-                                                </div>
-                                            </div>
-                                            <div class="friend-button">
-                                                <a href="https://ceba.tech/" target="_blank"
-                                                   class="button button-glow button-rounded button-caution">
-                                                    主页
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                
-                                <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                                    <div class="card frind-card3">
-                                        <div class="frind-ship">
-                                            <div class="title">
-                                                <img src="/images/avatar/mxiao.jpg" alt="img">
-                                                <div>
-                                                    <h1 class="friend-name">M晓</h1>
-                                                    <p style="position: relative;top: -35px;">咕了</p>
-                                                </div>
-                                            </div>
-                                            <div class="friend-button">
-                                                <a href="https://blog.msfakatsuki.com/" target="_blank"
-                                                   class="button button-glow button-rounded button-caution">
-                                                    博客
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                
-                                <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                                    <div class="card frind-card4">
-                                        <div class="frind-ship">
-                                            <div class="title">
-                                                <img src="/images/avatar/ks.jpg" alt="img">
-                                                <div>
-                                                    <h1 class="friend-name">KS</h1>
-                                                    <p style="position: relative;top: -35px;">coding | algorithm | life</p>
-                                                </div>
-                                            </div>
-                                            <div class="friend-button">
-                                                <a href="https://ksmeow.moe/" target="_blank"
-                                                   class="button button-glow button-rounded button-caution">
-                                                    博客
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                        </div>
-                    
                 </article>
             </div>
         </div>
@@ -814,6 +725,8 @@
 
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+<script src="https://unpkg.com/draggabilly@2/dist/draggabilly.pkgd.min.js"></script>
 
 <!-- 代码语言 -->
 
@@ -839,8 +752,12 @@
 
 <script>
     $(function () {
-        $('#friends-link').masonry({
-            itemSelector: '.friend-div'
+        $('#friends-link').packery({
+            itemSelector: '.friend-div',
+            isAnimated: true
+        }).find('.friend-div').each(function(i, gridItem) {
+            let draggie = new Draggabilly(gridItem); 
+            $grid.packery('bindDraggabillyEvents', draggie);
         });
     });
 </script>
@@ -1076,7 +993,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1618671208235')
+  navigator.serviceWorker.register('/sw.js?t=1618672607016')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
