@@ -644,7 +644,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card6">
+                                    <div class="card frind-card3">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/teafrogsf.jpg" alt="img">
@@ -665,7 +665,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card3">
+                                    <div class="card frind-card8">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/mxiao.jpg" alt="img">
@@ -686,7 +686,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card10">
+                                    <div class="card frind-card3">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/ks.jpg" alt="img">
@@ -707,7 +707,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card4">
+                                    <div class="card frind-card9">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/mgt.jpg" alt="img">
@@ -728,7 +728,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card6">
+                                    <div class="card frind-card5">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/furyton.jpg" alt="img">
@@ -749,7 +749,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card3">
+                                    <div class="card frind-card5">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/kvrmnks.jpg" alt="img">
@@ -770,7 +770,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card3">
+                                    <div class="card frind-card9">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/llh721113.jpg" alt="img">
@@ -791,7 +791,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card4">
+                                    <div class="card frind-card5">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/dhrs.jpg" alt="img">
@@ -812,7 +812,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card10">
+                                    <div class="card frind-card9">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/etaoinwu.jpg" alt="img">
@@ -833,7 +833,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card6">
+                                    <div class="card frind-card9">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/antileaf.png" alt="img">
@@ -854,7 +854,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card4">
+                                    <div class="card frind-card5">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/kamigen.jpg" alt="img">
@@ -875,7 +875,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card8">
+                                    <div class="card frind-card7">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/ceba.jpg" alt="img">
@@ -917,7 +917,7 @@
                             
                                 
                                 <div class="col s12 m6 l4 friend-div">
-                                    <div class="card frind-card7">
+                                    <div class="card frind-card9">
                                         <div class="frind-ship">
                                             <div class="title">
                                                 <img src="/images/avatar/zjrua.jpg" alt="img">
@@ -1050,15 +1050,19 @@
 
 
 <script>
+    let sUserAgent = navigator.userAgent.toLowerCase();
     $(function () {
         let $grid = $('#friends-link').packery({
             itemSelector: '.friend-div',
             isAnimated: false
         })
-        $grid.find('.friend-div').each(function(i, gridItem) {
-            let draggie = new Draggabilly(gridItem); 
-            $grid.packery('bindDraggabillyEvents', draggie);
-        });
+        if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent) === false
+            || window.innerWidth >= 1000) {
+            $grid.find('.friend-div').each(function(i, gridItem) {
+                let draggie = new Draggabilly(gridItem); 
+                $grid.packery('bindDraggabillyEvents', draggie);
+            });           
+        }
     });
 </script>
 <footer class="page-footer bg-color">
@@ -1293,7 +1297,7 @@
 
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1618724612026')
+  navigator.serviceWorker.register('/sw.js?t=1618726594243')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
