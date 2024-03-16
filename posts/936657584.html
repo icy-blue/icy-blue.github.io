@@ -1,0 +1,1427 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="有限元分析及应用学习笔记, 博客 icy 主页">
+    <meta name="description" content="SDU-IRC 微结构组学习报告">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FXBDF3VDLG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-FXBDF3VDLG');
+</script>
+
+    <title>有限元分析及应用学习笔记 | 蓝冰小站</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="蓝冰小站" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">蓝冰小站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">蓝冰小站</div>
+        <div class="logo-desc">
+            
+            icy的个人主页
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/icy-blue/icy-blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/icy-blue/icy-blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">有限元分析及应用学习笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%9C%89%E9%99%90%E5%85%83/">
+                                <span class="chip bg-color">有限元</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BE%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">微结构</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BB%93%E6%9E%84%E5%8A%9B%E5%AD%A6/">
+                                <span class="chip bg-color">结构力学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%89%E9%99%90%E5%85%83%E5%88%86%E6%9E%90/" class="post-category">
+                                有限元分析
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-01-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="有限元分析及应用学习笔记"><a href="#有限元分析及应用学习笔记" class="headerlink" title="有限元分析及应用学习笔记"></a>有限元分析及应用学习笔记</h1><h2 id="到底什么是有限元，有限元到底有什么用"><a href="#到底什么是有限元，有限元到底有什么用" class="headerlink" title="到底什么是有限元，有限元到底有什么用"></a>到底什么是有限元，有限元到底有什么用</h2><p>有限元分析讲的其实上不全是有限元分析，前面用了很大的篇幅讲述了材料力学的内容，而有限元只是处理相关问题的一个方法，即化大为小，将复杂的东西进行标准的、参数化的几何划分，来进行单元研究，最后进行集合组装得到我们整体物体的性质分析。</p>
+<p>有限元分析通过针对复杂几何域进行分片，然后对于对象的材料，我们一般简化材料的行为，对于变形体材料有以下基本假设：</p>
+<ul>
+<li>连续性：无空隙，可以采用连续函数描述</li>
+<li>均匀性：物质的特征不随位置变化</li>
+<li>各向同性：物质特征与方向性无关</li>
+<li>线性弹性：变形与外力作用的关系是线性的，使得描述材料性质的方程是线性的</li>
+<li>小变形：变形远小于物体的几何尺寸，可以忽略二阶及以上的高阶小量</li>
+</ul>
+<h2 id="基本名词释义"><a href="#基本名词释义" class="headerlink" title="基本名词释义"></a>基本名词释义</h2><h3 id="常见研究单元"><a href="#常见研究单元" class="headerlink" title="常见研究单元"></a>常见研究单元</h3><ul>
+<li>杆：杆只能承受轴向的拉压力，只有一个方向的受力以及变形；</li>
+<li>平面纯弯梁：只有弯曲形变,不受轴向伸缩形变的梁，一般来说会考虑弯曲的转角以及挠度；</li>
+<li>一般梁：包含杆单元和平面纯弯梁的特性，会考虑转角、挠度和轴向变化</li>
+<li>平面三角形、矩形等平面单元及四面体、正六面体单元等空间单元</li>
+</ul>
+<h3 id="常见物理量及符号"><a href="#常见物理量及符号" class="headerlink" title="常见物理量及符号"></a>常见物理量及符号</h3><ul>
+<li>位移（挠度） $u$</li>
+<li>应力：$\sigma_{xx}=\frac{F}{A}$ 表示 x 方向的正应力（$A$表示横截面积）；$\tau_{xy}$表示力的作用面的法向量方向是 y 坐标轴方向，力的方向为 x 坐标轴方向的剪应力（剪力）</li>
+<li>应变：正应变$\epsilon_{xx}=\frac{u}{L}$，剪应变$\gamma_{xy}=\alpha+\beta=\frac{\partial{u}}{\partial{y}}+\frac{\partial{v}}{\partial{x}}$</li>
+<li>弹性模量：$E=\frac{\sigma}{\epsilon}$</li>
+<li>载荷：节点承载的负荷（力）</li>
+<li>支反力：在被固定的点，用于维持点被固定住所施加的外力</li>
+<li>刚度$K$，满足$Kq=F$（$q$为每个节点位移的列向量，$F$为每个节点力的列向量）</li>
+<li>泊松比$\mu$：材料在单向受拉或受压时，横向正应变$\epsilon_{y}$与轴向正应变$\epsilon_x$的绝对值的比值的相反数$\mu=-\frac{\epsilon_y}{\epsilon_x}$</li>
+<li>均布力$\overline{P}$：在外表面上均匀分布的外力</li>
+<li>算子$L$：拉普拉斯算子，对位移求二阶导</li>
+<li>残差函数$\Re$、形状函数矩阵$N$、几何矩阵$B$、应力矩阵$S$</li>
+</ul>
+<h3 id="三大类变量三大类方程"><a href="#三大类变量三大类方程" class="headerlink" title="三大类变量三大类方程"></a>三大类变量三大类方程</h3><ul>
+<li>三大类变量：位移、应力、应变。其中应力与应变可以由位移表示。</li>
+<li>三大类方程：平衡方程、几何方程、物理方程</li>
+<li>其实我们在用的时候，也会用到两类边界条件：位移边界、力边界</li>
+</ul>
+<h2 id="处理数据的方法"><a href="#处理数据的方法" class="headerlink" title="处理数据的方法"></a>处理数据的方法</h2><h3 id="微分方程求解的方法"><a href="#微分方程求解的方法" class="headerlink" title="微分方程求解的方法"></a>微分方程求解的方法</h3><ul>
+<li>解析法：对于简单的微分方程常用，但是对于比较复杂的方程难以适用。</li>
+<li>差分法：对整体进行分段，用差商来代替微分，对每段列差分方程，得到线性方程组，就可以得到解在每段的近似值</li>
+<li>试函数方法：设置一个带着参数，且满足边界条件的试函数（$R(x)$），通过让残差函数在试函数的限定区域内的累计最小（$\int_{area} \phi(x)R(x)dx=0$），解得试函数的参数。<ul>
+<li>试函数的精度取决于试函数设置的形式，如果这个形式包括解析解，则可以求出解析解；但是如果不包括，只能在试函数设置形式这个范围内，获得一个最优解。</li>
+<li>试函数不一定非要是在全域上讨论，可以对全域进行分段，每一段用不同的试函数。但是这样的坏处在于这样的一系列试函数在高阶导数上不连续（在后面我们要至少保证二阶导数连续）</li>
+</ul>
+</li>
+</ul>
+<h3 id="坐标变换的方法"><a href="#坐标变换的方法" class="headerlink" title="坐标变换的方法"></a>坐标变换的方法</h3><p>$T^e$是坐标变换矩阵，以平面的杆单元（坐标位移$\begin{bmatrix} \overline{u}_1 &amp;   \overline{v}_1   &amp;  \overline{u}_2   &amp;   \overline{v}_2\end{bmatrix}$）为例，$T^e=$$$\begin{bmatrix} \cos{\alpha} &amp; \sin{\alpha} &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; \cos{\alpha} &amp; \sin{\alpha}\end{bmatrix}$$，我们对位移进行坐标变换$q^e=T^e\cdot q^e$，并带入原刚度方程$K^eq^e=F^e$，并在等式两边同时左乘$T^{Et}$,得到方程$T^{eT}K^e(T^eq^e)=T^{eT}F^e$，并简记为$\overline{K}^e\cdot \overline{q}^e = \overline{F}^e$。此时的新刚度矩阵的大小对应着新坐标系位移的个数，即为$4\times4$。</p>
+<h3 id="指标记法"><a href="#指标记法" class="headerlink" title="指标记法"></a>指标记法</h3><ul>
+<li>自由指标：在每一项（加减号中间的那部分）中只出现一次的下标叫做自由指标，可以自由变化。</li>
+<li>哑指标：意味着求和（爱因斯坦求和约定）</li>
+</ul>
+<p>$$a_{ij}x_j=b_i \Leftrightarrow \sum_{j=1}^3 a_{ij}x_j=b_i \Leftrightarrow \begin{cases}{}<br> a_{11}x_1 + a_{12}x_2 + a_{13}x_3 = b_1  \\<br> a_{21}x_1 + a_{22}x_2 + a_{23}x_3 = b_2  \\<br> a_{31}x_1 + a_{32}x_2 + a_{33}x_3 = b_3<br>\end{cases} $$</p>
+<h3 id="Voigt-标记"><a href="#Voigt-标记" class="headerlink" title="Voigt 标记"></a>Voigt 标记</h3><p>将高阶自有指标的张量写成低阶张量形式的过程叫做 Voigt 标记，规则叫做 Voigt 规则（<del>这个规则好神奇百度谷歌都查不到</del>）。</p>
+<p>用途：优化存储，减少对称矩阵的对称部分，降低矩阵大小</p>
+<p>方法简述：从$a_{11}$开始，先沿着矩阵对角线向右下方移动，走到$a_{nn}$后，按逆时针顺序向上写（再向上，走到头再向左，再右下循环）。</p>
+<p>方法举例：$\sigma_{ij}=\begin{bmatrix} \sigma_{11} &amp;  \sigma_{12} &amp;  \sigma_{13} \\  \sigma_{21} &amp;  \sigma_{22} &amp;  \sigma_{23} \\  \sigma_{31} &amp;  \sigma_{32} &amp;  \sigma_{33} \end{bmatrix}$，可以得到一维 Voigt 矩阵$\sigma_p=\begin{bmatrix}\sigma_{11} \\ \sigma_{22} \\ \sigma_{33} \\ \sigma_{23} \\ \sigma_{13} \\ \sigma_{12} \end{bmatrix}$</p>
+<h3 id="试函数法求解变形体力学方程"><a href="#试函数法求解变形体力学方程" class="headerlink" title="试函数法求解变形体力学方程"></a>试函数法求解变形体力学方程</h3><p>讲到的试函数法有加权残值法、虚功原理法、最小势能原理法、变分方法。</p>
+<p>我们要设置满足边界条件的解，带入原控制方程，处理误差求得待定系数。</p>
+<h4 id="试函数法的要点"><a href="#试函数法的要点" class="headerlink" title="试函数法的要点"></a>试函数法的要点</h4><p>将一组满足所有边界条件试函数（基底函数）$\phi_i(x)$的线性组合$$\hat{v}(x)=c_1\phi_1(x)+c_2\phi_2(x)+\cdots+c_n\phi_n(x)$$（$c_i$为待定系数）代回边界条件$\begin{cases}{}BC(u):g_u(\hat{v}(x)=0\quad on\ S_u \\ BC(p):g_p(\hat{v}(x))=0\quad on\ S_p\end{cases}$，并通过指标处理残值函数$\Re(x)=L(\hat{v}(x))+\overline{b}\neq0$。</p>
+<h4 id="Galerkin-加权残值法"><a href="#Galerkin-加权残值法" class="headerlink" title="Galerkin 加权残值法"></a>Galerkin 加权残值法</h4><p>Galerkin 加权残值法将试函数取的基底函数作为权重，对残值函数$\Re(x,y,z)$进行加权（几个参数用几个基底函数，每次加权用一个，然后把 n 个积分=0 联立起来），在整个域中积分。</p>
+<p>$$\int_\Omega w_{t_i}\Re(\mathrm{x,y,z})\mathrm{d}\Omega=0,\quad w_{t_i}=\phi_i$$</p>
+<h4 id="残值最小二乘法"><a href="#残值最小二乘法" class="headerlink" title="残值最小二乘法"></a>残值最小二乘法</h4><p>残值最小二乘法调整待定系数使得残值平方和积分最小（一般此时积分许多参数都与积分微元无关，所以类似于幂函数的积分）。我们求得$E_{rr}$后，分别对 n 个参数求偏导$\frac{\partial{E_{rr}}}{\partial{c_i}}=0,\quad i=1,2\cdots N$来求得参数。</p>
+<p>$$\underset{c_1,c_2,\cdots,c_n}{min}\left[E_n=\int_\Omega w_t\Re^2(\mathrm{x,y,z})\mathrm{d}\Omega\right], w_t=1$$</p>
+<h4 id="配点法"><a href="#配点法" class="headerlink" title="配点法"></a>配点法</h4><p>相当于简单强迫余量在域内的 N 个点上为 0（一般 n 个参数取 n 个点），准不准的就看造化了。</p>
+<p>$$\int\Re(x_i,y_i,z_i)\mathrm{d}\Omega=0\quad i=1,2\cdots N$$</p>
+<h3 id="降低试函数高阶导数及边界条件要求"><a href="#降低试函数高阶导数及边界条件要求" class="headerlink" title="降低试函数高阶导数及边界条件要求"></a>降低试函数高阶导数及边界条件要求</h3><p>将应力应变均用位移表达后，可以得到基于位移的控制方程（平衡方程）</p>
+<p>$$\begin{cases}{}<br>\frac{E}{1-\mu^2}\left(\frac{\partial^2{u}}{\partial{x^2}}+\frac{1-\mu}{2}\frac{\partial^2{u}}{\partial{y^2}}+\frac{1+\mu}{2}\frac{\partial^2{v}}{\partial{x}\partial{v}}\right)+\overline{b}_x=0\\<br>\frac{E}{1-\mu^2}\left(\frac{\partial^2{v}}{\partial{y^2}}+\frac{1-\mu}{2}\frac{\partial^2{v}}{\partial{x^2}}+\frac{1+\mu}{2}\frac{\partial^2{u}}{\partial{x}\partial{v}}\right)+\overline{b}_y=0<br>\end{cases}$$</p>
+<p>以及基于位移的力边界</p>
+<p>$$\begin{cases}{}<br>\frac{E}{1-\mu^2}\left[n_x(\frac{\partial{u}}{\partial{x}}+\mu\frac{\partial{v}}{\partial{y}}+n_y(\frac{1-\mu}{2})(\frac{\partial{u}}{\partial{y}}+\frac{\partial{v}}{\partial{x}})\right]=\overline{p}_x\\<br>\frac{E}{1-\mu^2}\left[n_y(\frac{\partial{v}}{\partial{y}}+\mu\frac{\partial{u}}{\partial{x}}+n_x(\frac{1-\mu}{2})(\frac{\partial{v}}{\partial{x}}+\frac{\partial{vu}}{\partial{y}})\right]=\overline{p}_y<br>\end{cases}$$</p>
+<p>知对导数要求可以降低到一半。</p>
+<h4 id="虚功原理与最小势能原理"><a href="#虚功原理与最小势能原理" class="headerlink" title="虚功原理与最小势能原理"></a>虚功原理与最小势能原理</h4><p>虚功原理：$\delta U=\delta W$，即$\int_\Omega \sigma_{ij}\cdot\delta\epsilon_{ij}\cdot \mathrm{d}\Omega=\int_\Omega\overline{b}_i\delta u_i\mathrm{d}\Omega+\int_{S_p}\overline{p}_i\delta u_i\mathrm{d}A$，其中虚位移$\delta c_i$具有任意性，不恒为零，与其相乘为 0 则另一个恒为零。</p>
+<p>最小势能原理：总势能$\prod(\hat{v}(x))=U-W=\frac{1}{2}\int_{\Omega}\sigma_x\epsilon_x\mathrm{d}\Omega-\left(\int_\Omega\overline{b}_i\delta u_i\mathrm{d}\Omega+\int_{S_p}\overline{p}_i\delta u_i\mathrm{d}A\right)$，然后分别对参数求导=0，可以解得参数$c_i$。</p>
+<p>虚功原理与最小势能原理等价，都需要全域的试函数$BC(u)$和低阶导数要求。最小势能原理与加权残值法在经过分部积分处理后是等价的。</p>
+<h3 id="有限元方法"><a href="#有限元方法" class="headerlink" title="有限元方法"></a>有限元方法</h3><ul>
+<li>几何域的离散化：将复杂的几何域切分为参数化、标准化、规范化的单元，方便对这些单元一一研究。</li>
+<li><strong>单元研究</strong>：通过每个单元的能量原理、虚功原理、最小势能原理等研究单元，得到$K^eq^e=P^e$</li>
+<li>单元的集成装配：部分坐标系与整体坐标系的转换，尤其是旋转的变换。</li>
+<li>处理位移边界条件：讲力$P$拆为已知的外力$\overline{P}_F$和未知的支反力$P_R$，将位移拆为未知的节点位移$q_u$和已知的节点位移$\overline{q}_k$，可以得到矩阵等式$\begin{bmatrix}K_1 &amp; K_2 \\K_3 &amp; K_4\end{bmatrix}\begin{bmatrix}q_u\\ \overline{q}_k \end{bmatrix}=\begin{bmatrix}\overline{P}_F \\ P_R\end{bmatrix}$</li>
+<li>计算支反力等物理量：通过上一步，的方程$\begin{cases}K_1q_u+K_2\overline{q}_k=\overline{P}_F\\ K_3q_u+K_4\overline{q}_k=P_R\end{cases}$，求未知节点位移$q_u=K_1^{-1}(\overline{P}_F-K_2\overline{q}_k)$，与支反力$P_R=K_3q_u+K_4\overline{q}_k=K_3K_1^{-1}(\overline{P}_F-K_2\overline{q}_k)+K_4\overline{q}_k$，通过几何方程物理方程可以求得其他物理量。</li>
+</ul>
+<h2 id="重要的定理公式"><a href="#重要的定理公式" class="headerlink" title="重要的定理公式"></a>重要的定理公式</h2><ul>
+<li>剪应力互等定理$\tau_{xy}=\tau_{yx}$，由力矩平衡导出</li>
+<li>平面问题平衡方程 $\sigma_{ij,j}+\overline{b}_i=0 \Leftrightarrow \begin{cases}{} \frac{\partial{\sigma_{xx}}}{\partial{x}}+ \frac{\partial{\sigma_{xy}}}{\partial{y}}+\overline{b}_x=0 \\   \frac{\partial{\sigma_{yy}}}{\partial{y}}+ \frac{\partial{\sigma_{xy}}}{\partial{x}}+\overline{b}_y=0 \end{cases}$，其中指标形式的逗号表示对逗号后面的指标值求偏导</li>
+<li>平面问题几何方程：相对伸长量（应变）$\epsilon_{xx}=\frac{\partial{u}}{\partial{x}}$、$\epsilon_{yy}=\frac{\partial{v}}{\partial{y}}$，剪应变$\gamma_{xy}=\frac{\partial{u}}{\partial{y}}+\frac{\partial{v}}{\partial{x}}$。<ul>
+<li>使用中常记为$\epsilon_{ij}=\frac{1}{2}\left(u_{i,j}+u_{j,i}\right)$，逗号表示同上，而且在$i\neq j$时，$\epsilon_{ij} = \frac{1}{2}\gamma_{ij}$（据弹幕说这是爱因斯坦的记法，这个奇怪的记法就这么流传下来了）</li>
+<li>位移分量$u,v$可以唯一确定三个应变分量$\epsilon_{xx},\epsilon_{yy},\gamma_{xy}$，但是应变不能唯一确定位移分量，需要满足变形协调条件$\frac{\partial^2{\epsilon_{xx}}}{\partial{y^2}}+\frac{\partial^2{\epsilon_{yy}}}{\partial{x^2}}=\frac{\partial^2{\gamma_{xy}}}{\partial{x}\partial{y}}$。其代表着材料变形的时候不撕裂、不重叠。</li>
+</ul>
+</li>
+<li>平面问题物理方程：根据泊松效应，一个方向的正应变不仅与该方向的应力有关，还受到其他方向应力的影响。<ul>
+<li>方程表述$\begin{cases}{}<br>\epsilon_{xx}=\frac{1}{E}\left(\sigma_{xx}-\mu\sigma_{yy}\right) \\<br>\epsilon_{yy}=\frac{1}{E}\left(\sigma_{yy}-\mu\sigma_{xx}\right) \\<br>\gamma_{xy}=\frac{1}{G}\tau_{xy}<br>\end{cases}$，其中$G = \frac{E}{2\left(1+\mu\right)}$。</li>
+<li>也常用其逆形式$\begin{cases}{}<br>\sigma_{xx}=\frac{E}{1-\mu^2}\left(\epsilon_{xx}+\mu\epsilon_{yy}<br>\right) \\<br>\sigma_{yy}=\frac{E}{1-\mu^2}\left(\epsilon_{yy}+\mu\epsilon_{xx}<br>\right) \\ \tau_{xy}=G\gamma_{xy}<br>\end{cases}$。</li>
+<li>按照指标规则和 Voigt 规则，可以将指标降阶，得到物理方程的矩阵形式$\begin{bmatrix}\sigma_{xx} \\ \sigma_{yy} \\ \tau_{xy}\end{bmatrix} = \begin{bmatrix}<br>\frac{E}{1-\mu^2} &amp; \frac{E\mu}{1-\mu^2} &amp; 0 \\<br>\frac{E\mu}{1-\mu^2} &amp; \frac{E}{1-\mu^2} &amp; 0 \\<br>0 &amp; 0 &amp; G \<br>\end{bmatrix} \cdot \begin{bmatrix} \epsilon_{xx} \\ \epsilon_{yy}  \\ \gamma_{xy}\end{bmatrix}$</li>
+</ul>
+</li>
+<li>位移边界$S_u$：$u_i = \overline{u}_i \quad on\ S_u$（$\overline{u}_i$表示给定的位移约束）</li>
+<li>力边界$S_p$：$\sigma_{ij}n_{j}=\overline{p}_i \quad on\ S_p$（$n_j$表示边界一点上外发现的方向余弦，$\overline{p}_i$表示给定的分布力）</li>
+<li>刚度方程：$K^eq^e=F^e$</li>
+<li>分布力的处理：<ul>
+<li>长度$L$梁单元<ul>
+<li>中点受到力$P$：$R_A=R_B=-\frac{P}{2}$，$M_A=-\frac{PL}{8}$；</li>
+<li>在距左长度$a$处（距右长度$b=L-a$处）受到力$P$：$R_A=-\frac{Pb^2}{L}\cdot (3a+b)$，$R_B=-\frac{Pa^2}{L}\cdot (a+3b)$，$M_A=-\frac{Pab^2}{L^2}$，$M_B=-\frac{Pa^2b}{L^2}$；</li>
+<li>均布载荷$P_0$：$R_A=R_B=-\frac{p_0L}{2}$，$M_A=-\frac{p_0L^2}{12}$，$M_B=\frac{p_0L^2}{12}$；</li>
+<li>受到直角三角形（$P_A$最小，$P_B$最大）载荷$P_0$：$R_A=-\frac{3p_0L}{20}$，$R_B=-\frac{7p_0L}{20}$，$M_A=-\frac{p_0L^2}{30}$，$M_B=\frac{p_0L^2}{20}$；</li>
+<li>在距左长度为 a 的部分受到均布载荷$P_0$：$R_A=-\frac{p_0a}{2L^3}\cdot(a^3-2a^2L+2L^3)$，$R_B=-\frac{p_0a^3}{2L^3}\cdot (2L-a)$，$M_A=-\frac{p_0a^2}{12L^2}\cdot (3a^2-8aL+6L^2)$，$M_B=\frac{p_0a^3}{12L^2}\cdot (4L-3a)$；</li>
+<li>受到等腰三角形均布载荷$P_0$：$R_A=R_B=-\frac{p_0L}{4}$，$M_A=-\frac{5p_0L^2}{96}$，$M_B=\frac{5p_0L^2}{96}$；</li>
+<li>在距左长度$a$处（距右长度$b=L-a$处）受到弯矩$M_0$：$R_A=-\frac{6M_0ab}{L^3}$，$R_B=\frac{6M_0ab}{L^3}$，$M_A=-\frac{M_0b}{L^2}(3a-L)$，$M_B=-\frac{M_0a}{L^2}(3b-L)$。</li>
+</ul>
+</li>
+<li>平面 3 节点三角形单元<ul>
+<li>单元自重：三个节点竖直方向平摊，水平方向无荷载；</li>
+<li>三角形一条边均布侧压（垂直于边）：在 12 节点垂直收到均布载荷$p_0$，1、2 号节点受水平方向载荷$\frac{1}{2}p_0t(y_1-y_2)$，竖直方向载荷$\frac{1}{2}p_0t(x_2-x_1)$；</li>
+<li>三角形一条边 x 方向均布侧压：边的两端点 x 方向均摊；</li>
+<li>三角形一条边 x 方向三角形侧压：受力大的那边占$\frac{2}{3}$，受力小的那边$\frac{1}{4}$。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="一些经常讨论的情况"><a href="#一些经常讨论的情况" class="headerlink" title="一些经常讨论的情况"></a>一些经常讨论的情况</h2><h3 id="平面应力问题"><a href="#平面应力问题" class="headerlink" title="平面应力问题"></a>平面应力问题</h3><h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4><p>一块很薄的等厚度板（厚度为 z 轴方向）</p>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><ul>
+<li><p>$\sigma_{zz}=0, \tau_{xz}=0, \tau_{yz}=0, \gamma_{xz}=0, \gamma_{yz}=0$</p>
+</li>
+<li><p>由物理方程知$\epsilon_{zz}=-\frac{\mu}{E}\left(\sigma_{xx}+\sigma_{yy}\right)\neq0$，但$\sigma_{zz}=0$</p>
+</li>
+</ul>
+<h3 id="平面应变问题"><a href="#平面应变问题" class="headerlink" title="平面应变问题"></a>平面应变问题</h3><h4 id="条件-1"><a href="#条件-1" class="headerlink" title="条件"></a>条件</h4><p>一个无限长的等截面柱体（无限长的是 z 轴方向）</p>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><ul>
+<li>z 轴方向的位移$w(x,y,z)$应变$\epsilon_{zz}$均为 0，与 z 相关的应变$\gamma_{xz},\gamma_{yz}$也为 0</li>
+<li>同样 z 方向的应力$\sigma_{zz}$，与 z 相关的应力$\tau_{yz}, \tau_{xz}$也为 0</li>
+<li>有物理方程知$\sigma_{zz}=\mu\left(\sigma_{xx}+\sigma_{yy}\right) \neq 0$，但$\epsilon_{zz}=0$（与平面应力相反）</li>
+</ul>
+<h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:2px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:2px;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;vertical-align: middle;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align: middle;}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-c3ow" colspan="2">种类</th>
+    <th class="tg-c3ow">平面应力问题</th>
+    <th class="tg-c3ow">平面应变问题</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow" rowspan="6">应力</td>
+    <td class="tg-c3ow">$\sigma_{xx}(x,y,z)$</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\sigma_{yy}(x,y,z)$</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\sigma_{zz}(x,y,z)$</td>
+    <td class="tg-c3ow">$0$</td>
+    <td class="tg-c3ow">$\mu(\sigma_{xx}+\sigma_{yy})$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\tau_{xy}(x,y,z)$</td>
+    <td class="tg-c3ow"></td>
+    <td class="tg-c3ow"></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\tau_{xz}(x,y,z)$</td>
+    <td class="tg-c3ow" colspan="2">$0$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\tau_{yz}(x,y,z)$</td>
+    <td class="tg-c3ow" colspan="2">$0$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow" rowspan="6">应变</td>
+    <td class="tg-c3ow">$\epsilon_{xx}(x,y,z)$</td>
+    <td class="tg-c3ow">$\frac{1}{E}\left(\sigma_{xx}-\mu\sigma_{yy}\right)$</td>
+    <td class="tg-c3ow">$\frac{1-\mu^2}{E}\left[\sigma_{xx}-\left(\frac{\mu}{1-\mu}\right)\sigma_{yy}\right]$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\epsilon_{yy}(x,y,z)$</td>
+    <td class="tg-c3ow">$\frac{1}{E}\left(\sigma_{yy}-\mu\sigma_{xx}\right)$</td>
+    <td class="tg-c3ow">$\frac{1-\mu^2}{E}\left[\sigma_{yy}-\left(\frac{\mu}{1-\mu}\right)\sigma_{xx}\right]$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\epsilon_{zz}(x,y,z)$</td>
+    <td class="tg-c3ow">$-\frac{\mu}{E}\left(\sigma_{xx}+\sigma_{yy}\right)$</td>
+    <td class="tg-c3ow">$0$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\gamma_{xy}(x,y,z)$</td>
+    <td class="tg-c3ow" colspan="2">$\frac{1}{G}\tau_{xy}$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\gamma_{xz}(x,y,z)$</td>
+    <td class="tg-c3ow" colspan="2">$0$</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">$\gamma_{yz}(x,y,z)$</td>
+    <td class="tg-c3ow" colspan="2">$0$</td>
+  </tr>
+</tbody>
+</table>
+
+<figure class="highlight latex"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>{table}[]</span><br><span class="line"><span class="keyword">\begin</span>{tabular}{|c|c|c|c|}</span><br><span class="line"><span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\multicolumn</span>{2}{|c|}{种类}                     <span class="built_in">&amp;</span> 平面应力问题                                               <span class="built_in">&amp;</span> 平面应变问题                                                                                <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\multirow</span>{6}{*}{应力} <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\sigma</span><span class="built_in">_</span>{xx}(x,y,z)<span class="built_in">$</span>   <span class="built_in">&amp;</span>                                                      <span class="built_in">&amp;</span>                                                                                       <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\sigma</span><span class="built_in">_</span>{yy}(x,y,z)<span class="built_in">$</span>   <span class="built_in">&amp;</span>                                                      <span class="built_in">&amp;</span>                                                                                       <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\sigma</span><span class="built_in">_</span>{zz}(x,y,z)<span class="built_in">$</span>   <span class="built_in">&amp;</span> 0                                                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\mu</span>(<span class="keyword">\sigma</span><span class="built_in">_</span>{xx}+<span class="keyword">\sigma</span><span class="built_in">_</span>{yy})<span class="built_in">$</span>                                                        <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\tau</span><span class="built_in">_</span>{xy}(x,y,z)<span class="built_in">$</span>     <span class="built_in">&amp;</span>                                                      <span class="built_in">&amp;</span>                                                                                       <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\tau</span><span class="built_in">_</span>{xz}(x,y,z)<span class="built_in">$</span>     <span class="built_in">&amp;</span> <span class="keyword">\multicolumn</span>{2}{c|}{0}                                                                                                                       <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\tau</span><span class="built_in">_</span>{yz}(x,y,z)<span class="built_in">$</span>     <span class="built_in">&amp;</span> <span class="keyword">\multicolumn</span>{2}{c|}{0}                                                                                                                       <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\multirow</span>{6}{*}{应变} <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\epsilon</span><span class="built_in">_</span>{xx}(x,y,z)<span class="built_in">$</span> <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\frac</span>{1}{E}<span class="keyword">\left</span>(<span class="keyword">\sigma</span><span class="built_in">_</span>{xx}-<span class="keyword">\mu</span><span class="keyword">\sigma</span><span class="built_in">_</span>{yy}<span class="keyword">\right</span>)<span class="built_in">$</span> <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\frac</span>{1-<span class="keyword">\mu</span><span class="built_in">^</span>2}{E}<span class="keyword">\left</span>[<span class="keyword">\sigma</span><span class="built_in">_</span>{xx}-<span class="keyword">\left</span>(<span class="keyword">\frac</span>{<span class="keyword">\mu</span>}{1-<span class="keyword">\mu</span>}<span class="keyword">\right</span>)<span class="keyword">\sigma</span><span class="built_in">_</span>{yy}<span class="keyword">\right</span>]<span class="built_in">$</span> <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\epsilon</span><span class="built_in">_</span>{yy}(x,y,z)<span class="built_in">$</span> <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\frac</span>{1}{E}<span class="keyword">\left</span>(<span class="keyword">\sigma</span><span class="built_in">_</span>{yy}-<span class="keyword">\mu</span><span class="keyword">\sigma</span><span class="built_in">_</span>{xx}<span class="keyword">\right</span>)<span class="built_in">$</span> <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\frac</span>{1-<span class="keyword">\mu</span><span class="built_in">^</span>2}{E}<span class="keyword">\left</span>[<span class="keyword">\sigma</span><span class="built_in">_</span>{yy}-<span class="keyword">\left</span>(<span class="keyword">\frac</span>{<span class="keyword">\mu</span>}{1-<span class="keyword">\mu</span>}<span class="keyword">\right</span>)<span class="keyword">\sigma</span><span class="built_in">_</span>{xx}<span class="keyword">\right</span>]<span class="built_in">$</span> <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\epsilon</span><span class="built_in">_</span>{zz}(x,y,z)<span class="built_in">$</span> <span class="built_in">&amp;</span> <span class="built_in">$</span>-<span class="keyword">\frac</span>{<span class="keyword">\mu</span>}{E}<span class="keyword">\left</span>(<span class="keyword">\sigma</span><span class="built_in">_</span>{xx}+<span class="keyword">\sigma</span><span class="built_in">_</span>{yy}<span class="keyword">\right</span>)<span class="built_in">$</span> <span class="built_in">&amp;</span> 0                                                                                     <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\gamma</span><span class="built_in">_</span>{xy}(x,y,z)<span class="built_in">$</span>   <span class="built_in">&amp;</span> <span class="keyword">\multicolumn</span>{2}{c|}{<span class="built_in">$</span><span class="keyword">\frac</span>{1}{G}<span class="keyword">\tau</span><span class="built_in">_</span>{xy}<span class="built_in">$</span>}                                                                                                  <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\gamma</span><span class="built_in">_</span>{xz}(x,y,z)<span class="built_in">$</span>   <span class="built_in">&amp;</span> <span class="keyword">\multicolumn</span>{2}{c|}{0}                                                                                                                       <span class="keyword">\\</span> <span class="keyword">\cline</span>{2-4} </span><br><span class="line">                    <span class="built_in">&amp;</span> <span class="built_in">$</span><span class="keyword">\gamma</span><span class="built_in">_</span>{yz}(x,y,z)<span class="built_in">$</span>   <span class="built_in">&amp;</span> <span class="keyword">\multicolumn</span>{2}{c|}{0}                                                                                                                       <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>{tabular}</span><br><span class="line"><span class="keyword">\end</span>{table}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="平面刚体位移"><a href="#平面刚体位移" class="headerlink" title="平面刚体位移"></a>平面刚体位移</h3><h4 id="条件-2"><a href="#条件-2" class="headerlink" title="条件"></a>条件</h4><p>物体内不会产生任何应变，即$\epsilon_{xx}=\frac{\partial{u}}{\partial{x}}=0$，$\epsilon_{yy}=\frac{\partial{v}}{\partial{y}}=0$，$\gamma_{xy}=\frac{\partial{v}}{\partial{x}}+\frac{\partial{u}}{\partial{y}}=0$。</p>
+<h4 id="结果-2"><a href="#结果-2" class="headerlink" title="结果"></a>结果</h4><p>$\begin{cases}{}u(x,y)=-\omega_0y+u_0\\v(x,y)=\omega_0x+v_0 \end{cases}$，其中$u_0,v_0,\omega_0$表征平面刚体位移常数，$u_0,v_0$为整个物体在 x,y 方向的刚体平移量，$\omega_0$为整个物体缸体转动的角度。</p>
+<h3 id="简单拉杆问题"><a href="#简单拉杆问题" class="headerlink" title="简单拉杆问题"></a>简单拉杆问题</h3><h4 id="变量与方程"><a href="#变量与方程" class="headerlink" title="变量与方程"></a>变量与方程</h4><ul>
+<li>变量：位移$u(x)$，应力$\sigma_x(x)$，应变$\epsilon_x(x)$；</li>
+<li>方程：平衡方程$\frac{\mathrm{d}\sigma_x}{\mathrm{d}x}=0$；几何方程$\epsilon_x=\frac{\mathrm{d}u}{\mathrm{d}x}$；物理方程$\epsilon_x=\frac{\sigma_x}{E}$;</li>
+<li>边界方程：位移方程$BC(u)$：$u(x)|_{x=0}=0$；力边界$BC(p)$：$\sigma_x(x)|_{x=l}=\frac{P}{A}=\overline{p}_x$。</li>
+</ul>
+<h4 id="求解结果"><a href="#求解结果" class="headerlink" title="求解结果"></a>求解结果</h4><p>应力$\sigma_x(x)=\frac{P}{A}$；应变$\epsilon_x(x)=\frac{P}{EA}$；位移$u(x)=\frac{P}{EA}x$</p>
+<h3 id="常见单元的自由度"><a href="#常见单元的自由度" class="headerlink" title="常见单元的自由度"></a>常见单元的自由度</h3><ul>
+<li>杆单元：$u_1,u_2$两个</li>
+<li>平面纯弯梁：$v_1,\theta_1,v_2,\theta_2$四个</li>
+<li>一般平面梁（杆+平面纯弯梁）：$u_1,v_1,\theta_1,u_2,v_2,\theta_2$六个</li>
+<li>空间梁单元（三个方向弯曲）：梁的扭转$\theta_{x1},\theta_{x2}$，沿轴向拉伸$u_1,u_2$，xOy 平面弯曲$v_1,\theta_{z1},v_2,\theta_{z2}$，xOz 平面弯曲$w_1,\theta_{y1},w_2,\theta_{y2}$共 12 个</li>
+<li>平面 3 节点三角形：三个节点每个方向分别的位移$u_1,v_1,u_2,v_2,u_3,v_3$6 个</li>
+<li>平面 4 节点矩形单元：三个节点每个方向分别的位移$u_1,v_1,u_2,v_2,u_3,v_3,u_4,v_4$8 个</li>
+<li>轴对称体元：$u_r,w$两个</li>
+<li>3 节点三角形环形单元：$u_{r1},w_1,u_{r2},w_2,u_{r3},w_3$6 个</li>
+<li>4 节点矩形环形单元：$u_{r1},w_1,u_{r2},w_2,u_{r3},w_3,u_{r4},w_4$8 个</li>
+</ul>
+<h2 id="放在最后"><a href="#放在最后" class="headerlink" title="放在最后"></a>放在最后</h2><p>感谢彭昊学长对本人学习有限元分析的指导与帮助，希望大家也可以更高效的学会有限元分析。</p>
+<p>另推荐大家看几篇总结：</p>
+<ul>
+<li><p><a href="https://blog.csdn.net/qq_38517015/article/details/104301021">https://blog.csdn.net/qq_38517015/article/details/104301021</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/138457171">https://zhuanlan.zhihu.com/p/138457171</a></p>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%9C%89%E9%99%90%E5%85%83/">
+                                    <span class="chip bg-color">有限元</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BE%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">微结构</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BB%93%E6%9E%84%E5%8A%9B%E5%AD%A6/">
+                                    <span class="chip bg-color">结构力学</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/146781432.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="CDN 是什么可以吃吗">
+                        
+                        <span class="card-title">CDN 是什么可以吃吗</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CDN 是什么可以吃吗
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    前后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CDN/">
+                        <span class="chip bg-color">CDN</span>
+                    </a>
+                    
+                    <a href="/tags/SSL/">
+                        <span class="chip bg-color">SSL</span>
+                    </a>
+                    
+                    <a href="/tags/HTTPS/">
+                        <span class="chip bg-color">HTTPS</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%81%E4%B9%A6/">
+                        <span class="chip bg-color">证书</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%AB%99/">
+                        <span class="chip bg-color">网站</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/2754913500.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="好看的瀑布信息流">
+                        
+                        <span class="card-title">好看的瀑布信息流</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            好看的瀑布信息流
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    前后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/Masonry/">
+                        <span class="chip bg-color">Masonry</span>
+                    </a>
+                    
+                    <a href="/tags/jQuery/">
+                        <span class="chip bg-color">jQuery</span>
+                    </a>
+                    
+                    <a href="/tags/Packery/">
+                        <span class="chip bg-color">Packery</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%80%91%E5%B8%83%E6%B5%81/">
+                        <span class="chip bg-color">瀑布流</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 蓝冰小站<br />'
+            + '文章作者: icy<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者icy所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number(''),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2024</span>
+            
+            <a href="/about" target="_blank">icy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">68.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "1";
+                        var startDate = "24";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备19043095号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="icy-blue" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:i@icys.top" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=820030440" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 820030440" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="icys-cn" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: icys-cn" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.8'
+        zIndex="-1" count="150"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1382 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="综述报告-浅谈云计算, 博客 icy 主页">
+    <meta name="description" content="2020 年秋季学期-计算机热门课题综述期末报告">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FXBDF3VDLG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-FXBDF3VDLG');
+</script>
+
+    <title>综述报告-浅谈云计算 | 蓝冰小站</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="蓝冰小站" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">蓝冰小站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">蓝冰小站</div>
+        <div class="logo-desc">
+            
+            icy的个人主页
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/icy-blue/icy-blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/icy-blue/icy-blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">综述报告-浅谈云计算</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">
+                                <span class="chip bg-color">云计算</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/">
+                                <span class="chip bg-color">数据中心</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97/">
+                                <span class="chip bg-color">智能计算</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/">
+                                <span class="chip bg-color">云服务</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
+                                云计算
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-01-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    33 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="综述报告-浅谈云计算"><a href="#综述报告-浅谈云计算" class="headerlink" title="综述报告-浅谈云计算"></a>综述报告-浅谈云计算</h1><blockquote>
+<p>本文仅代表作者个人观点，文章内容使用 MIT 许可协议，<a href="../files/%E4%BA%91%E8%AE%A1%E7%AE%97paper.pdf">pdf 版本</a>可能会有更好的观感体验。</p>
+<p>本文用时约五天，共占 ACM 双列模板 11 页（含参考文献，课业要求 10 页），行文仓促，如文中内容错误欢迎<a href="mailto:i@icys.top">联系我</a>，本人不胜感激。</p>
+</blockquote>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>随着越来越多的网络平台选择了云服务商的云计算服务，云计算这个词汇在人们眼前出现的频率不断增加。在科技发展之中当代云计算也有了许多的新面貌，我们可以轻易获取许多高质量的云计算服务，也可以看到现代云计算服务的现状与其在网络平台中的应用。不过，发展中我们也遇到了延迟、低利用、高能耗、高干扰等挑战，目前许多学者正在研究攻克这一个个难题。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>从 19 世纪 40 年代开始，计算机开始诞生，到 80 年代个人计算机变革，再到 2000 年开始的互联网变革，最近几年云计算这个话题也变得异常热门。我们使用的云计算，产生的互联网平台，更好地将过去一些过时的管理方式变到云端管理，负责人员随时随地都可以收到相关的告警信息，从而能够及时联系相关人员排查。以电费缴交为例，从人工抄表，到智能 IC 卡预付费式购电，再到如今物联网时代用手机交电费后自动合闸，极大地方便了我们的生活。</p>
+<p>云计算的核心理念就是通过不断提高“云”的处理能力，进而减少用户终端的处理负担，最终使用户终端简化成一个单纯的输入输出设备，并能按需享受“云”的强大计算处理能力。它的核心思想是将大量用网络连接的计算资源统一管理和调度，构成一个计算资源池向用户按需服务。</p>
+<p>在硬件不断发展，计算速度不断增快的同时，人类对计算能力的需求也是与日俱增。随着信息技术的不断升级，业务种类的增多，各领域需要处理的数据呈现出数据量大<code>Volume</code>、数据生产速度快<code>Velocity</code>、多样性<code>Variety</code>及真实性<code>Veracity</code>的“4V”特点。一般地，具备“4V”特征的数据集都可认为是大数据。 就如我国的 FAST 天文望远镜，在观测高峰期每秒至少要处理 38GB 的大数据，或者在双十一购物节，我们需要快速处理用户抢购商品时的交易数据，为了扛过 19 年的天猫双十一，我们需要承受每秒 54.4 万笔的交易量。与此同时，大数据应用也在快速增长，据 IBM 测算， 2020 年我们的数据规模增大到了 2010 年时期的五十倍。这也是我们需要云服务及计算集群帮助我们处理大规模计算的原因。</p>
+<p>如今我们国家有许多的数据中心和超算中心，它们有超大规模的基础设施，能够进行大规模数据的存储、计算与通信服务，部分闲置的计算存储资源也可以通过自助、弹性的方式租赁给其他用户，在满足用户需求的情况下，按实际需求量与时间进行计费。</p>
+<p>云计算有许多关键的核心技术，如我们所说的虚拟化技术，以及我们在分布式并行计算中用的部分技术等。在搭建互联网平台的时候，Nacos、Redis、消息队列等中间件帮助了用户更快更好地与云服务平台建立连接，容灾备份和服务器快照等保障类服务帮助我们及时恢复数据，以保障服务的正常运行。</p>
+<p>本文将按节讲述云计算的定义及其发展历程、当前云计算的核心模块及其技术、借助山东大学青岛校区数据中心及山东大学计算机科学与技术学院的 SDU-OJ 来展示当代数据中心部署情况以及现代互联网平台对于云计算的使用情况、当前云计算遇到的瓶颈及解决方案，最后本文将简要总结并列出本文的参考文献。</p>
+<h2 id="云计算及其发展历程"><a href="#云计算及其发展历程" class="headerlink" title="云计算及其发展历程"></a>云计算及其发展历程</h2><h3 id="云计算的定义"><a href="#云计算的定义" class="headerlink" title="云计算的定义"></a>云计算的定义</h3><p>云计算起初是一种分布式计算，可以通过网络将任务划分，通过不同的服务器来分布式解决任务，从而加速计算，提高计算的效率。如今云计算还包括云存储、云中间件等各种云服务。</p>
+<p>云计算的目标是允许用户从云计算制造的许多“黑箱”中受益，无需对所使用技术的专业知识都有深入的了解。云计算旨在削减成本，并帮助用户专注于其核心业务，而不受互联网技术的阻碍。</p>
+<p>美国国家标准技术研究院把云计算的定义确定为“五个基本特征”：</p>
+<blockquote>
+<ul>
+<li>按需自助服务：消费者可以根据需要获取云服务商提供的云服务功能，例如利用服务来请求服务器时间以及网络存储模块，而不必与每个服务的云服务商进行人际交互。</li>
+<li>广泛的网络访问：这些功能可以轻易地通过互联网访问，并通过标准机制（API）进行访问（例如 HTTP GET），这些机制可促进不同设备的生产环境（移动电话，平板电脑，笔记本电脑和工作站等）在相同的标准和环境下使用云服务。</li>
+<li>资源池：使用多租户模型，将云服务商的计算资源集中起来，为多个消费者提供服务，并根据消费者需求进行动态扩容或者收缩，做到资源配置的可伸缩。 </li>
+<li>快速弹性：可以弹性配置和释放功能。在用户需要的情况下，通过 API 请求，云服务商将会根据请求管理对应云资源，以便按需快速向外及向内伸缩。对于消费者而言，可用于自己计算的云服务资源通常看起来是无限的，并可以随时申请计算资源。</li>
+<li>实测服务：云服务系统通过在计费模块的抽象级别（如云服务器计费、按容器数量计费、按 CPU 占用计费、按函数调用次数计费等）利用计量功能来自动控制和优化资源使用。可以实时监视，控制及报告当前资源的使用情况，从而为使用者提供更好的服务。</li>
+</ul>
+</blockquote>
+<h3 id="云计算的发展历程"><a href="#云计算的发展历程" class="headerlink" title="云计算的发展历程"></a>云计算的发展历程</h3><p>云的概念和历史可以追溯到 1970 年代虚拟机创建的时期。</p>
+<p>1996 年，在 Compaq Computer 的办公室里，一小群科技高管正在谋划互联网业务的未来，并称之为“云计算”，这是历史上第一次出现“云计算”词汇。</p>
+<p>2006 年 8 月，亚马逊创建了子公司 Amazon Web Services，并推出了其弹性计算云（EC2）。</p>
+<p>2007 年 10 月，Google、IBM 与卡内基美隆大学、麻省理工学院、斯坦福大学、加州大学柏克莱分校及马里兰大学等美国大学合作，开始推广云计算计划。这个计划为这些大学提供相关的软硬件设备的使用权及其技术支持，降低计算资源方面的成本。此时，我们所说的云计算才在真正意义上来到了我们身边，尽管只是初步的。</p>
+<p>2009 年 9 月，阿里巴巴集团在十周年庆典上宣布成立子公司“阿里云”，阿里云将专注云计算领域的研究及研发。自此，我国首家云服务公司诞生。</p>
+<p>2012 年，中国铁路总公司 12306 采用分布式存储与内存缓存技术升级了其购票系统。云计算帮助 12306 购票系统承受了一定的用户抢票请求，从此“抢票难”的事情逐渐淡出了我们的视野。</p>
+<p>如今，云计算已变得异常热门，绝大多数的网络平台都在使用云服务商的服务。此外，GitHub、码云等代码托管平台还免费为用户提供静态站部署服务，方便用户设立其个人主页。</p>
+<h2 id="当前云计算的核心模块及其技术"><a href="#当前云计算的核心模块及其技术" class="headerlink" title="当前云计算的核心模块及其技术"></a>当前云计算的核心模块及其技术</h2><p>现代云服务平台给我们提供了多种多样的云计算服务，这些云服务形成了完整的体系架构。</p>
+<img src="../images/cloud_graphs/structure.png" alt="当代云计算体系架构" style="zoom:50%;">
+
+<h3 id="云服务"><a href="#云服务" class="headerlink" title="云服务"></a>云服务</h3><p>我们可能会见到 XaaS 这样的术语，它是 Everything as a service 的缩写。XaaS 是指完全由客户控制的，高度个性化，响应迅速，由数据驱动的服务和产品。</p>
+<img src="../images/cloud_graphs/xaas.jpg" alt="云服务架构及举例" style="zoom:50%;">
+
+<p>云服务曾分为三种：基础设施即服务 Infrastructure as a Service，平台即服务 Platform as a Service，软件即服务 Software as a Service。如今，云服务的粒度不断变小，现又新增了一种云服务——函数即服务 Function as a Service。</p>
+<h4 id="基础设施即服务-IaaS"><a href="#基础设施即服务-IaaS" class="headerlink" title="基础设施即服务 IaaS"></a>基础设施即服务 IaaS</h4><p>IaaS 与我们传统的计算机硬件的工作方式比较类似，但是 IaaS 的服务是虚拟化的，为我们提供了包括服务器、网络、操作系统及存储在内的云计算基础架构。类似于阿里云、腾讯云等云服务厂商，他们通常会有可视化仪表盘（控制台）或者相关 API 提供给用户，从而这些用户可以对其购买的服务进行管理和使用。</p>
+<img src="../images/cloud_graphs/iaas-aliyun-ecs.png" alt="阿里云虚拟服务器管理控制台" style="zoom:35%;">
+
+<img src="../images/cloud_graphs/iaas-tencent-cvm.png" alt="腾讯云虚拟服务器管理控制台" style="zoom:40%;">
+
+<h4 id="平台即服务-PaaS"><a href="#平台即服务-PaaS" class="headerlink" title="平台即服务 PaaS"></a>平台即服务 PaaS</h4><p>平台即服务 PaaS 服务于用户在平台上搭建的应用程序，为用户的应用程序提供 SDK 等相关云组件支持。PaaS 为开发人员提供了应用程序运行的环境及框架，开发者可以在这个平台框架上面创建自己的程序（类似于 Unity 以及 cocos 游戏引擎、微信小程序等）。以 cocos 游戏引擎为例，我们用 JavaScript 语言编写好游戏的相关代码后，游戏便可一次性适配电脑网页、安卓系统、iOS 系统、微信小程序等不同平台。</p>
+<h4 id="软件即服务-SaaS"><a href="#软件即服务-SaaS" class="headerlink" title="软件即服务 SaaS"></a>软件即服务 SaaS</h4><p>软件即服务 SaaS 即云应用程序服务，是云服务厂商提供最多的云服务类型。SaaS 利用互联网向用户提供由第三方管理的应用程序服务（例如文字处理服务、在线协作服务、云存储服务等）。大多数应用程序不需要下载安装，可以直接通过浏览器使用（如 Dropbox）。</p>
+<h4 id="IaaS、PaaS、SaaS-的区别"><a href="#IaaS、PaaS、SaaS-的区别" class="headerlink" title="IaaS、PaaS、SaaS 的区别"></a>IaaS、PaaS、SaaS 的区别</h4><p>由于软件服务都由云服务商进行管理，SaaS 是其中最难以满足用户定制需求的，也是用户控制权最低的。不过这种服务一般价格相对较低。PaaS 中，用户可以管理自己应用程序与相关数据，其余的如操作系统、中间件等服务由云服务商管理，价格相对较高。IaaS 中，用户可以管理自己云服务上的全部的服务架构，这种方案灵活性最强，但价格最高。</p>
+<p>其他区别如图</p>
+<img src="../images/cloud_graphs/aas.jpg" alt="三种云服务的比较" style="zoom:60%;">
+
+<h4 id="函数即服务-FaaS"><a href="#函数即服务-FaaS" class="headerlink" title="函数即服务 FaaS"></a>函数即服务 FaaS</h4><img src="../images/cloud_graphs/cloud-architectural-evolution.png" alt="过去10年中云服务的变化" style="zoom:60%;">
+
+<p>图中我们可以看到，云服务在过去十年间发展的趋势。最近，函数即服务 FaaS 也愈加热门，它将应用程序细分为多个功能，并通过明确的协议调用这些功能。类似于我们常用的 API，我们可以通过请求来验证人脸是否对比成功，也可以通过请求发送 SMS 短信等。</p>
+<h3 id="容器与虚拟化"><a href="#容器与虚拟化" class="headerlink" title="容器与虚拟化"></a>容器与虚拟化</h3><p>如图，基础设施即服务（IaaS）为用户提供了一种可扩展且十分经济的方式，按用户需要配置及管理虚拟机（Virtual Machines, VM），同时云服务厂商仅按云服务资源实际使用的时间为租赁的云服务资源收费。</p>
+<img src="../images/cloud_graphs/container-constructure.png" alt="容器服务的框架" style="zoom:70%;">
+
+<p>而容器化是一种以轻量级方式的虚拟化技术，与虚拟机不同，容器不是打包整个虚拟机，而是将运行目标软件所需的一切依赖项打包在一起。容器包含用户需要执行的应用程序，程序的依赖项，及操作系统部分模块。这使应用程序几乎可以在任何地方（用户的电脑、手机，其他云服务等）运行。故与虚拟机相比，容器更加轻便，更易于弹性伸缩，也基于此，越来越多的互联网平台更愿意用容器替代过去的虚拟机，以便更好地提供相应的互联网服务。</p>
+<img src="../images/cloud_graphs/vm-vs-container.png" alt="容器服务与虚拟机的比较" style="zoom:70%;">
+
+<p>Docker 是我们目前比较常用的容器之一，它使用了系统级的虚拟化解决方案，在隔离的资源上处理数据，而不同的 Docker 容器之间又不互相干扰。它不仅可以用于控制容器里的进程，还解决了应用程序在不同环境使用的可移植性和应用一致性问题。在“现代云端平台的部署——以山东大学青岛校区计算机科学与技术学院代码评测平台 SDUOJ 为例”中，本文将详细说明 Docker 容器的相关功能。</p>
+<h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><p>如今，许多应用程序都是在云服务环境中开发的。但是，为了使它们具有可伸缩性和弹性，我们需要采用新的设计模式，以便实现用户请求的负载平衡。</p>
+<p>如图所示，消息队列主要由以下几个模块构成：</p>
+<img src="../images/cloud_graphs/queue.png" alt="消息队列的结构" style="zoom:41%;">
+
+<ul>
+<li>生产者与消费者。生产者多为连接用户的前端模块，在用户进行请求时，生产者将用户的请求消息添加至消息队列。消费者则与生产者相对，多为处理请求的云服务器、云容器等云计算资源。由于在不同时间段并发的请求数不同，而消息的处理频率是由处理请求的“消费者”决定，故需要消息队列缓存队列中存储的消息，以便“消费者”依次处理，以免请求丢失。</li>
+<li>虚拟交换机。虚拟交换机可以对生产者所给予的消息进行分发。常见的 exchange 分发类型有 fanout、direct、topic、headers 四种，分别表示“广播”（把消息推送给所有绑定到这个交换机的消费者）、“路由”（通过分发向消费者推送特定类型的消息）、“主题订阅”（把消费者订阅的某几类特定主题的消息分发给对应消费者）、“标签订阅”（与 topic 类型相似）。</li>
+<li>队列管理模块。队列管理模块由队列监控、队列管理、队列规则与规模管理等子模块构成，负责消息的最终管理、推送规则确定、监控队列健康程度、重启部分模块等工作。</li>
+</ul>
+<p>目前的几种消息队列大致都采用了上述模型，并在并发式计算中发挥了较好的效果。</p>
+<h2 id="当代云计算的现状及应用"><a href="#当代云计算的现状及应用" class="headerlink" title="当代云计算的现状及应用"></a>当代云计算的现状及应用</h2><p>从计算机诞生至今，我们的计算机有了许多的变化，云计算也是如此。本节将介绍当代云计算在不同方面的发展情况。接下来将以山东大学的数据中心及与在线代码评测平台（SDUOJ）为例，结合相关技术介绍现代数据中心的设施布局及现代云端平台的服务框架，第三小节将讲述现代云服务商提供云服务的一些管理措施。</p>
+<h3 id="现代数据中心的部署——以山东大学青岛校区数据中心为例"><a href="#现代数据中心的部署——以山东大学青岛校区数据中心为例" class="headerlink" title="现代数据中心的部署——以山东大学青岛校区数据中心为例"></a>现代数据中心的部署——以山东大学青岛校区数据中心为例</h3><p>目前山东大学青岛校区图书馆一层数据中心的一期工程已经建成。作为一个标准的数据中心，其配备了供配电系统、机房精密空调系统、制冷系统、动环监控系统、视频监控系统、门禁和气体消防灭火系统等一系列系统。</p>
+<h4 id="供配电系统"><a href="#供配电系统" class="headerlink" title="供配电系统"></a>供配电系统</h4><p>数据中心的电源均为市电与 UPS 双路电源，可以保证在局部电路故障时，托管服务器仍能正常使用 24 小时以上。数据中心机柜左右两侧分别设置防爆插头，防止短路等意外对上级电路的影响。此外所有插座均有动环监控系统的实时监测，当电压等电气数据与设定值不符，或者累计用电明显异于过去同期，动环监控系统将发出告警，提示工作人员及时关注相关内容。</p>
+<img src="../images/cloud_graphs/sduqd-datacenter-plugs.png" alt="山东大学青岛校区数据中心的防爆插头" style="zoom:30%;">
+
+<p>此外，云服务平台的数据中心除了需要预防上面所述的供电风险，还需要防御通过设备电源管理模块进行的攻击。Hyper Attack 通过数据中心管理服务中受损的电源管理模块，对数据中心进行内部电源攻击和虚拟机管理策略攻击，会使得数据中心的功耗增大 72%。所以，数据中心也应注意维护数据中心的电源管理等模块，以免供电不稳定带来服务中断、数据丢失等后果。</p>
+<h4 id="机房精密空调系统与制冷系统"><a href="#机房精密空调系统与制冷系统" class="headerlink" title="机房精密空调系统与制冷系统"></a>机房精密空调系统与制冷系统</h4><p>由于计算机芯片的工作效率在高温下会显著降低，数据中心需要良好的制冷系统与空调系统。常见的数据中心制冷空气循环模式有以下三种：</p>
+<ul>
+<li>活动地板模式。像山东大学青岛校区数据中心一样，来自机房空调的冷空气从地板下方加压，吹向服务器机房。由于气温高的气体密度低，浮在上层，该系统在机房上方设置热风回收系统。这是数据中心常用的降温系统模式。</li>
+<li>物理屏障隔离模式。2005 年起，一些工程师就开始在考虑这种将热空气冷空气分开的制冷模式。这种模式有许多优点，例如减少冷热对流造成的冷空气损失，使得单位气流带走更多热量，可以容纳更高密度的设备（即增大数据中心面积利用率）。</li>
+<li>经济型冷却模式。当室外温度足够低时，室外的气体可以替代冷却水，带走服务器产生的热量。由于水的蒸发吸收热量，冷空气温度再次降低，可以使得单位冷空气带走更多热量。</li>
+</ul>
+<img src="../images/cloud_graphs/cooling-1.jpeg" alt="传统降温模式（活动地板模式）" style="zoom:30%;">
+
+<img src="../images/cloud_graphs/cooling-2.jpeg" alt="物理屏障隔离模式" style="zoom:30%;">
+
+<img src="../images/cloud_graphs/cooling-3.jpeg" alt="经济型冷却模式" style="zoom:30%;">
+
+<div class="caption"><b class="center-caption">常见的数据中心冷却方式</b></div>
+
+<p>在制冷模式的控制下，数据中心的$PUE$</p>
+<p>$$PUE=\frac{\text{数据中心消耗的电量}}{\text{服务器消耗总电量}}$$ </p>
+<p>显著降低，现代数据中心$PUE$的理想目标值在 1.5 以下，根据 CIO 的标准，新数据中心的$PUE$目标应为 1.4 及以下。$PUE$为 2.0 及以上则表明数据中心需要进行审计（数据中心正在增加成本，却几乎无收益）。</p>
+<h4 id="动环监控系统"><a href="#动环监控系统" class="headerlink" title="动环监控系统"></a>动环监控系统</h4><p>动环监控系统又称动力环境监控系统，是一个集成了多种新兴技术（包括网络通信、数据库技术、传感器技术、物联网 IoT 技术等）的平台。它有助于监控机房的运行环境和设备的运行状态。运行环境状态如房间的温度和湿度状况、配电柜的电气状况、服务器的水浸状况等，而设备的状态包括 UPS、压力系统、空调、安全保护系统（应急照明及防火系统）等设备的运行状态。</p>
+<img src="../images/cloud_graphs/IDEM-data.png" alt="常见动环监控系统模块架构及数据传递示意图" style="zoom:40%;">
+
+<p>现代的动环监控系统主要有数据同步模块、数据分析模块、关联分析模块和可视化模块等模块:</p>
+<ul>
+<li>数据同步模块。数据同步模块用于每个基础的设备数据的采集与同步。传感器按照设定的时间间隔记录相关数据，例如电池电压，冷却器温度等，然后将它们添加到特定的数据库中。这部分的难点主要有两部分，一是各传感器的时钟同步可能存在偏差，二是设备掉线重新上线时数据该如何补录。现代动环监控系统的做法是——根据通常在生产设备时分配的传感器 ID，整合来自同一设备的所有数据，并要求数据库插值存储，以确保动环监控系统始终能记录每个设备的所有测量点。</li>
+<li>数据分析模块利用来自数据同步模块的数据，及其他静态配置参数评估各设备的运行状态，对当前数据中心运行状况进行评分，以及预测未来数据中心的运行状态。</li>
+<li>关联分析模块。关联分析模块分析所有告警日志之间的关联，并为以后的决策提供科学依据。</li>
+<li>可视化模块。可视化模块将数据可视化，并对于不同程度的告警信息向监控人员发出不同程度的告警。</li>
+</ul>
+<h4 id="数据中心消防系统"><a href="#数据中心消防系统" class="headerlink" title="数据中心消防系统"></a>数据中心消防系统</h4><p>由于数据中心的设备发热量大，数据中心设施的防火强度也高于一般建筑。总的来说，数据中心的防火措施分为被动式防火与主动式防火。被动式防火是提升建筑物的抗力与耐久程度，主动式防火则是防止火灾的爆发及烟雾的蔓延。在青岛校区数据中心，每排机柜上方都有消防管道，消防系统内有加压四氯化碳用于灭火。由于消防管道喷洒的四氯化碳会对人体的肺部造成严重的损伤，数据中心房间外有“放气勿入”的标识，当火灾触发报警时，该标识会自动点亮，提醒维护人员尽快撤离。图为数据中心消防系统结构图。</p>
+<img src="../images/cloud_graphs/datacenter-fire.jpg" alt="现代数据中心消防系统结构图" style="zoom:100%;">
+
+<h3 id="现代云端平台的部署——以山东大学青岛校区计算机科学与技术学院代码评测平台-SDUOJ-为例"><a href="#现代云端平台的部署——以山东大学青岛校区计算机科学与技术学院代码评测平台-SDUOJ-为例" class="headerlink" title="现代云端平台的部署——以山东大学青岛校区计算机科学与技术学院代码评测平台 SDUOJ 为例"></a>现代云端平台的部署——以山东大学青岛校区计算机科学与技术学院代码评测平台 SDUOJ 为例</h3><p>OJ 是在线评测系统的简称，是计算机专业人员在线提交代码，即时获取代码正确性反馈的代码评测平台。出题者将题目描述及输入、输出数据上传至 OJ 上，答题者编写相关程序计算答案，将答案送入 OJ 的比较系统进行输出结果的正确性检查，最终 OJ 将检查结果反馈到平台上。</p>
+<p>山东大学的代码评测平台 SDUOJ 是由计算机科学与技术学院学生搭建的代码评测平台，其采用的是现代 OJ 平台面向服务的分布式微服务架构。该平台使用了许多云计算的新技术：</p>
+<h4 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h4><img src="../images/cloud_graphs/sduoj-construct.png" alt="山东大学代码评测平台SDUOJ架构示意图" style="zoom:50%;">
+
+<p>如图中间部分，各微服务之间相互独立，降低了整个系统的耦合程度。每个微服务均可单独进行扩容，相比整体扩容扩容速度较快。这个架构还使用了阿里巴巴的 Nacos 服务配置注册中心，中心将各微服务的全部实例进行注册，以便实现各服务中实例的负载均衡。此外该中心还可以快速配置各微服务，用户可以快速修改中心的部分开关，实现微服务各实例的同步修改。</p>
+<img src="../images/cloud_graphs/SDUOJ-NACOS.png" alt="阿里巴巴的Nacos服务配置注册中心" style="zoom:33%;">
+
+<h4 id="使用消息队列"><a href="#使用消息队列" class="headerlink" title="使用消息队列"></a>使用消息队列</h4><p>每当用户提交代码，服务器将用户按优先级放入对应的消息队列中；在评测机完成当前运行的任务后，会按照优先级顺序依次从各消息队列获取任务消息（如评测代号 RecordID），并通过提交微服务、文件微服务等获取评测所需的输入输出数据，以便进行代码的正确性评测。</p>
+<h4 id="使用-Redis-缓存"><a href="#使用-Redis-缓存" class="headerlink" title="使用 Redis 缓存"></a>使用 Redis 缓存</h4><p>对于用户反复请求的接口，若在相关接口上注解<code>@Cacheable("xxx")</code>，每当用户请求这些接口时，服务框架会先检查相应字段是否在 Redis 上存在缓存，若存在缓存则直接命中，而不去执行接口中的程序及请求数据库。当大量用户同时请求同一网页时，这种技术使得数据库的并发请求数大幅减少，从而减轻数据库的请求压力。</p>
+<h4 id="在-Docker-容器中构建评测机"><a href="#在-Docker-容器中构建评测机" class="headerlink" title="在 Docker 容器中构建评测机"></a>在 Docker 容器中构建评测机</h4><p>使用运行在 Docker 容器的评测机，既能保障并行评测的每个程序互不影响，也可以保证程序运行的环境是相同的（从而可以真实的体现程序的资源占用）。此外 Docker 还提供对于进程的限制性管理，OJ 可以通过这些功能来限制用户提交程序的文件读取权限、网络使用、RAM 占用等，以便保证评测的正确性以及保护评测机的安全。Docker 还具备前文容器部分中所述的快速动态伸缩的功能，当用户评测量骤增的时候，系统可以自动向云服务厂商申请容器的扩容，以便减少用户的等待时间；在用户评测量较少的时候，系统可以向云服务厂商申请销毁闲置的容器，以便节省不必要的开销。</p>
+<h3 id="现代的云服务管理措施"><a href="#现代的云服务管理措施" class="headerlink" title="现代的云服务管理措施"></a>现代的云服务管理措施</h3><p>当前云计算服务提供商有许多提高云服务稳定性的管理措施，来保证用户数据和服务的可靠性。</p>
+<h4 id="容灾备份"><a href="#容灾备份" class="headerlink" title="容灾备份"></a>容灾备份</h4><p>目前越来越多的互联网平台使用云计算服务，甚至很多公司把他们企业的数据也一并放在了云服务器上。不过，电缆中断及自然灾害等意外，将会带给数据中心灭顶之灾。为了保障用户的数据安全，云服务厂商通常都使用容灾备份的方式，在多地备份多份数据，以保证数据的可用性。</p>
+<p>为了满足应用程序的连续性及数据的安全性，灾难恢复系统是一种“分布式计算，集中存储”的结构。根据不同的需求，灾难恢复分为三个层次，分别是数据级灾难恢复，系统级灾难恢复和应用程序级灾难恢复。数据级灾难恢复是最基本的，它可以确保应用程序数据的安全性；系统级灾难恢复对应用服务器的操作系统有着进一步的要求，以便尽可能缩短灾难恢复的时间。系统级灾难恢复要求实时，以至于用户无法感觉到发生的灾难。</p>
+<img src="../images/cloud_graphs/cloud-failure.png" alt="容灾备份系统结构示意图" style="zoom:80%;">
+
+<p>我们常见的容灾机制是异地多备份，如支付宝的数据和服务是三地五中心备份，但是多地备份会花费大量的资金，于是 Manish Pokharel、Seulki Lee、Jong Sou Park 等人设计了一个使用马尔科夫链的地理冗余方法。有别于传统的异地备份，这个方法不需要使用额外的物理架构，减少了人力物力成本。</p>
+<p>此外，为了避免单服务器因负载过大产生的崩溃，Microsoft、清华科技及其他学者提出了他们对于云服务器的调度模型及灾备处理模型。</p>
+<h4 id="DDoS-攻击与防护"><a href="#DDoS-攻击与防护" class="headerlink" title="DDoS 攻击与防护"></a>DDoS 攻击与防护</h4><p>出于勒索或者同行竞争等目的，互联网平台使用的服务器容易遭受不法侵害，其中比较常见的攻击方式是 DDoS 攻击。DDoS 全称为 Distributed Denial of Service（分布式拒绝服务），攻击者常通过暴力攻击及漏洞攻击等方式使得目标机器无法被正常用户访问，以便达到自己的目的。</p>
+<p>随着用户设备和网络服务的升级更新，DDoS 攻击的规模日益增大，2013 年的 Spamhaus 攻击时便已达到峰值 300Gbps 的流量，而 2016 年 New World Hacking 的攻击更是达到了峰值 602Gbps 的流量。为了有效地防御 DDoS 攻击，我们要对下面三个环节展开防御：</p>
+<ul>
+<li>针对访问源的防御。这种方案通过清洗访问流量，拦截来自于部分 IP 段的 IP，但其他用户仍能够正常使用。</li>
+<li>针对访问目标的防御。该方案通过 IP 的回溯机制，以及分组标记和过滤机制的做法，来筛选出有效的访问请求。</li>
+<li>针对中间路由器的防御。我们通过防火墙或者代理的方式，将可能非正常访问的请求流向其他地方。类似于阿里云的 DDoS 高防服务，隐藏了服务器真实的 IP 地址，清洗无效的请求，将部分流量流向其他服务，以便耗尽攻击方资源（如图）。</li>
+</ul>
+<img src="../images/cloud_graphs/aliyun-ddos.png" alt="阿里云防御DDoS攻击的架构模式" style="zoom:45%;">
+
+<h2 id="云计算遇到的挑战与解决方案"><a href="#云计算遇到的挑战与解决方案" class="headerlink" title="云计算遇到的挑战与解决方案"></a>云计算遇到的挑战与解决方案</h2><p>在云计算飞速发展的今天，云计算也遇到了许多的挑战。许多研究者给出了他们的解决方案，以促进云计算的不断发展。</p>
+<h3 id="云计算的挑战"><a href="#云计算的挑战" class="headerlink" title="云计算的挑战"></a>云计算的挑战</h3><p>当前云计算遇到了许多的挑战，目前最突出的有尾延迟、低利用、高能耗、高干扰等挑战。</p>
+<h4 id="尾延迟"><a href="#尾延迟" class="headerlink" title="尾延迟"></a>尾延迟</h4><p>对于相同的网站，部分用户请求云服务的响应时间较长。这种挑战有两个可能的原因，一方面用户及云服务之间的网络环境不佳，另一方面用户的请求较为复杂，需要服务器请求多个数据库，在数据库应答中个别数据库应答不及时。在谷歌搜索中，对于绝大部分的搜索请求，谷歌都可以在 100 毫秒内给予回应；但是极小部分的请求，回应时长可能会超过 1500 毫秒。</p>
+<h4 id="低利用"><a href="#低利用" class="headerlink" title="低利用"></a>低利用</h4><p>由于网络平台面向用户，网络平台的访问量依用户使用习惯而定，白天访问量高，夜间访问量低，每天呈现一定的周期性。而访问量低的时候，云服务使用率偏低，产生了一定的资源浪费。调查显示，主流云计算的 CPU 占用率低于 30%，盖特纳、麦肯锡调研的 CPU 使用率甚至不到 10%（，这极大地浪费了购置的计算资源。</p>
+<img src="../images/cloud_graphs/CPU-1.jpg" alt="盖特纳、麦肯锡调研CPU使用率" style="zoom:75%;">
+
+<h4 id="高能耗"><a href="#高能耗" class="headerlink" title="高能耗"></a>高能耗</h4><p>云计算产业是一项高耗电的产业。2020 年，我国数据中心共有 28.5 万个，年耗电 1200 亿千瓦时，占全社会用电 2%，已经超过三峡葛洲坝全年发电量的总和。研究显示，晶体管的密集排布会导致 CPU 的单位面积耗电量急剧上升，这使得摩尔定律接近极限。此外，服务器等云服务设备产热量高，制冷设备不得不长期运行，这使得$PUE$难以下降。</p>
+<h4 id="高干扰"><a href="#高干扰" class="headerlink" title="高干扰"></a>高干扰</h4><p>我们在使用操作系统级（容器）及以上层级虚拟化云服务的时候，不同容器（或函数等云服务）共同使用同一台物理机，可能会导致双方占用的资源相互干扰（例如一方突然进行 burst 操作占用总线，会减缓其他程序运行速率）。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="尾部延迟最小化"><a href="#尾部延迟最小化" class="headerlink" title="尾部延迟最小化"></a>尾部延迟最小化</h4><p>Yong Cui 等人提出了尾部延迟最小化（TLM）问题，旨在优化尾部延迟问题，同时满足云 CDN 使用者的成本约束。</p>
+<p>这个团队提出了 TailCutter，这是一种用于云 CDN 的新型工作负载调度框架。如图，TailCutter 包含三个关键组件：Request Scheduler（请求调度），Measurement Agent（度量代理）和 Local Proxy（本地代理）。当用户需要下载时，首先链接到 Local Proxy，Local Proxy 再向 Request Scheduler 查询用户请求应访问哪些 CDN 节点，以及这些 CDN 节点应分别下载哪部分的数据。在 Local Proxy 收到 CDN 和数据片段的一一映射表后，批量发送 HTTP-GET 请求，多线程下载数据。Measurement Agent 一般采用虚拟机存储各节点的带宽信息。当用户请求的时候，Measurement Agent 测量不同节点到用户不同代理的信息，以便用户选择适合的代理下载数据。</p>
+<img src="../images/cloud_graphs/TailCutter.png" alt="TailCutter系统结构示意图" style="zoom:75%;">
+
+<p>最终经过作者的验证，他们的 TailCutter 的调度算法实际运行时间为 0.12 秒，比一般的调度算法更为优秀，且可以使得尾延迟能降低 58.9%。</p>
+<img src="../images/cloud_graphs/Cutter-result2.png" alt="TailCutter调度算法实际运行时间图" style="zoom:50%;">
+
+<img src="../images/cloud_graphs/Cutter-result1.png" alt="TailCutter不同工作负载规模下所有请求访问延迟的累积分布函数" style="zoom:80%;">
+
+<h4 id="标签化冯诺依曼体系结构"><a href="#标签化冯诺依曼体系结构" class="headerlink" title="标签化冯诺依曼体系结构"></a>标签化冯诺依曼体系结构</h4><p>李克秋等教授提出了标签化冯诺依曼体系结构，这种结构对计算机有四个要求：</p>
+<ul>
+<li>细粒度对象：系统内部的每一个请求（例如访存）均增加一个标签；</li>
+<li>关联语义：标签值与上层使用其的虚拟化服务有关；</li>
+<li>携带传播：各个计算机处理层级都全程携带给定的标签；</li>
+<li>软件定义的标签控制逻辑：标签的分配是可以由软件定义和修改的。</li>
+</ul>
+<img src="../images/cloud_graphs/LVNA.png" alt="标签化冯诺依曼体系结构示意图" style="zoom:30%;">
+
+<p>作者在控制逻辑的基础上加入了优先权控制，在 50%的带宽利用率情况下，内存控制器请求排队效率提高到原来的 5.6 倍 ，增快了服务器运行速度。</p>
+<img src="../images/cloud_graphs/lvna-result.png" alt="标签化冯诺依曼体系结构效果图" style="zoom:50%;">
+
+<h4 id="使用云服务的视频实时流"><a href="#使用云服务的视频实时流" class="headerlink" title="使用云服务的视频实时流"></a>使用云服务的视频实时流</h4><p>我们经常发现，当我们看直播的时候，时间总是比发出者慢 10~20 秒，而转换码率则需要更长时间。为了使转换码率的直播推流更快的到达用户手中，作者提出了一种基于云的体系结构，该体系结构促进了实时视频流的转码，并提出一种调度方法使得延迟满足我们的预期。</p>
+<img src="../images/cloud_graphs/VLSC.png" alt="视频实时流结构示意图" style="zoom:90%;">
+
+<p>作者的体系结构分为六部分：视频分配器、时间估计器、任务调度程序、码率转换虚拟机、虚拟集群管理器，以及视频合并器。视频分配器负责将实时上传的数据流切分成视频段，并打上处理 deadline（如果处理时间已经晚于 deadline 则表示这个视频段无使用价值，应直接丢弃）；时间估计器根据局部性原理，用其相邻的一些视频段的转码时间估计当前视频段转码时间；任务调度程序负责将视频段推送给空闲的码率转换虚拟机进行分布式计算；虚拟机群管理器根据用户实际收到的转码后视频的质量，动态调整虚拟机的数量；视频合并器负责最终转码后视频段的合并与处理。</p>
+<p>作者在调度时尝试了三种不同的调度方式：先到先服务 （FCFS），最短工作优先 （SJF）和最短截止日期优先（SDF），从图来看，最短工作优先的任务调度效率更好。</p>
+<img src="../images/cloud_graphs/vlsc-1.png" alt="平均启动延时" style="zoom:100%;">
+
+<img src="../images/cloud_graphs/VLSC-2.png" alt="平均丢包率" style="zoom:100%;">
+
+<img src="../images/cloud_graphs/vlsc-1.png" alt="平均资源消耗" style="zoom:100%;">
+
+<div class="caption"><b class="center-caption">作者的不同调度方式下码率转换性能比较</b></div>
+
+<h4 id="面向数据中心网络的链路故障实时检测即服务"><a href="#面向数据中心网络的链路故障实时检测即服务" class="headerlink" title="面向数据中心网络的链路故障实时检测即服务"></a>面向数据中心网络的链路故障实时检测即服务</h4><p>上文指出尾延时的可能原因之一是用户的请求较为复杂，需要服务器请求多个数据库，在数据库应答中个别数据库应答不及时。为了解决这一问题，作者设计的服务架构，使得链路故障检测控制器与 SDN 控制器协同，以便实时检测云端的链路故障。</p>
+<p>另一个作者，设计了检测设备间延时的 PingMesh 网络，检测数据中心网络的链路故障。</p>
+<img src="../images/cloud_graphs/PingMesh.png" alt="PingMesh架构图" style="zoom:25%;">
+
+<h3 id="对云计算未来的展望"><a href="#对云计算未来的展望" class="headerlink" title="对云计算未来的展望"></a>对云计算未来的展望</h3><p>目前云计算已经深入到了互联网平台的方方面面，随着 IoT 器件与物联网的发展，云计算要处理的数据量将更加庞大，云计算产业发展仍有较大的前景。2020 年云栖大会上，阿里云发布工业大脑 3.0，通过可视化建模和云计算，虚拟仿真工业上的实验，这样的智慧工业使得物理产线与虚拟产线无缝衔接。此后，工业与云计算的联系也会更加密切，云计算带给各行业的福利也会越来越多。在人工智能不断发展的 21 世纪里，我们可以通过云计算得到更好的智能方案，从繁杂的数据当中获取更有用的信息为我们服务。</p>
+<img src="../images/cloud_graphs/aliyun-3.0.png" alt="阿里云工业大脑3.0结构图" style="zoom:23%;">
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文通过对于云计算定义、发展历程的说明，阐述了云计算的基本内容与基本情况，并介绍了云计算当中比较热门的几个云计算服务及其原理。此外，本文通过山东大学青岛校区数据中心、山东大学计算机科学与技术学院代码评测平台来介绍了现代云计算的应用及技术点，也介绍了现代云服务管理当中必备的容灾系统及 DDoS 防御系统的原理。最后本文介绍了云计算目前遇到的挑战与困境，并针对这些困境介绍了部分学术前沿论文对于攻克挑战实现的架构及其效果。</p>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>感谢山东大学计算机科学与技术学院聂礼强教授为本文的编写提供指导，感谢天津大学李克秋老师带来的关于现代云计算的挑战及解决的介绍，感谢山东大学泰山学堂计算机取向的同学们为本文的编写提供帮助和支持。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">
+                                    <span class="chip bg-color">云计算</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/">
+                                    <span class="chip bg-color">数据中心</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97/">
+                                    <span class="chip bg-color">智能计算</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/">
+                                    <span class="chip bg-color">云服务</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/2754913500.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="好看的瀑布信息流">
+                        
+                        <span class="card-title">好看的瀑布信息流</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            好看的瀑布信息流
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    前后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/Masonry/">
+                        <span class="chip bg-color">Masonry</span>
+                    </a>
+                    
+                    <a href="/tags/jQuery/">
+                        <span class="chip bg-color">jQuery</span>
+                    </a>
+                    
+                    <a href="/tags/Packery/">
+                        <span class="chip bg-color">Packery</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%80%91%E5%B8%83%E6%B5%81/">
+                        <span class="chip bg-color">瀑布流</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/3450077458.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="综述报告-浅谈云计算">
+                        
+                        <span class="card-title">综述报告-浅谈云计算</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            2020 年秋季学期-计算机热门课题综述期末报告
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/" class="post-category">
+                                    云计算
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/">
+                        <span class="chip bg-color">云计算</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83/">
+                        <span class="chip bg-color">数据中心</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97/">
+                        <span class="chip bg-color">智能计算</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/">
+                        <span class="chip bg-color">云服务</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 蓝冰小站<br />'
+            + '文章作者: icy<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者icy所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number(''),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2024</span>
+            
+            <a href="/about" target="_blank">icy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">68.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "1";
+                        var startDate = "24";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备19043095号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="icy-blue" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:i@icys.top" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=820030440" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 820030440" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="icys-cn" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: icys-cn" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.8'
+        zIndex="-1" count="150"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1283 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Neural Marching Cubes——基于 ResNet 的 Marching Cubes 算法, 博客 icy 主页">
+    <meta name="description" content="基于 ResNet 的 Marching Cubes 算法">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FXBDF3VDLG"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-FXBDF3VDLG');
+</script>
+
+    <title>Neural Marching Cubes——基于 ResNet 的 Marching Cubes 算法 | 蓝冰小站</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.1.1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="蓝冰小站" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">蓝冰小站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">蓝冰小站</div>
+        <div class="logo-desc">
+            
+            icy的个人主页
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/icy-blue/icy-blog" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/icy-blue/icy-blog" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Neural Marching Cubes——基于 ResNet 的 Marching Cubes 算法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                <span class="chip bg-color">论文</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                <span class="chip bg-color">图形学</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                <span class="chip bg-color">论文阅读</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" class="post-category">
+                                论文阅读
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-04-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-03-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>这是SIGGRAPH Asia 2021 的论文，也是ACM Transaction of Graphics的论文。其实基础的MC算法也是图形学常用底层算法之一，研究研究也挺好的~</p>
+<p>PPT：<a href="https://icys.top/reveal-0406/">https://icys.top/reveal-0406/</a></p>
+<h2 id="起源——Marching-Cubes"><a href="#起源——Marching-Cubes" class="headerlink" title="起源——Marching Cubes"></a>起源——Marching Cubes</h2><p>说到Marching Cubes，朋友给我发了张图，表示这就是Marching Cubes（图片来自于YouTube Code Adventure频道）。</p>
+<p><img src="/../images/NMC/MC.gif" alt="迫真Marching Cubes"></p>
+<p>Marching Cubes （通常缩写为MC）算法是1987年发明的等值面提取算法，也是迄今为止使用最多的提取方法。当时原论文利用原始的三维数据推导内切片的连通性、表面位置和表面梯度，通过分而治之，得到相对高质量的结果。</p>
+<blockquote>
+<p> MC算法把按均匀晶格（Grid）采样的隐式场作为输入，并提取表示场的零等值面的三角形网格（Mesh）。</p>
+</blockquote>
+<p>在图形学中，曲线曲面等的表示，分为显式表达和隐式表达。显式表达就是能写出一个类似于$z=x^2+y$的表达式，其中一个维度作为因变量，其他维度作为自变量，可以写出一个等价的关系，而隐式表达则是类似于$F(x, y, z)=0$的形式。从显式表达到隐式表达是非常简单的（移项就有了）。一些例如球、椭球等曲面就又可以显式表达也可以隐式表达，但是更多的复杂的曲面是很难有其显式表达的，我们就常用一个隐式距离场来进行表达，即对自变量组成的线性空间进行均匀间隔采样，通过三线性插值（在X、Y、Z坐标依次按顺序进行插值）来确定这个隐式表达的面。</p>
+<p>在图形学中，三维物体常用Mesh结构表示，结构将连续的表面离散化，用多个三角面片（有的会用多边形）来表示曲面，这样会造成一定的精度误差。因此各种方法就是在尽可能地向准确值逼近，以更好地还原物体。</p>
+<img src="../images/NMC/MC15.png" alt="15种情况的MC算法" style="zoom: 75%;">
+
+<p>1987年发明的MC算法是最经典的做法，它通过检测一个立方体对应的八个顶点的符号，结合已有的预定义查找表格（在去除对称、旋转等变式后，论文总结出15种情况），确定这个立方体中的Mesh表示。当等值面与立方体边相交，将该边线性插值的点加入最后的顶点集合中。立方体一步一步依次移动（或者说前进March，这也是为什么叫做Marching Cubes），最后得到整个物体的面片结构。</p>
+<img alt="Marching Cubes 动画" src="../images/NMC/MC-1.gif" style="zoom:67%;">
+
+<h2 id="改进——MC33"><a href="#改进——MC33" class="headerlink" title="改进——MC33"></a>改进——MC33</h2><p>基础的MC算法在计算的时候，由于过度的分而治之，导致相邻两个立方体的面片结构不连续，使得生成出的结构带有孔洞（见下左图）。此外，基础的MC算法无法形成管道结构，对于真实物体的还原性有限（下右）。基于此，1995年，Chernyaev发表了MC33论文，对已有的MC算法进行优化，以保证拓扑的正确性。</p>
+<img src="../images/NMC/MC33-1.png" alt="左：孔洞问题；右：管道结构问题" style="zoom: 50%;">
+
+<p>MC33的论文假设每个立方体的顶点不仅限于正负，可以使用三线性插值（按三个方向依次插值）以精确最后得到的结果。这篇论文发现，原来的15种结构中，平面内对角相同的2正2反正方形有两种（一个原象有两个象无法形成映射关系），称其为<code>Ambiguous face</code>，并且在相同立方体排布下仍可能存在多种情况，称其为<code>Internal Ambiguity</code>。</p>
+<img src="../images/NMC/MC33-2.png" alt="左：Ambiguous Face；右：Internal Ambiguity" style="zoom: 50%;">
+
+<p>为了解决上述问题，确保在三线性插值基础上的拓扑正确性，论文细化了分类，将当前状态与相邻立方体结构情况相结合一并考虑，得到了33种立方体，具体结构如下：</p>
+<img src="../images/NMC/MC33-3.png" alt="Marching Cubes 33" style="zoom: 33%;">
+
+<h2 id="主菜——NMC"><a href="#主菜——NMC" class="headerlink" title="主菜——NMC"></a>主菜——NMC</h2><p>在若干年的发展中，MC方法修修补补，但仍没有完全解决一个比较棘手的问题——MC算法对于尖锐边缘的还原性不佳。近期有一些算法可以解决尖锐边缘问题，但是需要额外的输入。</p>
+<p>于是自称加拿大最强的图形学高校SFU<del>（况且称呼它为顺丰大学）</del>的张皓团队，提出了深度学习的MC算法NMC，设计了兼容于传统MC算法的立方体结构表示方法，修改了一部分镶嵌方案（加入了一些隧道的情况），设计数据集并使用有监督的深度学习（基于ResNet网络模型）代替MC33的三线性插值方案，以获得更好的（尤其是可以更好表现边缘锐度的）物体重建效果。</p>
+<img src="../images/NMC/NMC-fig6.png" alt="可能的‘隧道’改变了立方体内的拓扑结构" style="zoom: 20%;">
+
+<h3 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h3><p>除了论文宣称的边缘锐利明显以外，可能有些（审稿）人会问，这个方法为了解决表现锐度边缘问题，那对于比较平滑的表面，效果怎么样呢？论文在补充材料里给出了效果对比（每一列的标签在图片最下方）。</p>
+<img src="../images/NMC/NMC-1.png" alt="在平滑表面的效果" style="zoom: 33%;">
+
+<img src="../images/NMC/NMC-2.png" alt="NMC算法的锐利边缘效果" style="zoom: 33%;">
+
+<img src="../images/NMC/NMC-3.jpg" alt="论文Beamer" style="zoom: 33%;">
+
+<h3 id="表示输出的Mesh结构"><a href="#表示输出的Mesh结构" class="headerlink" title="表示输出的Mesh结构"></a>表示输出的Mesh结构</h3><p>我们很希望深度学习网络输入一个隐式距离场（其实论文还可以输入体素结构），输出一个Mesh，但生成Mesh不太现实，那如何用深度学习网络的输出表示Mesh呢？</p>
+<p>有一个Naive的表达方式，使用One-hot Vector表示每个立方体单元是每种镶嵌情况的概率，这样会使得训练效率非常低，而且不太好表示旋转对称等（否则会让向量的编码更长），不是一个明智的表达方式。</p>
+<p>论文提出了一个新的表达方式，它从二维进行举例，并顺其自然地扩展到三维。对于MC算法的二维情况，论文在正方形中间加入四个自由的点，根据四角点的正负情况，这四个自由点会有1至2个点有效，参与形成的Mesh的顶点连接。此外，论文摒弃了传统的线性插值方法，将四条边上各加上一个有自由度的点（现在一共有$4+4=8$个点）。此时，对于一个正方形的嵌入方案，需要5个布尔值表示分别表示四角的正负情况和对角情况的正负面情况（刚才说一对二无法形成映射，则对于这种情况额外加一个布尔变量进行区分），还需要12个浮点数表示八个点的自由度（四条边上的点各有一个自由度，而正方形内的点各有两个自由度，共有$4\times1+4\times2=12$个自由度）。</p>
+<img src="../images/NMC/NMC-fig2.png" alt="二维正方形的结构表示" style="zoom: 20%;">
+
+<p>由于正方形不是独自存在，相邻正方形共用一边，一个顶点至多被四个正方形共用，故我们在表达时只表达每个正方形左上角顶点，以及上、左两边（最后一行一列加空padding就行了），这样一个正方形需要两个布尔值和10个浮点数进行表达（正方形内的点没有被共用）。</p>
+<p>扩展到三维的时候，与二维同样的，每条边有一个自由度为1的点，每个面有4个自由度为2的点，此外还有体内8个自由度为3的点。此时表示一个立方体需要15个布尔值，分别表示8个顶点正负、6个面朝向（同正方形面朝向、仅在对角相同的情况使用）和一个Tunnel flag（与MC33相同，表示这个格子内是否存在隧道。因为论文仅考虑出现一个隧道的情况，所以只需要一个布尔值），需要84个浮点数，分别表示84个自由度（$12\times1+6\times4\times2+8\times3=84$）。同样地，删节后，需要存储5个布尔值（1个顶点、三个面和隧道标志）和51个浮点数（$3\times1+3\times4\times2+8\times3=51$）。</p>
+<img src="../images/NMC/NMC-fig3.png" alt="三维结构的表示" style="zoom: 33%;">
+
+<p>一个立方体八个顶点的数据已经编码成功，而论文对这样的数据与镶嵌模式进行对应时，也扩充了原有的情况数，在2003年的论文（对MC33进行了一定的修正）基础上，添加了6种管道类的镶嵌方案，被他们称作NMC-lite，而他们基于NMC-lite重新设计的结构叫做NMC。可能有人会好奇，$33+6=39\neq37$，那少的两种情况去哪了呢？这两种在论文中与其他的结构表达合并，故少了两种结构。</p>
+<img src="../images/NMC/NMC-lite.png" alt="NMC-lite结构" style="zoom: 33%;">
+
+<img src="../images/NMC/NMC-37.png" alt="NMC结构" style="zoom: 33%;">
+
+<h3 id="数据集的设计"><a href="#数据集的设计" class="headerlink" title="数据集的设计"></a>数据集的设计</h3><p>由于网络需要输入距离场或体素，输出布尔值和浮点数向量，他们将物体按分辨率切分，对于每一个小立方体，按照以下次序去得到布尔值和浮点数的真实值（Ground Truth）：</p>
+<ul>
+<li>确定拓扑类型（布尔比特）<ul>
+<li>使用$9\times9\times9$的采样，判断各点正负，得到隐式距离场</li>
+<li>通过采样的隐式距离场，判断每个面的顶点的连通性（相邻的采样点符号相同为相连）</li>
+<li>通过检测立方体内部的连通块数量，判断是否有隧道，以及判断是否能表示</li>
+</ul>
+</li>
+<li>立方体与物体求交，获得所有立方体每条边与物体的交点（如果有）</li>
+<li>对物体与立方体表面的交采样，确定所有立方体面片内点的位置</li>
+<li>对物体与立方体的交进行采样，确定所有立方体内8个点（如果需要）的位置</li>
+</ul>
+<img src="../images/NMC/NMC-fig7.jpg" alt="数据集的生成" style="zoom: 20%;">
+
+<h3 id="深度学习网络相关"><a href="#深度学习网络相关" class="headerlink" title="深度学习网络相关"></a>深度学习网络相关</h3><p>其实这篇论文并没有对深度学习网络进行优化，更多的贡献在于架构了几何表达到网络输入输出的结构关系。</p>
+<img src="../images/NMC/NMC-4.jpg" alt="深度学习网络结构" style="zoom: 30%;">
+
+<ul>
+<li>网络：3D ResNet</li>
+<li>Loss函数<ul>
+<li>对于布尔值结果使用BCE（Binary Cross Entropy）</li>
+<li>对于浮点数部分使用MSE（Mean Square Loss）</li>
+<li>如果输入是voxel，为了让结果光滑，在浮点数部分Loss中额外加了光滑性loss（对于Ground Truth中的长度较短的Mesh中的边，计算其在预测模型中的长度。由于镶嵌模式是另一个网络计算，可以保证预测和真实模式相同，使得边是能对应的上的）</li>
+</ul>
+</li>
+<li>由于BCE和MSE的Loss权重不好设置，故用两个网络分别计算布尔值和浮点数</li>
+</ul>
+<img src="../images/NMC/NMC-fig8.jpg" alt="在输入是voxel的情况下开启光滑性loss的对比" style="zoom: 40%;">
+
+<h3 id="效果比对"><a href="#效果比对" class="headerlink" title="效果比对"></a>效果比对</h3><ol>
+<li>论文其实给了许多的客观的评价指标，但是由于过于专业，本文仅从主观判断的角度展示结果。</li>
+<li>MNC的效果在所有分辨率的情况都优于MC33，但是随着分辨率的增长，NMC与MC33的差距会逐渐减小，因为每个立方体的拓扑情况会简化。从图片上来看，NMC的结果与MC33下一个精度的结果接近。</li>
+<li>NMC比MNC-lite效果好一些，但是三角形的数量要翻一番。</li>
+<li>对于噪声的处理：如果把噪声的数据以正常数据的比例放入训练集和测试集，训练得到的模型效果会有明显的改善。</li>
+</ol>
+<img src="../images/NMC/NMC-fig14.jpg" alt="噪声数据验证" style="zoom: 25%;">
+
+<img src="../images/NMC/NMC-fig11.jpg" alt="MC33与NMC的结果对比" style="zoom: 25%;">
+
+<h3 id="缺陷和未来工作"><a href="#缺陷和未来工作" class="headerlink" title="缺陷和未来工作"></a>缺陷和未来工作</h3><ol>
+<li>网络对于旋转是敏感的，因为他们训练的数据集的物体大多与坐标轴对齐，于是他们写的平滑项loss会驱使着向坐标轴对齐。</li>
+</ol>
+<img src="../images/NMC/NMC-5.png" alt="旋转敏感性" style="zoom: 33%;">
+
+<ol start="2">
+<li>对于某些拓扑结构，匹配不到对应的镶嵌模板（主要是分辨率不够，使得拓扑结构复杂或极端）</li>
+</ol>
+<img src="../images/NMC/NMC-6.png" alt="匹配失败的情况" style="zoom: 40%;">
+
+<ol start="3">
+<li>某些匹配不成功的立方体，所计算的结果可能有自交叉。</li>
+</ol>
+<img src="../images/NMC/NMC-7.png" alt="自交叉" style="zoom: 50%;">
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                    <span class="chip bg-color">论文</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                    <span class="chip bg-color">图形学</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                                    <span class="chip bg-color">论文阅读</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/202206200101.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="【数据库实验】实验8解析">
+                        
+                        <span class="card-title">【数据库实验】实验8解析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这个做实验的时候还真没弄明白，现在才懂
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%9E%E9%AA%8C/">
+                        <span class="chip bg-color">实验</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/202203271600.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="【添翼工程】雅思课">
+                        
+                        <span class="card-title">【添翼工程】雅思课</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%9B%85%E6%80%9D/" class="post-category">
+                                    雅思
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                        <span class="chip bg-color">英语</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%9B%85%E6%80%9D/">
+                        <span class="chip bg-color">雅思</span>
+                    </a>
+                    
+                    <a href="/tags/IELTS/">
+                        <span class="chip bg-color">IELTS</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B7%BB%E7%BF%BC%E5%B7%A5%E7%A8%8B/">
+                        <span class="chip bg-color">添翼工程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 蓝冰小站<br />'
+            + '文章作者: icy<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者icy所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number(''),
+            headingSelector: 'h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2024</span>
+            
+            <a href="/about" target="_blank">icy</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">68.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2020";
+                        var startMonth = "1";
+                        var startDate = "24";
+                        var startHour = "8";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+                <span id="icp"><img src="/medias/icp.png"
+                                    style="vertical-align: text-bottom;"/>
+                <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备19043095号</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="icy-blue" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:i@icys.top" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=820030440" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 820030440" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="icys-cn" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: icys-cn" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.8'
+        zIndex="-1" count="150"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
